@@ -167,7 +167,7 @@ export function ColophonSection() {
         <p className="font-[DotGothic16] text-[12px] text-muted-foreground uppercase tracking-widest">
           © 2025 Holden Hays. All rights reserved.
         </p>
-        <p className="font-[DotGothic16] text-[12px] text-muted-foreground">Designed with intention. Built with precision.</p>
+        <p className="font-[DotGothic16] text-[12px] text-muted-foreground">Designed with intention. Built with precision. Sergio was here.</p>
       </div>
     </section>
   )
