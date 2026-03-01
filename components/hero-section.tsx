@@ -44,7 +44,7 @@ export function HeroSection() {
       <AnimatedNoise opacity={0.03} />
 
       {/* Left vertical labels */}
-      <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
+      <div className="hidden md:block absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
           SIGNAL
         </span>
