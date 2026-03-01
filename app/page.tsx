@@ -11,6 +11,10 @@ export default function Page() {
       <SideNav />
       <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
 
+      <div className="fixed top-4 right-4 z-50 rounded-sm border border-amber-300/50 bg-amber-400/10 px-3 py-1 font-[DotGothic16] text-[11px] uppercase tracking-[0.18em] text-amber-200 backdrop-blur-sm">
+        Demo Branch
+      </div>
+
       <div className="relative z-10">
         <HeroSection />
         <SignalsSection />
