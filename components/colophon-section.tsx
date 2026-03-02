@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useEffect } from "react"
+import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -79,57 +80,47 @@ export function ColophonSection() {
         <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">THANK YOU!</h2>
       </div>
 
-      {/* Three-column footer navigation */}
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-4xl">
-        {/* Design */}
+      {/* Footer navigation aligned to actual site structure */}
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl">
+        {/* Site */}
         <div className="col-span-1">
-          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Design</h4>
+          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Site</h4>
           <ul className="space-y-2">
             <li>
-              <a
-                href="#signals"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Intro
-              </a>
+              <Link href="/" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                Home
+              </Link>
             </li>
             <li>
-              <a
-                href="#work"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
+              <Link href="/about" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/projects" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
                 Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#colophon"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Footer
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* About */}
+        {/* On this page */}
         <div className="col-span-1">
-          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">About</h4>
+          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">On this page</h4>
           <ul className="space-y-2">
             <li>
-              <a
-                href="#"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Resume
+              <a href="#hero" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                Hero
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Portfolio
+              <a href="#signals" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                Intro
+              </a>
+            </li>
+            <li>
+              <a href="#work" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                Selected Work
               </a>
             </li>
           </ul>
@@ -137,22 +128,16 @@ export function ColophonSection() {
 
         {/* Contact */}
         <div className="col-span-1">
-          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Contact</h4>
+          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Connect</h4>
           <ul className="space-y-2">
             <li>
-              <a
-                href="mailto:hello@holdenhays.com"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Email
+              <a href="mailto:hello@holdenhays.com" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                hello@holdenhays.com
               </a>
             </li>
             <li>
-              <a
-                href="tel:+1234567890"
-                className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Phone
+              <a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                Emerge
               </a>
             </li>
           </ul>
@@ -165,9 +150,9 @@ export function ColophonSection() {
         className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-[DotGothic16] text-[12px] text-muted-foreground uppercase tracking-widest">
-          © 2025 Holden Hays. All rights reserved.
+          © 2026 Holden Hays. All rights reserved.
         </p>
-        <p className="font-[DotGothic16] text-[12px] text-muted-foreground">Designed with intention. Built with precision. Sergio was here.</p>
+        <p className="font-[DotGothic16] text-[12px] text-muted-foreground">Designed with intention. Built with precision.</p>
       </div>
     </section>
   )
