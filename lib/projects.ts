@@ -39,15 +39,15 @@ export type ProjectData = {
 export const projects: ProjectData[] = [
   {
     slug: "project-lattice",
-    title: "Project Lattice",
+    title: "ProcureOS Pro",
     medium: "Interface Study",
-    description: "Structural framework for adaptive layouts in dynamic content systems.",
+    description: "Product-led growth transformation within a traditionally sales-driven organization.",
     span: "col-span-2 row-span-2",
     status: "Concept-to-Prototype",
     timeline: "8 weeks",
     role: "Lead Product Designer + Frontend Build",
     team: "1 Designer, 1 Engineer, 1 PM",
-    heroLine: "A modular UI system designed to make complex data feel readable and controllable.",
+    heroLine: "Introducing product led growth to a sales driven org & how the bet paid off.",
     overview:
       "Project Lattice rethinks how dense interfaces adapt to changing content and user intent. Instead of rigid templates, the layout system composes itself from reusable structural blocks, keeping hierarchy stable while content evolves.",
     problem:

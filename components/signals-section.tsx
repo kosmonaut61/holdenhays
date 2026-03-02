@@ -145,7 +145,7 @@ export function SignalsSection() {
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">01 / INTRO</span>
         <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">WHO AM I?</h2>
         <p className="mt-8 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
-          I'm a designer at heart, taking problem and breaking it down into solveable sizes. <span className="text-white">I use my powers for business</span>, aligning company goals with customer needs to deliver great product experiences. I have worked in many industries and am passionate about many things.
+          I'm a designer at heart, taking problems and breaking them down into solvable pieces. <span className="text-white">I use my powers for business</span>, aligning company goals with customer needs to deliver great product experiences. I've worked across many industries and bring that curiosity into every project.
         </p>
       </div>
 
