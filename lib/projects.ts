@@ -232,6 +232,61 @@ export const projects: ProjectData[] = [
     stack: { frontend: ["Web Audio API", "React"], backend: ["N/A"], tooling: ["Ableton", "Figma"] },
     nextSteps: ["Add user tuning controls for sound profile intensity."],
   },
+
+  {
+    slug: "freight-spend-optimization",
+    title: "Freight Spend Optimization",
+    medium: "AI Product Strategy",
+    description: "Developing AI driven products to save customers millions in freight spend.",
+    span: "col-span-1 row-span-1",
+    status: "In Delivery",
+    timeline: "12+ months",
+    role: "Product Leadership",
+    team: "Cross-functional",
+    heroLine: "Developing AI driven products to save customers millions in freight spend.",
+    overview:
+      "This initiative focused on building AI-assisted freight decisioning products that identify waste, improve routing decisions, and uncover savings opportunities across large shipping networks.",
+    problem:
+      "Customers managed freight spend through manual analysis and fragmented tooling, leading to missed savings and inconsistent procurement decisions.",
+    goal:
+      "Create intelligent, scalable product workflows that surface high-impact savings opportunities and make optimization actions easy to execute.",
+    contribution: [
+      "Shaped product strategy and roadmap",
+      "Aligned stakeholders across product, sales, and operations",
+      "Defined AI use-cases and validation criteria",
+      "Led rollout and adoption planning",
+    ],
+    process: [
+      { title: "Opportunity Mapping", body: "Analyzed customer spend patterns and identified highest-value optimization moments." },
+      { title: "AI Product Design", body: "Defined recommendation flows and confidence-based actioning models." },
+      { title: "Pilot Delivery", body: "Launched targeted pilots and iterated with customer feedback loops." },
+    ],
+    features: [
+      { title: "Savings Opportunity Detection", body: "Models identify overspend patterns and prioritize high-value actions." },
+      { title: "Decision Support Workflows", body: "Recommendations are paired with context, confidence, and expected impact." },
+      { title: "Performance Tracking", body: "Dashboards connect optimization actions to measurable savings outcomes." },
+    ],
+    challenges: [
+      {
+        challenge: "Data quality varied significantly across customer environments.",
+        solution: "Designed resilient ingestion rules and confidence thresholds.",
+        outcome: "Maintained recommendation quality while scaling across accounts.",
+      },
+    ],
+    results: [
+      "Demonstrated multi-million-dollar savings potential across key customer segments.",
+      "Improved stakeholder confidence in AI-assisted freight decisions.",
+    ],
+    stack: {
+      frontend: ["Next.js", "React"],
+      backend: ["Data pipelines", "Recommendation services"],
+      tooling: ["Figma", "Analytics dashboards", "Customer pilot frameworks"],
+    },
+    nextSteps: [
+      "Expand optimization models to additional spend categories.",
+      "Increase automation for recurring high-confidence actions.",
+    ],
+  },
   {
     slug: "void-protocol",
     title: "Void Protocol",

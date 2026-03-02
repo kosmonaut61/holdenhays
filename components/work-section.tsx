@@ -12,7 +12,19 @@ import { projects } from "@/lib/projects"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const experiments = projects
+const projectOrder = [
+  "project-lattice",
+  "silent-agent",
+  "noir-grid",
+  "signal-field",
+  "echo-chamber",
+  "freight-spend-optimization",
+  "void-protocol",
+]
+
+const experiments = projectOrder
+  .map((slug) => projects.find((project) => project.slug === slug))
+  .filter((project): project is NonNullable<typeof project> => Boolean(project))
 
 export function WorkSection() {
   const sectionRef = useRef<HTMLElement>(null)
