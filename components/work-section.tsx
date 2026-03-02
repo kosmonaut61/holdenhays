@@ -132,6 +132,7 @@ function WorkCard({
   }, [persistHover])
 
   const isActive = isHovered || isScrollActive
+  const isTall = experiment.span.includes("row-span-2")
 
   const card = (
     <article
@@ -150,6 +151,13 @@ function WorkCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       {isActive && <PrismLayers intensity="subtle" />}
+
+      {isTall && (
+        <div className="absolute top-4 right-4 z-20 max-w-[180px] rounded-sm border border-white/20 bg-black/55 px-2.5 py-1.5">
+          <span className="block font-[DotGothic16] text-[8px] uppercase tracking-[0.2em] text-white/60">Case Study Focus</span>
+          <span className="mt-1 block font-[DotGothic16] text-[10px] leading-tight text-white/85">{experiment.description}</span>
+        </div>
+      )}
 
       <div
         className={cn(
