@@ -87,7 +87,7 @@ export function WorkSection() {
       {/* Asymmetric grid */}
       <div
         ref={gridRef}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[205px] md:auto-rows-[220px]"
       >
         {experiments.map((experiment, index) => (
           <WorkCard key={index} experiment={experiment} index={index} persistHover={index === 0} />
