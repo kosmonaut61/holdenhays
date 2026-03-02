@@ -4,26 +4,55 @@ import React, { useState, useRef, useEffect } from "react"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { cn } from "@/lib/utils"
 import { usePrismEffect, PrismLayers } from "@/components/prism-effect"
-import { projects } from "@/lib/projects"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Link from "next/link"
 import Image from "next/image"
 import gsap from "gsap"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const projectOrder = [
-  "project-lattice",
-  "silent-agent",
-  "noir-grid",
-  "freight-spend-optimization",
-  "inventory-part-management",
+const personalProjects = [
+  {
+    title: "Fretlingz",
+    medium: "Educational Game",
+    description: "A guitar learning app to help kids master the fretboard through interactive gameplay.",
+    url: "https://fretlingz.vercel.app/",
+    span: "col-span-2 row-span-2",
+  },
+  {
+    title: "Mecharythm",
+    medium: "Puzzle Game",
+    description: "Giant robot & monster themed puzzle-based strategy game with tactical combat.",
+    url: "https://mecharythm.vercel.app/",
+    span: "col-span-1 row-span-1",
+  },
+  {
+    title: "Westward Ho",
+    medium: "Action Game",
+    description: "Western themed 3-column dodging game with fast-paced arcade action.",
+    url: "https://westwardho.vercel.app/",
+    span: "col-span-1 row-span-2",
+  },
+  {
+    title: "Coming Soon",
+    medium: "Game Development",
+    description: "New project in development.",
+    span: "col-span-1 row-span-1",
+  },
+  {
+    title: "Coming Soon",
+    medium: "Game Development",
+    description: "New project in development.",
+    span: "col-span-2 row-span-1",
+  },
+  {
+    title: "Coming Soon",
+    medium: "Game Development",
+    description: "New project in development.",
+    span: "col-span-1 row-span-1",
+  },
 ]
-
-const personalProjects = projectOrder
-  .map((slug) => projects.find((project) => project.slug === slug))
-  .filter((project): project is NonNullable<typeof project> => Boolean(project))
 
 export default function ProjectsPage() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -86,13 +115,12 @@ export default function ProjectsPage() {
           </Link>
 
           <div ref={headerRef} className="mb-16">
-            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">CASE STUDIES</span>
+            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">PERSONAL PROJECTS</span>
             <h1 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">PROJECTS</h1>
             <p className="mt-6 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
-              A structured view of product leadership work across growth, operations, and AI-enabled platform decisions.
+              A collection of AI-powered games and experimental projects I've built for fun and learning.
             </p>
           </div>
-
 
           <div className="mb-12 grid gap-6 md:grid-cols-[1.05fr,1fr] border border-border/40 rounded-sm p-6 md:p-8 bg-black/20">
             <div>
@@ -127,7 +155,7 @@ export default function ProjectsPage() {
 
           <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[205px] md:auto-rows-[220px]">
             {personalProjects.map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} persistHover={index === 0} />
+              <ProjectCard key={index} project={project} index={index} persistHover={index === 0} />
             ))}
           </div>
         </div>
@@ -142,10 +170,10 @@ function ProjectCard({
   persistHover = false,
 }: {
   project: {
-    slug: string
     title: string
     medium: string
     description: string
+    url?: string
     span: string
   }
   index: number
@@ -171,75 +199,73 @@ function ProjectCard({
   }, [persistHover])
 
   const isActive = isHovered || isScrollActive
-  const isTall = project.span.includes("row-span-2")
 
-  return (
-    <Link href={`/projects/${project.slug}`} className={project.span}>
-      <article
-        ref={(el) => {
-          cardRef.current = el
-          if (isActive && el) {
-            ;(prismRef as React.MutableRefObject<HTMLElement | null>).current = el
-          }
-        }}
-        className={cn(
-          "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm h-full",
-          isActive && "border-white/20",
-        )}
-        style={isActive ? prismStyles : {}}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {isActive && <PrismLayers intensity="subtle" />}
+  const card = (
+    <article
+      ref={(el) => {
+        cardRef.current = el
+        if (isActive && el) {
+          ;(prismRef as React.MutableRefObject<HTMLElement | null>).current = el
+        }
+      }}
+      className={cn(
+        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm h-full",
+        isActive && "border-white/20",
+      )}
+      style={isActive ? prismStyles : {}}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isActive && <PrismLayers intensity="subtle" />}
 
-        <div className={cn("absolute inset-0 bg-white/5 transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")} />
+      <div className={cn("absolute inset-0 bg-white/5 transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")} />
 
-        <div className="relative z-10">
-          <span className="font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground">{project.medium}</span>
-          <h3
-            className={cn(
-              "mt-3 font-[var(--font-bebas)] text-2xl md:text-4xl tracking-tight transition-colors duration-300",
-              isActive ? "text-white" : "text-foreground",
-            )}
-          >
-            {project.title}
-          </h3>
-        </div>
-
-        <div className="relative z-10">
-          <p
-            className={cn(
-              "font-[DotGothic16] text-sm text-muted-foreground leading-relaxed transition-all duration-500 max-w-[280px]",
-              isTall || isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-            )}
-          >
-            {project.description}
-          </p>
-
-          <span
-            className={cn(
-              "mt-5 inline-flex text-[10px] font-[DotGothic16] uppercase tracking-[0.22em] text-white/70 transition-opacity duration-500",
-              isTall || isActive ? "opacity-100" : "opacity-0",
-            )}
-          >
-            View more info →
-          </span>
-        </div>
-
-        <span
+      <div className="relative z-10">
+        <span className="font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground">{project.medium}</span>
+        <h3
           className={cn(
-            "absolute bottom-4 right-4 font-[DotGothic16] text-[12px] transition-colors duration-300",
-            isActive ? "text-white" : "text-muted-foreground/40",
+            "mt-3 font-[var(--font-bebas)] text-2xl md:text-4xl tracking-tight transition-colors duration-300",
+            isActive ? "text-white" : "text-foreground",
           )}
         >
-          {String(index + 1).padStart(2, "0")}
-        </span>
+          {project.title}
+        </h3>
+      </div>
 
-        <div className={cn("absolute top-0 right-0 w-12 h-12 transition-all duration-500", isActive ? "opacity-100" : "opacity-0")}>
-          <div className="absolute top-0 right-0 w-full h-[1px] bg-white/60" />
-          <div className="absolute top-0 right-0 w-[1px] h-full bg-white/60" />
-        </div>
-      </article>
-    </Link>
+      <div className="relative z-10">
+        <p
+          className={cn(
+            "font-[DotGothic16] text-sm text-muted-foreground leading-relaxed transition-all duration-500 max-w-[280px]",
+            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+          )}
+        >
+          {project.description}
+        </p>
+      </div>
+
+      <span
+        className={cn(
+          "absolute bottom-4 right-4 font-[DotGothic16] text-[12px] transition-colors duration-300",
+          isActive ? "text-white" : "text-muted-foreground/40",
+        )}
+      >
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div className={cn("absolute top-0 right-0 w-12 h-12 transition-all duration-500", isActive ? "opacity-100" : "opacity-0")}>
+        <div className="absolute top-0 right-0 w-full h-[1px] bg-white/60" />
+        <div className="absolute top-0 right-0 w-[1px] h-full bg-white/60" />
+      </div>
+    </article>
   )
+
+  if (project.url) {
+    return (
+      <a href={project.url} target="_blank" rel="noopener noreferrer" className={project.span}>
+        {card}
+      </a>
+    )
+  }
+
+  return <div className={project.span}>{card}</div>
 }
