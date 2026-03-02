@@ -177,7 +177,7 @@ export const projects: ProjectData[] = [
     title: "Top of Funnel Automation",
     medium: "Marketing Automation",
     description: "Automating marketing for better sales qualified leads.",
-    span: "col-span-1 row-span-1",
+    span: "col-span-1 row-span-2",
     status: "Exploration",
     timeline: "3 weeks",
     role: "Type System Design",
@@ -285,6 +285,61 @@ export const projects: ProjectData[] = [
     nextSteps: [
       "Expand optimization models to additional spend categories.",
       "Increase automation for recurring high-confidence actions.",
+    ],
+  },
+
+  {
+    slug: "inventory-part-management",
+    title: "Inventory & Part Management",
+    medium: "Workflow Optimization",
+    description: "Streamlining the most time inefficient part of a technician's workflow.",
+    span: "col-span-1 row-span-1",
+    status: "Shipped",
+    timeline: "9 months",
+    role: "Product Leadership",
+    team: "Product, Design, Engineering, Field Ops",
+    heroLine: "Streamlining the most time inefficient part of a technician's workflow.",
+    overview:
+      "This project focused on reducing technician downtime caused by fragmented inventory lookup, part availability uncertainty, and manual request processes.",
+    problem:
+      "Technicians were losing high-value time searching for parts across disconnected systems, delaying repairs and increasing repeat site visits.",
+    goal:
+      "Design and deliver an end-to-end part management experience that speeds up lookup, improves confidence in availability, and shortens repair cycles.",
+    contribution: [
+      "Defined product vision and success metrics",
+      "Prioritized technician-first workflows with operations stakeholders",
+      "Led execution sequencing across multiple teams",
+      "Drove adoption strategy with field enablement",
+    ],
+    process: [
+      { title: "Field Research", body: "Mapped technician pain points from dispatch to completion." },
+      { title: "Workflow Redesign", body: "Created unified part search, reservation, and request flows." },
+      { title: "Rollout", body: "Released incrementally with training and operational feedback loops." },
+    ],
+    features: [
+      { title: "Unified Part Search", body: "Single search surface for local, regional, and vendor inventory." },
+      { title: "Availability Confidence", body: "Clear stock status and fulfillment timing reduce guesswork." },
+      { title: "Technician Queue Tools", body: "Batch request and part-kit workflows reduce repetitive actions." },
+    ],
+    challenges: [
+      {
+        challenge: "Inventory data consistency varied by source system.",
+        solution: "Introduced normalization and confidence indicators at point of use.",
+        outcome: "Improved trust in displayed availability for field decisions.",
+      },
+    ],
+    results: [
+      "Reduced time spent on parts-related tasks within technician workflows.",
+      "Improved repair throughput by minimizing parts-related delays.",
+    ],
+    stack: {
+      frontend: ["Next.js", "React"],
+      backend: ["Inventory APIs", "Parts orchestration services"],
+      tooling: ["Figma", "Analytics", "Field pilot playbooks"],
+    },
+    nextSteps: [
+      "Expand predictive part recommendations by job type.",
+      "Integrate automated replenishment signals for high-velocity items.",
     ],
   },
   {

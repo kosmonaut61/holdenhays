@@ -19,6 +19,7 @@ const projectOrder = [
   "signal-field",
   "echo-chamber",
   "freight-spend-optimization",
+  "inventory-part-management",
   "void-protocol",
 ]
 
