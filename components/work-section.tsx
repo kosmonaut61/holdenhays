@@ -16,11 +16,8 @@ const projectOrder = [
   "project-lattice",
   "silent-agent",
   "noir-grid",
-  "signal-field",
-  "echo-chamber",
   "freight-spend-optimization",
   "inventory-part-management",
-  "void-protocol",
 ]
 
 const experiments = projectOrder

@@ -99,48 +99,7 @@ export const projects: ProjectData[] = [
       "Add accessibility audit pass for keyboard-first navigation.",
     ],
   },
-  {
-    slug: "signal-field",
-    title: "Signal Field",
-    medium: "Agent Orchestration",
-    description: "Autonomous coordination layer for multi-agent environments.",
-    span: "col-span-1 row-span-1",
-    status: "Prototype",
-    timeline: "6 weeks",
-    role: "Interaction Design + Systems Mapping",
-    team: "Solo",
-    heroLine: "A coordination surface where autonomous agents exchange intent with human-readable clarity.",
-    overview:
-      "Signal Field explores how multi-agent systems can remain understandable to humans. The interface visualizes intent, priority, and state transitions so operators can monitor behavior without diving into logs.",
-    problem:
-      "Agent behaviors were technically successful but opaque. Operators lacked confidence because decisions happened in black-box chains with little contextual visibility.",
-    goal: "Design a transparent orchestration layer that shows what is happening, why it is happening, and what action is possible next.",
-    contribution: ["Defined event taxonomy", "Designed state visualization model", "Built dashboard prototype"],
-    process: [
-      { title: "Taxonomy", body: "Categorized events by urgency, confidence, and reversibility." },
-      { title: "Visual Model", body: "Mapped state transitions to timeline and node views." },
-      { title: "Validation", body: "Ran scenario-based walkthroughs for debugging workflows." },
-    ],
-    features: [
-      { title: "Intent Timeline", body: "Chronological stream of agent objectives and decisions." },
-      { title: "State Clusters", body: "Grouped active tasks by confidence and dependency." },
-      { title: "Intervention Points", body: "Clear moments where manual override is meaningful." },
-    ],
-    challenges: [
-      {
-        challenge: "Dense telemetry created cognitive overload.",
-        solution: "Collapsed low-risk events by default with contextual expansion.",
-        outcome: "Improved scanning speed without losing traceability.",
-      },
-    ],
-    results: ["Operators completed diagnostic drills faster in simulated runs.", "Confidence in system observability improved during feedback sessions."],
-    stack: {
-      frontend: ["React", "Tailwind CSS"],
-      backend: ["Synthetic event stream"],
-      tooling: ["Figma", "Diagramming", "Usability scripts"],
-    },
-    nextSteps: ["Add filter presets for incident response.", "Integrate agent confidence scoring directly in node labels."],
-  },
+
   {
     slug: "silent-agent",
     title: "Freight UI",
@@ -202,36 +161,7 @@ export const projects: ProjectData[] = [
     stack: { frontend: ["CSS clamp()", "Tailwind typography"], backend: ["N/A"], tooling: ["Type studies", "Figma"] },
     nextSteps: ["Publish as reusable editorial design kit."],
   },
-  {
-    slug: "echo-chamber",
-    title: "Echo Chamber",
-    medium: "Audio-Visual",
-    description: "Generative soundscapes mapped to interface interactions.",
-    span: "col-span-2 row-span-1",
-    status: "Prototype",
-    timeline: "5 weeks",
-    role: "Creative Direction + Interaction",
-    team: "Solo",
-    heroLine: "An experimental system where interaction patterns generate reactive audio atmosphere.",
-    overview: "Echo Chamber treats interaction as composition, translating UI behavior into subtle musical feedback.",
-    problem: "Interactive systems often ignore sonic affordance, missing opportunities for emotional reinforcement.",
-    goal: "Create a responsive audio layer that enhances focus and flow without becoming distracting.",
-    contribution: ["Designed sound mapping model", "Built interaction triggers", "Tuned response curves"],
-    process: [
-      { title: "Mapping", body: "Connected event types to tonal and rhythmic motifs." },
-      { title: "Testing", body: "Validated comfort and cognitive load across long sessions." },
-    ],
-    features: [
-      { title: "Event Sonification", body: "Actions emit contextual tones tied to system state." },
-      { title: "Adaptive Ambience", body: "Background texture shifts with workflow intensity." },
-    ],
-    challenges: [
-      { challenge: "Audio novelty can fatigue users quickly.", solution: "Added decay logic and repetition suppression.", outcome: "Sustained ambience with reduced annoyance." },
-    ],
-    results: ["Participants described the experience as more immersive and intentional."],
-    stack: { frontend: ["Web Audio API", "React"], backend: ["N/A"], tooling: ["Ableton", "Figma"] },
-    nextSteps: ["Add user tuning controls for sound profile intensity."],
-  },
+
 
   {
     slug: "freight-spend-optimization",
@@ -342,36 +272,7 @@ export const projects: ProjectData[] = [
       "Integrate automated replenishment signals for high-velocity items.",
     ],
   },
-  {
-    slug: "void-protocol",
-    title: "Void Protocol",
-    medium: "Experimental",
-    description: "Negative space as primary interaction medium.",
-    span: "col-span-1 row-span-1",
-    status: "Research",
-    timeline: "Ongoing",
-    role: "Concept + Prototyping",
-    team: "Solo",
-    heroLine: "A minimal interaction experiment where absence guides behavior more than explicit controls.",
-    overview: "Void Protocol investigates how restraint and spatial silence can improve decision quality in complex interfaces.",
-    problem: "Interfaces overloaded with options can reduce confidence and increase random clicking behavior.",
-    goal: "Test whether minimalist affordance patterns can create stronger intentional interaction.",
-    contribution: ["Designed concept", "Built interaction studies", "Collected behavioral observations"],
-    process: [
-      { title: "Hypothesis", body: "Defined principles for action through omission." },
-      { title: "Experiments", body: "Ran variants with different affordance densities." },
-    ],
-    features: [
-      { title: "Sparse Action Model", body: "Only the most relevant controls appear at each state." },
-      { title: "Spatial Prompts", body: "Whitespace and framing hint next actions." },
-    ],
-    challenges: [
-      { challenge: "Minimal UI can feel ambiguous.", solution: "Introduced progressive hinting with contextual copy.", outcome: "Users retained autonomy while reducing uncertainty." },
-    ],
-    results: ["Initial sessions suggested fewer accidental interactions in core flows."],
-    stack: { frontend: ["Next.js", "GSAP"], backend: ["N/A"], tooling: ["Figma", "Rapid prototypes"] },
-    nextSteps: ["Expand studies across expert and novice user groups."],
-  },
+
 ]
 
 export function getProjectBySlug(slug: string) {
