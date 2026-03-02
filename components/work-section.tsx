@@ -152,13 +152,6 @@ function WorkCard({
     >
       {isActive && <PrismLayers intensity="subtle" />}
 
-      {isTall && (
-        <div className="absolute top-4 right-4 z-20 max-w-[180px] rounded-sm border border-white/20 bg-black/55 px-2.5 py-1.5">
-          <span className="block font-[DotGothic16] text-[8px] uppercase tracking-[0.2em] text-white/60">Case Study Focus</span>
-          <span className="mt-1 block font-[DotGothic16] text-[10px] leading-tight text-white/85">{experiment.description}</span>
-        </div>
-      )}
-
       <div
         className={cn(
           "absolute inset-0 bg-white/5 transition-opacity duration-500",
@@ -184,7 +177,7 @@ function WorkCard({
         <p
           className={cn(
             "font-[DotGothic16] text-sm text-muted-foreground leading-relaxed transition-all duration-500 max-w-[280px]",
-            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+            isTall || isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           )}
         >
           {experiment.description}
@@ -193,7 +186,7 @@ function WorkCard({
         <span
           className={cn(
             "mt-5 inline-flex text-[10px] font-[DotGothic16] uppercase tracking-[0.22em] text-white/70 transition-opacity duration-500",
-            isActive ? "opacity-100" : "opacity-0",
+            isTall || isActive ? "opacity-100" : "opacity-0",
           )}
         >
           View more info →
