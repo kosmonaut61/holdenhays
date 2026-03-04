@@ -77,7 +77,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <SectionTitle title="Challenges & Solutions" />
           <div className="space-y-4">
             {project.challenges.map((item, i) => (
-              <article key={i} className="border border-border/50 bg-black/20 p-6 rounded-sm">
+              <article key={i} className="border-l-2 border-accent/45 pl-5 py-2">
                 <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.2em] text-accent">Challenge</h3>
                 <p className="mt-2 font-[DotGothic16] text-white/80">{item.challenge}</p>
                 <h3 className="mt-5 font-[DotGothic16] text-sm uppercase tracking-[0.2em] text-accent">Solution</h3>
@@ -90,7 +90,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           <section className="mt-14 grid md:grid-cols-2 gap-8">
             <ListBlock title="Results" items={project.results} />
-            <article className="border border-border/50 bg-black/20 p-6 rounded-sm">
+            <article className="border-l-2 border-accent/45 pl-5 py-2">
               <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Tech Stack</h2>
               <StackGroup label="Frontend" items={project.stack.frontend} />
               <StackGroup label="Backend" items={project.stack.backend} />
@@ -118,7 +118,7 @@ function Meta({ label, value }: { label: string; value: string }) {
 
 function InfoBlock({ title, body }: { title: string; body: string }) {
   return (
-    <article className="border border-border/50 bg-black/20 p-6 rounded-sm">
+    <article className="border-l-2 border-accent/45 pl-5 py-2">
       <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h2>
       <p className="mt-4 font-[DotGothic16] text-white/80 leading-relaxed">{body}</p>
     </article>
@@ -127,9 +127,9 @@ function InfoBlock({ title, body }: { title: string; body: string }) {
 
 function ListBlock({ title, items }: { title: string; items: string[] }) {
   return (
-    <article className="border border-border/50 bg-black/20 p-6 rounded-sm">
+    <article className="border-l-2 border-accent/45 pl-5 py-2">
       <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h2>
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-3 space-y-2">
         {items.map((item) => (
           <li key={item} className="font-[DotGothic16] text-white/80 leading-relaxed">
             <span className="text-accent mr-2">•</span>
@@ -143,7 +143,7 @@ function ListBlock({ title, items }: { title: string; items: string[] }) {
 
 function Card({ title, body }: { title: string; body: string }) {
   return (
-    <article className="border border-border/50 bg-black/20 p-5 rounded-sm">
+    <article className="border-l border-border/60 pl-4 py-2">
       <h3 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-accent">{title}</h3>
       <p className="mt-3 font-[DotGothic16] text-white/80 leading-relaxed text-sm">{body}</p>
     </article>
