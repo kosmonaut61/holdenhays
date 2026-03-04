@@ -9,6 +9,12 @@ export type ProjectChallenge = {
   outcome: string
 }
 
+export type ProjectMetric = {
+  label: string
+  value: string
+  note?: string
+}
+
 export type ProjectData = {
   slug: string
   title: string
@@ -28,6 +34,7 @@ export type ProjectData = {
   features: ProjectFeature[]
   challenges: ProjectChallenge[]
   results: string[]
+  metrics?: ProjectMetric[]
   stack: {
     frontend: string[]
     backend: string[]
@@ -87,6 +94,27 @@ export const projects: ProjectData[] = [
       "Average ticket price for newly onboarded customers increased by ~20% after tying ProcureOS Pro to net-new customers.",
       "Successfully migrated unprofitable legacy-system customers onto ProcureOS Pro pricing.",
       "Improved overall monetization performance through a more consistent, scalable commercial model.",
+    ],
+    metrics: [
+      {
+        label: "Avg Ticket Price (Net-New)",
+        value: "+20%",
+        note: "Increase after unveiling ProcureOS Pro and tying Pro packaging to new customer onboarding.",
+      },
+      {
+        label: "Marketplace GP (2025)",
+        value: "$20,123",
+      },
+      {
+        label: "Expected SaaS Revenue (2026)",
+        value: "$435,577",
+        note: "Expected value based on Jan '26 SaaS invoices from board-deck snapshot.",
+      },
+      {
+        label: "Marketplace → SaaS Uplift",
+        value: "~21.6x (~+2,064%)",
+        note: "Directional conversion benchmark from 2025 baseline to 2026 expected revenue profile.",
+      },
     ],
     stack: {
       frontend: ["N/A"],
