@@ -18,10 +18,57 @@ const ibmPlexMono = IBM_Plex_Mono({
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
 
 export const metadata: Metadata = {
-  title: "SIGNAL — Experimental Creative Studio",
+  metadataBase: new URL("https://www.holdenhays.com"),
+  title: {
+    default: "Holden Hays — Product Leader & Designer",
+    template: "%s | Holden Hays",
+  },
   description:
-    "Interface studies in controlled environments. We design systems that behave, not just screens that display.",
-  generator: "v0.app",
+    "Portfolio of Holden Hays, a Phoenix-based product-focused leader blending product design, product marketing, and commercial strategy.",
+  applicationName: "Holden Hays Portfolio",
+  authors: [{ name: "Holden Hays" }],
+  creator: "Holden Hays",
+  publisher: "Holden Hays",
+  category: "portfolio",
+  keywords: [
+    "Holden Hays",
+    "product leader",
+    "product design",
+    "product marketing",
+    "portfolio",
+    "Phoenix",
+    "case studies",
+    "B2B SaaS",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.holdenhays.com",
+    siteName: "Holden Hays Portfolio",
+    title: "Holden Hays — Product Leader & Designer",
+    description:
+      "Product leadership and design case studies across growth, monetization, and system modernization.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Holden Hays — Product Leader & Designer",
+    description:
+      "Product leadership and design case studies across growth, monetization, and system modernization.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -52,6 +99,23 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Holden Hays",
+              jobTitle: "Product Focused Leader",
+              url: "https://www.holdenhays.com",
+              email: "mailto:hello@holdenhays.com",
+              homeLocation: {
+                "@type": "Place",
+                name: "Phoenix, Arizona",
+              },
+            }),
+          }}
+        />
       </head>
       <body
         className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
