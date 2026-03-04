@@ -26,7 +26,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <header className="mt-12">
             <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-accent">{project.medium}</p>
             <h1 className="mt-5 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">{project.title}</h1>
-            <p className="mt-6 max-w-3xl font-[DotGothic16] text-lg text-white/70 leading-relaxed">{project.heroLine}</p>
+            <p className="mt-6 max-w-3xl font-[var(--font-reading)] text-[1.14rem] text-white/78 leading-relaxed">{project.heroLine}</p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 font-[DotGothic16] text-[11px] uppercase tracking-[0.14em] text-white/70">
               <span>Status: {project.status}</span>
@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           <section className="mt-16 grid md:grid-cols-[1.1fr,1fr] gap-10 md:gap-14 items-start">
             <h2 className="font-[DotGothic16] text-3xl md:text-5xl leading-tight tracking-tight text-white/95">{project.goal}</h2>
-            <div className="space-y-6 font-[DotGothic16] text-white/75 leading-relaxed">
+            <div className="space-y-6 font-[var(--font-reading)] text-white/76 leading-relaxed">
               <p>{project.overview}</p>
               <p>{project.problem}</p>
             </div>
@@ -52,7 +52,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   <article key={`${metric.label}-${metric.value}`} className="rounded-sm border border-border/40 bg-black/20 p-5">
                     <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">{metric.label}</p>
                     <p className="mt-2 font-[DotGothic16] text-2xl md:text-3xl text-white">{metric.value}</p>
-                    {metric.note ? <p className="mt-2 font-[DotGothic16] text-sm text-white/60 leading-relaxed">{metric.note}</p> : null}
+                    {metric.note ? <p className="mt-2 font-[var(--font-reading)] text-[0.95rem] text-white/64 leading-relaxed">{metric.note}</p> : null}
                   </article>
                 ))}
               </div>
@@ -69,11 +69,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               {project.challenges.map((item, i) => (
                 <article key={i}>
                   <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Challenge</p>
-                  <p className="mt-1 font-[DotGothic16] text-white/85 leading-relaxed">{item.challenge}</p>
+                  <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.challenge}</p>
                   <p className="mt-3 font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Solution</p>
-                  <p className="mt-1 font-[DotGothic16] text-white/85 leading-relaxed">{item.solution}</p>
+                  <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.solution}</p>
                   <p className="mt-3 font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Outcome</p>
-                  <p className="mt-1 font-[DotGothic16] text-white/85 leading-relaxed">{item.outcome}</p>
+                  <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.outcome}</p>
                 </article>
               ))}
             </div>
@@ -100,7 +100,7 @@ function SimpleList({ title, items }: { title: string; items: string[] }) {
       <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
       <ul className="mt-4 space-y-2">
         {items.map((item) => (
-          <li key={item} className="font-[DotGothic16] text-white/80 leading-relaxed">
+          <li key={item} className="font-[var(--font-reading)] text-white/82 leading-relaxed">
             <span className="text-accent mr-2">•</span>
             {item}
           </li>
@@ -118,7 +118,7 @@ function SimpleSteps({ title, items }: { title: string; items: Array<{ title: st
         {items.map((item) => (
           <article key={item.title}>
             <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">{item.title}</p>
-            <p className="mt-1 font-[DotGothic16] text-white/80 leading-relaxed">{item.body}</p>
+            <p className="mt-1 font-[var(--font-reading)] text-white/82 leading-relaxed">{item.body}</p>
           </article>
         ))}
       </div>
