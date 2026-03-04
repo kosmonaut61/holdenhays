@@ -23,113 +23,82 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <span>←</span> BACK TO HOME
           </Link>
 
-          <header className="mt-12 border border-border/50 bg-black/20 p-8 md:p-10 rounded-sm">
+          <header className="mt-12">
             <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-accent">{project.medium}</p>
             <h1 className="mt-5 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">{project.title}</h1>
             <p className="mt-6 max-w-3xl font-[DotGothic16] text-lg text-white/70 leading-relaxed">{project.heroLine}</p>
 
-            <div className="mt-8 grid gap-4 grid-cols-2 md:grid-cols-4 font-[DotGothic16] text-xs uppercase tracking-[0.14em]">
-              <Meta label="Status" value={project.status} />
-              <Meta label="Timeline" value={project.timeline} />
-              <Meta label="Role" value={project.role} />
-              <Meta label="Team" value={project.team} />
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 font-[DotGothic16] text-[11px] uppercase tracking-[0.14em] text-white/70">
+              <span>Status: {project.status}</span>
+              <span>Timeline: {project.timeline}</span>
+              <span>Role: {project.role}</span>
+              <span>Team: {project.team}</span>
             </div>
           </header>
 
-          <section className="mt-14 grid md:grid-cols-2 gap-8">
-            <InfoBlock title="Overview" body={project.overview} />
-            <div className="space-y-6">
-              <InfoBlock title="Problem" body={project.problem} />
-              <InfoBlock title="Goal" body={project.goal} />
+          <section className="mt-16 grid md:grid-cols-[1.1fr,1fr] gap-10 md:gap-14 items-start">
+            <h2 className="font-[DotGothic16] text-3xl md:text-5xl leading-tight tracking-tight text-white/95">{project.goal}</h2>
+            <div className="space-y-6 font-[DotGothic16] text-white/75 leading-relaxed">
+              <p>{project.overview}</p>
+              <p>{project.problem}</p>
             </div>
           </section>
 
           {project.metrics && project.metrics.length > 0 && (
-            <>
-              <SectionTitle title="Key Metrics" />
-              <div className="grid md:grid-cols-2 gap-4">
+            <section className="mt-16">
+              <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Key Metrics</h3>
+              <div className="mt-5 grid md:grid-cols-2 gap-5">
                 {project.metrics.map((metric) => (
-                  <MetricCard key={`${metric.label}-${metric.value}`} label={metric.label} value={metric.value} note={metric.note} />
+                  <article key={`${metric.label}-${metric.value}`} className="rounded-sm border border-border/40 bg-black/20 p-5">
+                    <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">{metric.label}</p>
+                    <p className="mt-2 font-[DotGothic16] text-2xl md:text-3xl text-white">{metric.value}</p>
+                    {metric.note ? <p className="mt-2 font-[DotGothic16] text-sm text-white/60 leading-relaxed">{metric.note}</p> : null}
+                  </article>
                 ))}
               </div>
-            </>
+            </section>
           )}
 
-          <section className="mt-14 grid md:grid-cols-2 gap-8">
-            <ListBlock title="My Contribution" items={project.contribution} />
-            <ListBlock title="Next Steps" items={project.nextSteps} />
+          <SimpleList title="My Contribution" items={project.contribution} />
+          <SimpleSteps title="Process" items={project.process} />
+          <SimpleSteps title="Key Features" items={project.features} />
+
+          <section className="mt-14">
+            <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Challenges & Solutions</h3>
+            <div className="mt-5 space-y-6">
+              {project.challenges.map((item, i) => (
+                <article key={i}>
+                  <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Challenge</p>
+                  <p className="mt-1 font-[DotGothic16] text-white/85 leading-relaxed">{item.challenge}</p>
+                  <p className="mt-3 font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Solution</p>
+                  <p className="mt-1 font-[DotGothic16] text-white/85 leading-relaxed">{item.solution}</p>
+                  <p className="mt-3 font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Outcome</p>
+                  <p className="mt-1 font-[DotGothic16] text-white/85 leading-relaxed">{item.outcome}</p>
+                </article>
+              ))}
+            </div>
           </section>
 
-          <SectionTitle title="Process" />
-          <div className="grid md:grid-cols-2 gap-4">
-            {project.process.map((step) => (
-              <Card key={step.title} title={step.title} body={step.body} />
-            ))}
-          </div>
+          <SimpleList title="Results" items={project.results} />
 
-          <SectionTitle title="Key Features" />
-          <div className="grid md:grid-cols-3 gap-4">
-            {project.features.map((feature) => (
-              <Card key={feature.title} title={feature.title} body={feature.body} />
-            ))}
-          </div>
-
-          <SectionTitle title="Challenges & Solutions" />
-          <div className="space-y-4">
-            {project.challenges.map((item, i) => (
-              <article key={i} className="border-l-2 border-accent/45 pl-5 py-2">
-                <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.2em] text-accent">Challenge</h3>
-                <p className="mt-2 font-[DotGothic16] text-white/80">{item.challenge}</p>
-                <h3 className="mt-5 font-[DotGothic16] text-sm uppercase tracking-[0.2em] text-accent">Solution</h3>
-                <p className="mt-2 font-[DotGothic16] text-white/80">{item.solution}</p>
-                <h3 className="mt-5 font-[DotGothic16] text-sm uppercase tracking-[0.2em] text-accent">Outcome</h3>
-                <p className="mt-2 font-[DotGothic16] text-white/80">{item.outcome}</p>
-              </article>
-            ))}
-          </div>
-
-          <section className="mt-14 grid md:grid-cols-2 gap-8">
-            <ListBlock title="Results" items={project.results} />
-            <article className="border-l-2 border-accent/45 pl-5 py-2">
-              <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Tech Stack</h2>
-              <StackGroup label="Frontend" items={project.stack.frontend} />
-              <StackGroup label="Backend" items={project.stack.backend} />
-              <StackGroup label="Tooling" items={project.stack.tooling} />
-            </article>
+          <section className="mt-14 grid md:grid-cols-3 gap-6">
+            <StackGroup label="Frontend" items={project.stack.frontend} />
+            <StackGroup label="Backend" items={project.stack.backend} />
+            <StackGroup label="Tooling" items={project.stack.tooling} />
           </section>
+
+          <SimpleList title="Next Steps" items={project.nextSteps} />
         </div>
       </section>
     </main>
   )
 }
 
-function SectionTitle({ title }: { title: string }) {
-  return <h2 className="mt-14 mb-4 font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h2>
-}
-
-function Meta({ label, value }: { label: string; value: string }) {
+function SimpleList({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="border border-border/40 rounded-sm px-3 py-3 bg-black/20">
-      <p className="text-muted-foreground">{label}</p>
-      <p className="mt-2 text-white/90 tracking-normal normal-case text-[11px] leading-relaxed">{value}</p>
-    </div>
-  )
-}
-
-function InfoBlock({ title, body }: { title: string; body: string }) {
-  return (
-    <article className="border-l-2 border-accent/45 pl-5 py-2">
-      <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h2>
-      <p className="mt-4 font-[DotGothic16] text-white/80 leading-relaxed">{body}</p>
-    </article>
-  )
-}
-
-function ListBlock({ title, items }: { title: string; items: string[] }) {
-  return (
-    <article className="border-l-2 border-accent/45 pl-5 py-2">
-      <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h2>
-      <ul className="mt-3 space-y-2">
+    <section className="mt-14">
+      <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
+      <ul className="mt-4 space-y-2">
         {items.map((item) => (
           <li key={item} className="font-[DotGothic16] text-white/80 leading-relaxed">
             <span className="text-accent mr-2">•</span>
@@ -137,22 +106,29 @@ function ListBlock({ title, items }: { title: string; items: string[] }) {
           </li>
         ))}
       </ul>
-    </article>
+    </section>
   )
 }
 
-function Card({ title, body }: { title: string; body: string }) {
+function SimpleSteps({ title, items }: { title: string; items: Array<{ title: string; body: string }> }) {
   return (
-    <article className="border-l border-border/60 pl-4 py-2">
-      <h3 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-accent">{title}</h3>
-      <p className="mt-3 font-[DotGothic16] text-white/80 leading-relaxed text-sm">{body}</p>
-    </article>
+    <section className="mt-14">
+      <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
+      <div className="mt-4 space-y-5">
+        {items.map((item) => (
+          <article key={item.title}>
+            <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">{item.title}</p>
+            <p className="mt-1 font-[DotGothic16] text-white/80 leading-relaxed">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   )
 }
 
 function StackGroup({ label, items }: { label: string; items: string[] }) {
   return (
-    <div className="mt-4">
+    <article>
       <h3 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{label}</h3>
       <div className="mt-2 flex flex-wrap gap-2">
         {items.map((item) => (
@@ -161,16 +137,6 @@ function StackGroup({ label, items }: { label: string; items: string[] }) {
           </span>
         ))}
       </div>
-    </div>
-  )
-}
-
-function MetricCard({ label, value, note }: { label: string; value: string; note?: string }) {
-  return (
-    <article className="border border-accent/30 bg-black/30 p-5 rounded-sm">
-      <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">{label}</p>
-      <p className="mt-3 font-[DotGothic16] text-2xl md:text-3xl text-white">{value}</p>
-      {note ? <p className="mt-2 font-[DotGothic16] text-sm text-white/60 leading-relaxed">{note}</p> : null}
     </article>
   )
 }
