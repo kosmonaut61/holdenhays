@@ -77,6 +77,17 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             ))}
           </div>
 
+          {project.metrics && project.metrics.length > 0 && (
+            <>
+              <SectionTitle title="Key Metrics" />
+              <div className="grid md:grid-cols-2 gap-4">
+                {project.metrics.map((metric) => (
+                  <MetricCard key={`${metric.label}-${metric.value}`} label={metric.label} value={metric.value} note={metric.note} />
+                ))}
+              </div>
+            </>
+          )}
+
           <section className="mt-14 grid md:grid-cols-2 gap-8">
             <ListBlock title="Results" items={project.results} />
             <article className="border border-border/50 bg-black/20 p-6 rounded-sm">
@@ -151,5 +162,15 @@ function StackGroup({ label, items }: { label: string; items: string[] }) {
         ))}
       </div>
     </div>
+  )
+}
+
+function MetricCard({ label, value, note }: { label: string; value: string; note?: string }) {
+  return (
+    <article className="border border-accent/30 bg-black/30 p-5 rounded-sm">
+      <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">{label}</p>
+      <p className="mt-3 font-[DotGothic16] text-2xl md:text-3xl text-white">{value}</p>
+      {note ? <p className="mt-2 font-[DotGothic16] text-sm text-white/60 leading-relaxed">{note}</p> : null}
+    </article>
   )
 }
