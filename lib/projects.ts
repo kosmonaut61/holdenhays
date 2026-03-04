@@ -84,9 +84,9 @@ export const projects: ProjectData[] = [
       },
     ],
     results: [
-      "Established a repeatable commercial framework across comparable customer cohorts.",
-      "Created clearer monetization paths through Pro-only capabilities.",
-      "Hard metric outcomes to be added from board-deck slides (pending).",
+      "Average ticket price for newly onboarded customers increased by ~20% after tying ProcureOS Pro to net-new customers.",
+      "Successfully migrated unprofitable legacy-system customers onto ProcureOS Pro pricing.",
+      "Improved overall monetization performance through a more consistent, scalable commercial model.",
     ],
     stack: {
       frontend: ["N/A"],
