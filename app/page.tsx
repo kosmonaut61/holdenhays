@@ -11,7 +11,7 @@ export default function Page() {
       <SideNav />
       <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
 
-      <div className="accent-grain fixed top-4 right-4 z-50 rounded-sm border border-accent-bright/45 bg-accent/12 px-3 py-1 font-[DotGothic16] text-[11px] uppercase tracking-[0.18em] text-accent-bright backdrop-blur-sm">
+      <div className="accent-grain fixed top-4 right-4 z-50 inline-flex items-center rounded-sm border border-accent-bright/45 bg-accent/12 px-3 py-1 font-[DotGothic16] text-[11px] uppercase tracking-[0.18em] text-accent-bright backdrop-blur-sm">
         Demo Branch
       </div>
 
