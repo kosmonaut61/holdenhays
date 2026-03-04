@@ -102,18 +102,19 @@ export const projects: ProjectData[] = [
         note: "Increase after unveiling ProcureOS Pro and tying Pro packaging to new customer onboarding.",
       },
       {
-        label: "Marketplace GP (2025)",
-        value: "$20,123",
+        label: "Avg Account Value (Before Model Change)",
+        value: "~$20K",
+        note: "Legacy marketplace-era baseline before commercial model standardization.",
       },
       {
-        label: "Expected SaaS Revenue (2026)",
-        value: "$435,577",
-        note: "Expected value based on Jan '26 SaaS invoices from board-deck snapshot.",
+        label: "Avg Account Value (After Model Change)",
+        value: "~$436K",
+        note: "Post-shift expected SaaS account value based on Jan '26 invoice snapshot.",
       },
       {
-        label: "Marketplace → SaaS Uplift",
-        value: "~21.6x (~+2,064%)",
-        note: "Directional conversion benchmark from 2025 baseline to 2026 expected revenue profile.",
+        label: "Account Value Uplift",
+        value: "~22x",
+        note: "Rounded directional increase from pre-change baseline to post-change model value.",
       },
     ],
     stack: {
