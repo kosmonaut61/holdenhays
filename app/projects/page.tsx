@@ -1,10 +1,12 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { cn } from "@/lib/utils"
 import { usePrismEffect, PrismLayers } from "@/components/prism-effect"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Link from "next/link"
+import Image from "next/image"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -61,7 +63,6 @@ export default function ProjectsPage() {
     if (!sectionRef.current || !headerRef.current || !gridRef.current) return
 
     const ctx = gsap.context(() => {
-      // Header slide in from left
       gsap.fromTo(
         headerRef.current,
         { x: -60, opacity: 0 },
@@ -106,7 +107,6 @@ export default function ProjectsPage() {
 
       <section ref={sectionRef} className="relative z-10 min-h-screen py-32 pl-6 md:pl-28 pr-6 md:pr-12">
         <div className="w-full">
-          {/* Back button */}
           <Link
             href="/"
             className="inline-flex items-center gap-2 font-[DotGothic16] text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-12"
@@ -114,22 +114,46 @@ export default function ProjectsPage() {
             <span>←</span> BACK TO HOME
           </Link>
 
-          {/* Header */}
           <div ref={headerRef} className="mb-16">
-            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">
-              PERSONAL PROJECTS
-            </span>
+            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">PERSONAL PROJECTS</span>
             <h1 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">PROJECTS</h1>
             <p className="mt-6 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
               A collection of AI-powered games and experimental projects I've built for fun and learning.
             </p>
           </div>
 
-          {/* Asymmetric grid */}
-          <div
-            ref={gridRef}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
-          >
+          <div className="mb-12 grid gap-6 md:grid-cols-[1.05fr,1fr] border border-border/40 rounded-sm p-6 md:p-8 bg-black/20">
+            <div>
+              <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.28em] text-accent">Featured Personal Project</span>
+              <h2 className="mt-3 font-[DotGothic16] text-2xl md:text-3xl tracking-tight">Flamework</h2>
+              <p className="mt-3 max-w-3xl font-[DotGothic16] text-sm md:text-base text-white/70 leading-relaxed">
+                Flamework is a personal build lab for fast product experiments, interaction prototypes, and AI-forward concepts. It’s where ideas get pressure-tested before they become full case studies.
+              </p>
+            </div>
+
+            <div className="relative">
+              <Carousel opts={{ loop: true }} className="w-full">
+                <CarouselContent>
+                  {[
+                    {
+                      src: "/images/flamework/flamework-01-square.jpg",
+                      alt: "Flamework concept artwork",
+                    },
+                  ].map((image) => (
+                    <CarouselItem key={image.src}>
+                      <div className="relative aspect-square overflow-hidden rounded-sm border border-border/40 bg-black/40">
+                        <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 top-auto bottom-2 translate-y-0 h-7 w-7 border-border/40 bg-black/60 hover:bg-black/80" />
+                <CarouselNext className="right-2 top-auto bottom-2 translate-y-0 h-7 w-7 border-border/40 bg-black/60 hover:bg-black/80" />
+              </Carousel>
+            </div>
+          </div>
+
+          <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[205px] md:auto-rows-[220px]">
             {personalProjects.map((project, index) => (
               <ProjectCard key={index} project={project} index={index} persistHover={index === 0} />
             ))}
@@ -176,7 +200,7 @@ function ProjectCard({
 
   const isActive = isHovered || isScrollActive
 
-  const CardContent = (
+  const card = (
     <article
       ref={(el) => {
         cardRef.current = el
@@ -185,8 +209,7 @@ function ProjectCard({
         }
       }}
       className={cn(
-        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm",
-        project.span,
+        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm h-full",
         isActive && "border-white/20",
       )}
       style={isActive ? prismStyles : {}}
@@ -195,19 +218,10 @@ function ProjectCard({
     >
       {isActive && <PrismLayers intensity="subtle" />}
 
-      {/* Background layer */}
-      <div
-        className={cn(
-          "absolute inset-0 bg-white/5 transition-opacity duration-500",
-          isActive ? "opacity-100" : "opacity-0",
-        )}
-      />
+      <div className={cn("absolute inset-0 bg-white/5 transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")} />
 
-      {/* Content */}
       <div className="relative z-10">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground">
-          {project.medium}
-        </span>
+        <span className="font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground">{project.medium}</span>
         <h3
           className={cn(
             "mt-3 font-[var(--font-bebas)] text-2xl md:text-4xl tracking-tight transition-colors duration-300",
@@ -218,7 +232,6 @@ function ProjectCard({
         </h3>
       </div>
 
-      {/* Description - reveals on hover */}
       <div className="relative z-10">
         <p
           className={cn(
@@ -230,7 +243,6 @@ function ProjectCard({
         </p>
       </div>
 
-      {/* Index marker */}
       <span
         className={cn(
           "absolute bottom-4 right-4 font-[DotGothic16] text-[12px] transition-colors duration-300",
@@ -240,13 +252,7 @@ function ProjectCard({
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      {/* Corner line */}
-      <div
-        className={cn(
-          "absolute top-0 right-0 w-12 h-12 transition-all duration-500",
-          isActive ? "opacity-100" : "opacity-0",
-        )}
-      >
+      <div className={cn("absolute top-0 right-0 w-12 h-12 transition-all duration-500", isActive ? "opacity-100" : "opacity-0")}>
         <div className="absolute top-0 right-0 w-full h-[1px] bg-white/60" />
         <div className="absolute top-0 right-0 w-[1px] h-full bg-white/60" />
       </div>
@@ -256,10 +262,10 @@ function ProjectCard({
   if (project.url) {
     return (
       <a href={project.url} target="_blank" rel="noopener noreferrer" className={project.span}>
-        {CardContent}
+        {card}
       </a>
     )
   }
 
-  return CardContent
+  return <div className={project.span}>{card}</div>
 }

@@ -2,52 +2,27 @@
 
 import React from "react"
 
+import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { usePrismEffect, PrismLayers } from "./prism-effect"
+import { projects } from "@/lib/projects"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const experiments = [
-  {
-    title: "Project Lattice",
-    medium: "Interface Study",
-    description: "Structural framework for adaptive layouts in dynamic content systems.",
-    span: "col-span-2 row-span-2",
-  },
-  {
-    title: "Signal Field",
-    medium: "Agent Orchestration",
-    description: "Autonomous coordination layer for multi-agent environments.",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    title: "Silent Agent",
-    medium: "Visual System",
-    description: "Non-intrusive interface patterns for ambient computing.",
-    span: "col-span-1 row-span-2",
-  },
-  {
-    title: "Noir Grid",
-    medium: "Typography",
-    description: "High-contrast typographic system for editorial interfaces.",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    title: "Echo Chamber",
-    medium: "Audio-Visual",
-    description: "Generative soundscapes mapped to interface interactions.",
-    span: "col-span-2 row-span-1",
-  },
-  {
-    title: "Void Protocol",
-    medium: "Experimental",
-    description: "Negative space as primary interaction medium.",
-    span: "col-span-1 row-span-1",
-  },
+const projectOrder = [
+  "project-lattice",
+  "silent-agent",
+  "noir-grid",
+  "freight-spend-optimization",
+  "inventory-part-management",
 ]
+
+const experiments = projectOrder
+  .map((slug) => projects.find((project) => project.slug === slug))
+  .filter((project): project is NonNullable<typeof project> => Boolean(project))
 
 export function WorkSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -112,7 +87,7 @@ export function WorkSection() {
       {/* Asymmetric grid */}
       <div
         ref={gridRef}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[205px] md:auto-rows-[220px]"
       >
         {experiments.map((experiment, index) => (
           <WorkCard key={index} experiment={experiment} index={index} persistHover={index === 0} />
@@ -132,6 +107,7 @@ function WorkCard({
     medium: string
     description: string
     span: string
+    slug: string
   }
   index: number
   persistHover?: boolean
@@ -156,8 +132,9 @@ function WorkCard({
   }, [persistHover])
 
   const isActive = isHovered || isScrollActive
+  const isTall = experiment.span.includes("row-span-2")
 
-  return (
+  const card = (
     <article
       ref={(el) => {
         cardRef.current = el
@@ -166,8 +143,7 @@ function WorkCard({
         }
       }}
       className={cn(
-        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm",
-        experiment.span,
+        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm h-full",
         isActive && "border-white/20",
       )}
       style={isActive ? prismStyles : {}}
@@ -175,8 +151,7 @@ function WorkCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       {isActive && <PrismLayers intensity="subtle" />}
-      
-      {/* Background layer */}
+
       <div
         className={cn(
           "absolute inset-0 bg-white/5 transition-opacity duration-500",
@@ -184,7 +159,6 @@ function WorkCard({
         )}
       />
 
-      {/* Content */}
       <div className="relative z-10">
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground">
           {experiment.medium}
@@ -199,19 +173,26 @@ function WorkCard({
         </h3>
       </div>
 
-      {/* Description - reveals on hover */}
       <div className="relative z-10">
         <p
           className={cn(
             "font-[DotGothic16] text-sm text-muted-foreground leading-relaxed transition-all duration-500 max-w-[280px]",
-            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+            isTall || isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           )}
         >
           {experiment.description}
         </p>
+
+        <span
+          className={cn(
+            "mt-5 inline-flex text-[10px] font-[DotGothic16] uppercase tracking-[0.22em] text-white/70 transition-opacity duration-500",
+            isTall || isActive ? "opacity-100" : "opacity-0",
+          )}
+        >
+          View more info →
+        </span>
       </div>
 
-      {/* Index marker */}
       <span
         className={cn(
           "absolute bottom-4 right-4 font-[DotGothic16] text-[12px] transition-colors duration-300",
@@ -221,7 +202,6 @@ function WorkCard({
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      {/* Corner line */}
       <div
         className={cn(
           "absolute top-0 right-0 w-12 h-12 transition-all duration-500",
@@ -232,5 +212,11 @@ function WorkCard({
         <div className="absolute top-0 right-0 w-[1px] h-full bg-white/60" />
       </div>
     </article>
+  )
+
+  return (
+    <Link href={`/projects/${experiment.slug}`} className={experiment.span}>
+      {card}
+    </Link>
   )
 }

@@ -49,7 +49,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="font-[DotGothic16] text-2xl mb-4">About Me</h2>
                 <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed mb-4">
-                  I'm a designer at heart, taking problems and breaking them down into solveable sizes.{" "}
+                  I'm a designer at heart, taking problems and breaking them down into solvable pieces.{" "}
                   <span className="text-white">I use my powers for business</span>, aligning company goals with
                   customer needs to deliver great product experiences.
                 </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                   >
                     Emerge
                   </a>
-                  . I have worked in many industries and am passionate about many things.
+                  . I've worked across many industries and bring that curiosity into every project.
                 </p>
               </div>
 
