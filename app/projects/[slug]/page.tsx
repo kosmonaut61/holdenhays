@@ -28,11 +28,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <h1 className="mt-5 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">{project.title}</h1>
             <p className="mt-6 max-w-3xl font-[var(--font-reading)] text-[1.14rem] text-white/78 leading-relaxed">{project.heroLine}</p>
 
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 font-[DotGothic16] text-[11px] uppercase tracking-[0.14em] text-white/70">
-              <span>Status: {project.status}</span>
-              <span>Timeline: {project.timeline}</span>
-              <span>Role: {project.role}</span>
-              <span>Team: {project.team}</span>
+            <div className="mt-8 flex flex-wrap gap-2 md:gap-3">
+              <MetaChip label="Status" value={project.status} />
+              <MetaChip label="Timeline" value={project.timeline} />
+              <MetaChip label="Role" value={project.role} />
+              <MetaChip label="Team" value={project.team} />
             </div>
           </header>
 
@@ -138,5 +138,13 @@ function StackGroup({ label, items }: { label: string; items: string[] }) {
         ))}
       </div>
     </article>
+  )
+}
+
+function MetaChip({ label, value }: { label: string; value: string }) {
+  return (
+    <span className="inline-flex items-center rounded-full border border-border/50 bg-black/30 px-3 py-1 font-[DotGothic16] text-[10px] uppercase tracking-[0.16em] text-white/78">
+      <span className="text-white/50 mr-1">{label}:</span> {value}
+    </span>
   )
 }
