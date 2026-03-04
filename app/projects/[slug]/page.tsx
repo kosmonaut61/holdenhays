@@ -44,6 +44,17 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </div>
           </section>
 
+          {project.metrics && project.metrics.length > 0 && (
+            <>
+              <SectionTitle title="Key Metrics" />
+              <div className="grid md:grid-cols-2 gap-4">
+                {project.metrics.map((metric) => (
+                  <MetricCard key={`${metric.label}-${metric.value}`} label={metric.label} value={metric.value} note={metric.note} />
+                ))}
+              </div>
+            </>
+          )}
+
           <section className="mt-14 grid md:grid-cols-2 gap-8">
             <ListBlock title="My Contribution" items={project.contribution} />
             <ListBlock title="Next Steps" items={project.nextSteps} />
@@ -76,17 +87,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </article>
             ))}
           </div>
-
-          {project.metrics && project.metrics.length > 0 && (
-            <>
-              <SectionTitle title="Key Metrics" />
-              <div className="grid md:grid-cols-2 gap-4">
-                {project.metrics.map((metric) => (
-                  <MetricCard key={`${metric.label}-${metric.value}`} label={metric.label} value={metric.value} note={metric.note} />
-                ))}
-              </div>
-            </>
-          )}
 
           <section className="mt-14 grid md:grid-cols-2 gap-8">
             <ListBlock title="Results" items={project.results} />
