@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Custom editorial design tokens - monochrome with orange accent */
+/* Editorial design tokens - dark neutral base with electric-violet accents */
 :root {
   --background: oklch(0.08 0 0);
   --foreground: oklch(0.95 0 0);
@@ -17,22 +17,25 @@
   --secondary-foreground: oklch(0.85 0 0);
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.68 0.19 35);
+  --accent: oklch(0.72 0.2 299);
+  --accent-neon: oklch(0.86 0.22 138);
+  --accent-cool: oklch(0.84 0.09 206);
+  --accent-violet-deep: oklch(0.56 0.22 292);
   --accent-foreground: oklch(0.08 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.25 0 0);
   --input: oklch(0.2 0 0);
-  --ring: oklch(0.68 0.19 35);
+  --ring: oklch(0.72 0.2 299);
   --radius: 0rem;
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.68 0.19 35);
+  --sidebar-primary: oklch(0.72 0.2 299);
   --sidebar-primary-foreground: oklch(0.08 0 0);
   --sidebar-accent: oklch(0.15 0 0);
   --sidebar-accent-foreground: oklch(0.95 0 0);
   --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.68 0.19 35);
+  --sidebar-ring: oklch(0.72 0.2 299);
 }
 
 @theme inline {
@@ -127,13 +130,18 @@
 
 /* Grid background pattern */
 .grid-bg {
-  background-image: linear-gradient(to right, oklch(0.2 0 0) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.2 0 0) 1px, transparent 1px);
+  background-image: linear-gradient(to right, oklch(0.21 0.015 292) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.21 0.015 292) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+/* Accent helper for chips/badges */
+.accent-spectrum {
+  background: linear-gradient(120deg, var(--accent-violet-deep), var(--accent), var(--accent-cool), var(--accent-neon));
 }
 
 /* Custom selection color */
 ::selection {
-  background: oklch(0.68 0.19 35);
+  background: var(--accent);
   color: oklch(0.08 0 0);
 }
