@@ -1,13 +1,17 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { AnimatedNoise } from "@/components/animated-noise"
-import { getProjectBySlug } from "@/lib/projects"
+import { getProjectBySlug, projects } from "@/lib/projects"
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const project = getProjectBySlug(slug)
 
   if (!project) notFound()
+
+  const relatedProject =
+    projects.find((p) => p.slug !== project.slug && p.medium === project.medium) ||
+    projects.find((p) => p.slug !== project.slug)
 
   return (
     <main className="relative min-h-screen pb-20">
@@ -87,7 +91,20 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <StackGroup label="Tooling" items={project.stack.tooling} />
           </section>
 
-          <SimpleList title="Next Steps" items={project.nextSteps} />
+          {relatedProject && (
+            <section className="mt-16 border-t border-border/40 pt-8">
+              <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Another Project</h3>
+              <p className="mt-3 font-[var(--font-reading)] text-white/72">If you liked this case study, check out this related project next.</p>
+              <Link
+                href={`/projects/${relatedProject.slug}`}
+                className="mt-5 inline-flex items-center gap-3 rounded-sm border border-border/50 bg-black/20 px-4 py-3 hover:border-accent/60 transition-colors"
+              >
+                <span className="font-[DotGothic16] text-[10px] uppercase tracking-[0.18em] text-accent">{relatedProject.medium}</span>
+                <span className="font-[var(--font-reading)] text-white">{relatedProject.title}</span>
+                <span className="font-[DotGothic16] text-white/60">→</span>
+              </Link>
+            </section>
+          )}
         </div>
       </section>
     </main>
