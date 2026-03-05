@@ -118,13 +118,22 @@ function WorkCard({
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
 
   useEffect(() => {
-    if (!persistHover || !cardRef.current) return
+    if (!cardRef.current) return
+
+    const isTouchScrollUI = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches
+    const shouldEnableScrollActivation = persistHover || isTouchScrollUI
+
+    if (!shouldEnableScrollActivation) return
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: cardRef.current,
-        start: "top 80%",
+        start: "top 85%",
+        end: "bottom 25%",
         onEnter: () => setIsScrollActive(true),
+        onEnterBack: () => setIsScrollActive(true),
+        onLeave: () => setIsScrollActive(false),
+        onLeaveBack: () => setIsScrollActive(false),
       })
     }, cardRef)
 
