@@ -1,21 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google"
+import { Space_Mono, Playfair_Display, Archivo_Black } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import "./globals.css"
 
-const ibmPlexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "600", "700"],
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-ibm-plex-sans",
+  variable: "--font-space-mono",
 })
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
+const playfairDisplay = Playfair_Display({
+  weight: ["500", "700"],
   subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-playfair",
 })
-const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
+const archivoBlack = Archivo_Black({ weight: "400", subsets: ["latin"], variable: "--font-archivo-black" })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.holdenhays.com"),
@@ -118,7 +118,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${spaceMono.variable} ${playfairDisplay.variable} ${archivoBlack.variable} font-sans antialiased overflow-x-hidden`}
       >
         <div className="noise-overlay" aria-hidden="true" />
         <SmoothScroll>{children}</SmoothScroll>
