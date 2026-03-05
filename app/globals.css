@@ -41,9 +41,9 @@
 
 @theme inline {
   /* Updated font-sans and font-mono to use IBM Plex */
-  --font-sans: "Space Mono", "Space Mono Fallback", monospace;
-  --font-mono: "Space Mono", "Space Mono Fallback", monospace;
-  --font-display: "Archivo Black", "Archivo Black Fallback", sans-serif;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Fallback", sans-serif;
+  --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace;
+  --font-display: "Bebas Neue", "Bebas Neue Fallback", sans-serif;
   --font-dot-gothic: "DotGothic16", "DotGothic16 Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
