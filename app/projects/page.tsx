@@ -9,6 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ArrowUpRight } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -220,7 +221,13 @@ function ProjectCard({
 
       <div className="relative z-10 flex items-start justify-between gap-4">
         <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{project.medium}</span>
-        <span className={cn("font-[DotGothic16] text-lg leading-none transition-transform duration-300", isActive ? "text-white translate-x-0.5 -translate-y-0.5" : "text-muted-foreground")}>↗</span>
+        <ArrowUpRight
+          className={cn(
+            "h-4 w-4 transition-all duration-300",
+            isActive ? "text-white translate-x-0.5 -translate-y-0.5" : "text-muted-foreground",
+          )}
+          aria-hidden="true"
+        />
       </div>
 
       <div className="relative z-10 space-y-3 mt-auto">
