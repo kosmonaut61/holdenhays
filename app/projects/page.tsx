@@ -153,9 +153,9 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[205px] md:auto-rows-[220px]">
+          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
             {personalProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} persistHover={index === 0} />
+              <ProjectCard key={index} project={project} persistHover={index === 0} />
             ))}
           </div>
         </div>
@@ -166,7 +166,6 @@ export default function ProjectsPage() {
 
 function ProjectCard({
   project,
-  index,
   persistHover = false,
 }: {
   project: {
@@ -176,7 +175,6 @@ function ProjectCard({
     url?: string
     span: string
   }
-  index: number
   persistHover?: boolean
 }) {
   const [isHovered, setIsHovered] = useState(false)
@@ -209,7 +207,7 @@ function ProjectCard({
         }
       }}
       className={cn(
-        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm h-full",
+        "group relative border border-border/40 px-5 py-5 md:px-6 md:py-6 flex flex-col gap-5 transition-all duration-500 cursor-pointer overflow-hidden rounded-sm min-h-[190px] md:min-h-[210px]",
         isActive && "border-white/20",
       )}
       style={isActive ? prismStyles : {}}
@@ -220,52 +218,34 @@ function ProjectCard({
 
       <div className={cn("absolute inset-0 bg-white/5 transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")} />
 
-      <div className="relative z-10">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground">{project.medium}</span>
+      <div className="relative z-10 flex items-start justify-between gap-4">
+        <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{project.medium}</span>
+        <span className={cn("font-[DotGothic16] text-lg leading-none transition-transform duration-300", isActive ? "text-white translate-x-0.5 -translate-y-0.5" : "text-muted-foreground")}>↗</span>
+      </div>
+
+      <div className="relative z-10 space-y-3 mt-auto">
         <h3
           className={cn(
-            "mt-3 font-[var(--font-bebas)] text-2xl md:text-4xl tracking-tight transition-colors duration-300",
+            "font-[DotGothic16] text-xl md:text-2xl tracking-tight transition-colors duration-300",
             isActive ? "text-white" : "text-foreground",
           )}
         >
           {project.title}
         </h3>
-      </div>
-
-      <div className="relative z-10">
-        <p
-          className={cn(
-            "font-[DotGothic16] text-sm text-muted-foreground leading-relaxed transition-all duration-500 max-w-[280px]",
-            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-          )}
-        >
+        <p className="font-[DotGothic16] text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {project.description}
         </p>
-      </div>
-
-      <span
-        className={cn(
-          "absolute bottom-4 right-4 font-[DotGothic16] text-[12px] transition-colors duration-300",
-          isActive ? "text-white" : "text-muted-foreground/40",
-        )}
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      <div className={cn("absolute top-0 right-0 w-12 h-12 transition-all duration-500", isActive ? "opacity-100" : "opacity-0")}>
-        <div className="absolute top-0 right-0 w-full h-[1px] bg-white/60" />
-        <div className="absolute top-0 right-0 w-[1px] h-full bg-white/60" />
       </div>
     </article>
   )
 
   if (project.url) {
     return (
-      <a href={project.url} target="_blank" rel="noopener noreferrer" className={project.span}>
+      <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">
         {card}
       </a>
     )
   }
 
-  return <div className={project.span}>{card}</div>
+  return <div className="block h-full">{card}</div>
 }
