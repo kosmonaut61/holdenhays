@@ -40,7 +40,14 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center pl-6 md:pl-28 pr-6 md:pr-12">
+    <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[265px] md:w-[620px] md:h-[392px] opacity-35 md:opacity-45 blur-[1px] mix-blend-screen"
+          style={{ backgroundImage: "url('/images/textures/hero-prism-texture.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+        />
+      </div>
+
       <AnimatedNoise opacity={0.03} />
 
       {/* Left vertical labels */}
