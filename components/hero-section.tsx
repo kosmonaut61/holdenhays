@@ -71,7 +71,7 @@ export function HeroSection() {
         </h2>
 
         <p className="mt-12 max-w-md font-[DotGothic16] text-lg text-white/50 leading-relaxed">
-          My background is in product design, my current focus is leading product marketing and design @<a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">emerge</a>.
+          My background is in product design, my current focus is leading product marketing and design @<a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">emerge</a>, and creator of @<a href="https://fretlings.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">fretlings</a>.
         </p>
 
         <div className="mt-16 flex items-center gap-8">
