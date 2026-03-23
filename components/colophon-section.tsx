@@ -75,59 +75,41 @@ export function ColophonSection() {
       className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30"
     >
       {/* Section header */}
-      <div ref={headerRef} className="mb-16">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">03 / Footer</span>
-        <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">THANK YOU!</h2>
+      <div ref={headerRef} className="mb-16 max-w-4xl">
+        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">03 / Colophon</span>
+        <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">LET&apos;S BUILD SOMETHING USEFUL.</h2>
+        <p className="mt-6 font-[DotGothic16] text-sm md:text-base text-foreground/70 leading-relaxed">
+          I lead products from early signal to shipped experience — blending product leadership, AI workflows,
+          go-to-market thinking, and UX architecture.
+        </p>
       </div>
 
-      {/* Footer navigation aligned to actual site structure */}
+      {/* Footer content */}
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl">
-        {/* Site */}
-        <div className="col-span-1">
-          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Site</h4>
+        <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
+          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Now</h4>
+          <ul className="space-y-3 font-[DotGothic16] text-sm text-foreground/80">
+            <li>Leading product marketing + design at <a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">Emerge</a></li>
+            <li>Building and shipping <a href="https://fretlings.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">Fretlings</a></li>
+          </ul>
+        </div>
+
+        <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
+          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Navigate</h4>
           <ul className="space-y-2">
             <li>
-              <Link href="/" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                Home
-              </Link>
+              <Link href="/" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">Home</Link>
             </li>
             <li>
-              <Link href="/about" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                About
-              </Link>
+              <Link href="/about" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">About</Link>
             </li>
             <li>
-              <Link href="/projects" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                Projects
-              </Link>
+              <Link href="/projects" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">Projects</Link>
             </li>
           </ul>
         </div>
 
-        {/* On this page */}
-        <div className="col-span-1">
-          <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">On this page</h4>
-          <ul className="space-y-2">
-            <li>
-              <a href="#hero" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                Hero
-              </a>
-            </li>
-            <li>
-              <a href="#signals" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                Intro
-              </a>
-            </li>
-            <li>
-              <a href="#work" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                Selected Work
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div className="col-span-1">
+        <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
           <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Connect</h4>
           <ul className="space-y-2">
             <li>
@@ -137,7 +119,12 @@ export function ColophonSection() {
             </li>
             <li>
               <a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
-                Emerge
+                @emerge
+              </a>
+            </li>
+            <li>
+              <a href="https://fretlings.com" target="_blank" rel="noopener noreferrer" className="font-[DotGothic16] text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
+                @fretlings
               </a>
             </li>
           </ul>
