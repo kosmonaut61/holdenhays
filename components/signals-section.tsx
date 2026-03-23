@@ -12,24 +12,20 @@ gsap.registerPlugin(ScrollTrigger)
 
 const signals = [
   {
-    title: "Logistics & Transportation",
-    note: "Solving route optimization, fleet tracking, and supply chain visibility through real-time data integration and intelligent dispatching systems.",
+    title: "Product Leadership",
+    note: "Driving product direction from vision to execution by aligning customer needs, business goals, and cross-functional teams.",
   },
   {
-    title: "Maintenance & Repair",
-    note: "Streamlining service scheduling, asset management, and predictive maintenance workflows to reduce downtime and improve operational efficiency.",
+    title: "AI Workflows",
+    note: "Designing practical AI-assisted systems that speed up decisions, reduce manual work, and improve operational outcomes.",
   },
   {
-    title: "Finance",
-    note: "Building secure platforms for transaction processing, portfolio management, and compliance automation that drive growth and mitigate risk.",
+    title: "Go to Market",
+    note: "Shaping positioning, messaging, and launch plans that connect product value to real customer adoption.",
   },
   {
-    title: "Retail",
-    note: "Creating seamless inventory management, point-of-sale systems, and customer engagement tools that drive sales and customer loyalty.",
-  },
-  {
-    title: "Healthcare",
-    note: "Developing patient management systems, appointment scheduling, and health data integration that improve care delivery and operational workflows.",
+    title: "UX Architecture",
+    note: "Structuring complex experiences into clear, scalable interaction patterns that teams can build and users can trust.",
   },
 ]
 
@@ -145,7 +141,7 @@ export function SignalsSection() {
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">01 / INTRO</span>
         <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">WHO AM I?</h2>
         <p className="mt-8 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
-          I'm a designer at heart, taking problems and breaking them down into solvable pieces. <span className="text-white">I use my powers for business</span>, aligning company goals with customer needs to deliver great product experiences. I've worked across many industries and bring that curiosity into every project.
+          I'm a designer at heart, taking problems and breaking them down into solvable pieces. <span className="text-white">I use my powers for business.</span>
         </p>
       </div>
 
