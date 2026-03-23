@@ -146,8 +146,9 @@
 /* Texture-driven accent text (uses lower, colorful region of hero texture) */
 .texture-accent-text {
   background-image: url('/images/textures/hero-prism-texture.jpg');
-  background-size: 160% auto;
-  background-position: center 92%;
+  background-size: 120% auto;
+  background-position: center 82%;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
