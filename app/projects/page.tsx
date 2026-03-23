@@ -116,7 +116,7 @@ export default function ProjectsPage() {
           </Link>
 
           <div ref={headerRef} className="mb-16">
-            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">PERSONAL PROJECTS</span>
+            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">PERSONAL PROJECTS</span>
             <h1 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">PROJECTS</h1>
             <p className="mt-6 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
               A collection of AI-powered games and experimental projects I've built for fun and learning.

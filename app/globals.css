@@ -143,6 +143,16 @@
   background: linear-gradient(120deg, var(--accent-violet-deep), var(--accent), var(--accent-cool), var(--accent-neon));
 }
 
+/* Texture-driven accent text (uses lower, colorful region of hero texture) */
+.texture-accent-text {
+  background-image: url('/images/textures/hero-prism-texture.jpg');
+  background-size: 160% auto;
+  background-position: center 92%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 
 /* Subtle grainy accent treatment */
 .accent-grain {

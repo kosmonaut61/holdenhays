@@ -138,7 +138,7 @@ export function SignalsSection() {
 
       {/* Section header */}
       <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">01 / INTRO</span>
+        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">01 / INTRO</span>
         <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">WHO AM I?</h2>
         <p className="mt-8 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
           I'm a designer at heart, taking problems and breaking them down into solvable pieces. <span className="text-white">I use my powers for business.</span>

@@ -77,7 +77,7 @@ export function WorkSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
         <div>
-          <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">02 / Projects</span>
+          <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">02 / Projects</span>
           <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">SELECTED WORK</h2>
         </div>
         <p className="hidden md:block max-w-xs font-[DotGothic16] text-sm text-muted-foreground text-right leading-relaxed">

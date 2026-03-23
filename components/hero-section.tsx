@@ -78,35 +78,7 @@ export function HeroSection() {
         </h2>
 
         <p className="mt-12 max-w-md font-[DotGothic16] text-lg text-white/50 leading-relaxed">
-          My background is in product design, my current focus is leading product marketing and design @
-          <a
-            href="https://www.emergemarket.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-clip-text text-transparent hover:opacity-85 transition-opacity duration-200"
-            style={{
-              backgroundImage: "url('/images/textures/hero-prism-texture.jpg')",
-              backgroundSize: "160% auto",
-              backgroundPosition: "center 92%",
-            }}
-          >
-            emerge
-          </a>
-          , and creator of @
-          <a
-            href="https://fretlings.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-clip-text text-transparent hover:opacity-85 transition-opacity duration-200"
-            style={{
-              backgroundImage: "url('/images/textures/hero-prism-texture.jpg')",
-              backgroundSize: "160% auto",
-              backgroundPosition: "center 92%",
-            }}
-          >
-            fretlings
-          </a>
-          .
+          My background is in product design, my current focus is leading product marketing and design @<a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80 transition-colors duration-200">emerge</a>, and creator of @<a href="https://fretlings.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80 transition-colors duration-200">fretlings</a>.
         </p>
 
         <div className="mt-16 flex items-center gap-8">
