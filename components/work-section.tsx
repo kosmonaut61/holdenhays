@@ -16,7 +16,8 @@ gsap.registerPlugin(ScrollTrigger)
 const projectOrder = [
   "project-lattice",
   "silent-agent",
-  "noir-grid",
+  "alchemail",
+  "connie",
   "freight-spend-optimization",
   "inventory-part-management",
 ]
