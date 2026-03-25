@@ -161,38 +161,38 @@ export const projects: ProjectData[] = [
     nextSteps: ["Expand Storybook coverage across remaining legacy components.", "Add quantified delivery metrics (velocity, defects, adoption).", "Formalize MCP-server integration patterns for component delivery."],
   },
   {
-    slug: "noir-grid",
-    title: "AI Agent Workflows",
-    medium: "AI Workflows",
-    description: "Building autonomous GTM workflows that segment, message, learn, and convert with minimal manual overhead.",
+    slug: "alchemail",
+    title: "Alchemail",
+    medium: "AI Lifecycle Marketing",
+    description: "Autonomous CRM segmentation and lifecycle campaign execution that continuously improves message quality.",
     span: "col-span-1 row-span-2",
     status: "In Delivery",
     timeline: "Ongoing",
     role: "Product + Workflow Design",
     team: "Marketing, Sales Ops, RevOps",
-    heroLine: "Designing AI agents that run high-leverage marketing and prospecting workflows end-to-end.",
+    heroLine: "Building an AI lifecycle engine that segments, drafts, tests, and learns with minimal manual overhead.",
     overview:
-      "This case study covers two agentic systems — Alchemail and Connie — built to automate repetitive GTM work while improving precision and speed over manual processes.",
+      "Alchemail automates lifecycle marketing from audience segmentation through campaign iteration, replacing slow manual planning and copy cycles with a continuous test-and-learn workflow.",
     problem:
-      "Core GTM workflows were manual, slow to iterate, and weakly segmented. Campaign content and outreach logic often depended on broad assumptions, opinion-heavy approvals, and inconsistent follow-through.",
+      "Lifecycle campaigns were manually segmented, slow to ship, and often too broad to feel relevant. Approvals and handoffs across teams reduced iteration speed and limited experimentation.",
     goal:
-      "Create AI-native workflows that continuously improve targeting and messaging quality while reducing approval bottlenecks and hands-on operational lift.",
+      "Create an AI-native lifecycle system that generates targeted campaigns from CRM signals, runs controlled experiments, and improves messaging quality through feedback loops.",
     contribution: [
       "Designed and shipped Alchemail for autonomous CRM segmentation and lifecycle campaign execution",
       "Built content-training workflow using web content, case studies, and approved marketing positioning",
       "Integrated Apollo CRM signals to identify high-value account segments and trigger targeted campaigns",
-      "Designed Connie to automate top-of-funnel carrier outreach and webinar conversion flow",
+      "Defined experimentation and learning loops for copy and segment performance",
     ],
     process: [
-      { title: "Workflow Mapping", body: "Mapped manual campaign and outreach steps to identify automation candidates and human bottlenecks." },
-      { title: "Agent Design", body: "Defined agent goals, context inputs, and decision rules for segmentation, message generation, and follow-up loops." },
-      { title: "System Integration", body: "Connected CRM/account signals and delivery channels so workflows could operate continuously with measurable outputs." },
-      { title: "Feedback Loops", body: "Closed the loop with performance signals (opens, engagement, conversion) to iteratively improve messaging quality." },
+      { title: "Workflow Mapping", body: "Mapped manual lifecycle campaign steps to identify bottlenecks and automation candidates." },
+      { title: "Agent Design", body: "Defined goals, context inputs, and decision rules for segmentation, message generation, and campaign sequencing." },
+      { title: "System Integration", body: "Connected Apollo CRM data and campaign delivery channels to run continuously with measurable outputs." },
+      { title: "Feedback Loops", body: "Incorporated open-rate and engagement signals to refine segment strategy and copy quality over time." },
     ],
     features: [
-      { title: "Alchemail", body: "Generates segmented campaigns from Apollo account data, runs A/B tests, sends at scale, and updates copy strategy based on open-rate feedback." },
-      { title: "Connie", body: "Automates carrier qualification outreach, invites prospects into a rolling on-demand webinar every 15 minutes, and routes interested leads into application flow." },
-      { title: "Autonomous Iteration", body: "Both workflows are designed to continuously refine targeting and messaging without heavy manual approval cycles." },
+      { title: "Dynamic Segmentation", body: "Builds campaign cohorts from Apollo account signals instead of static list logic." },
+      { title: "Autonomous Campaign Generation", body: "Generates and launches targeted lifecycle sequences with reduced manual copy assembly." },
+      { title: "Continuous A/B Learning", body: "Runs tests and updates message strategy based on observed engagement outcomes." },
     ],
     challenges: [
       {
@@ -205,16 +205,11 @@ export const projects: ProjectData[] = [
         solution: "Trained Alchemail on trusted marketing artifacts and created automated test-and-learn loops.",
         outcome: "Faster campaign iteration with less dependency on multi-stakeholder copy review cycles.",
       },
-      {
-        challenge: "Carrier prospecting required repetitive manual effort from business teams.",
-        solution: "Built Connie to run outreach + webinar invitation flow autonomously on a rolling schedule.",
-        outcome: "Recovered team time and increased consistency of top-of-funnel execution.",
-      },
     ],
     results: [
-      "Established an AI-driven campaign system that continuously learns from engagement feedback.",
+      "Established an AI-driven lifecycle campaign system that continuously learns from engagement feedback.",
       "Reduced manual effort across segmentation, content generation, and campaign execution.",
-      "Automated a previously manual prospecting motion into a scalable 24/7-style outreach workflow.",
+      "Increased iteration velocity by automating campaign setup and test cycles.",
     ],
     stack: {
       frontend: ["Next.js", "React"],
@@ -222,9 +217,72 @@ export const projects: ProjectData[] = [
       tooling: ["A/B testing", "Campaign analytics", "Prompt and knowledge-base management"],
     },
     nextSteps: [
-      "Add quantitative KPIs (open-rate lift, meeting conversion, pipeline impact).",
-      "Expand segmentation logic to incorporate intent and behavioral signals.",
+      "Add quantitative KPIs (open-rate lift, click-through lift, pipeline contribution).",
+      "Expand segmentation logic to include intent and behavioral signals.",
       "Add human-in-the-loop controls for edge-case messaging and compliance review.",
+    ],
+  },
+
+  {
+    slug: "connie",
+    title: "Connie",
+    medium: "AI Outbound Automation",
+    description: "Autonomous carrier outreach and webinar conversion workflow for top-of-funnel pipeline generation.",
+    span: "col-span-1 row-span-2",
+    status: "In Delivery",
+    timeline: "Ongoing",
+    role: "Product + Workflow Design",
+    team: "Marketing, Sales Ops, RevOps",
+    heroLine: "Automating outbound prospecting into a consistent, always-on webinar conversion flow.",
+    overview:
+      "Connie automates early-funnel prospecting by handling carrier qualification outreach, webinar invitation, and handoff into application flow without repetitive manual execution.",
+    problem:
+      "Carrier prospecting and qualification required repetitive manual effort from business teams, creating inconsistent outreach cadence and limiting funnel throughput.",
+    goal:
+      "Build an autonomous outbound workflow that consistently identifies target carriers, executes qualification messaging, and routes interested prospects into conversion paths.",
+    contribution: [
+      "Designed Connie to automate top-of-funnel carrier outreach and webinar conversion flow",
+      "Defined qualification and invitation logic for rolling webinar enrollment",
+      "Mapped handoff criteria from outreach engagement to application routing",
+      "Structured performance feedback loops for outreach quality and conversion stages",
+    ],
+    process: [
+      { title: "Prospecting Workflow Mapping", body: "Documented manual outreach and qualification steps to identify repetitive operator work." },
+      { title: "Agent Flow Design", body: "Defined decision logic for qualification messaging, follow-up timing, and invite triggers." },
+      { title: "Funnel Integration", body: "Connected outreach responses to webinar invitation and downstream application handoff." },
+      { title: "Performance Review", body: "Tracked engagement and conversion behavior to refine targeting and messaging cadence." },
+    ],
+    features: [
+      { title: "Automated Carrier Qualification", body: "Runs outbound qualification messaging against targeted carrier cohorts." },
+      { title: "Rolling Webinar Invitations", body: "Invites qualified prospects into an on-demand webinar flow on a recurring schedule." },
+      { title: "Application Path Routing", body: "Routes engaged prospects into the next conversion step with less manual intervention." },
+    ],
+    challenges: [
+      {
+        challenge: "Carrier prospecting required repetitive manual effort from business teams.",
+        solution: "Built Connie to run outreach and webinar invitation flow autonomously on a rolling schedule.",
+        outcome: "Recovered team time and increased consistency of top-of-funnel execution.",
+      },
+      {
+        challenge: "Inconsistent outreach cadence reduced funnel reliability.",
+        solution: "Implemented always-on scheduling and standardized follow-up logic.",
+        outcome: "Improved execution consistency and reduced dependence on ad hoc team capacity.",
+      },
+    ],
+    results: [
+      "Automated a previously manual prospecting motion into a scalable always-on outreach workflow.",
+      "Improved consistency of top-of-funnel execution across qualification and invitation steps.",
+      "Reduced operational lift for business teams running repetitive outbound motions.",
+    ],
+    stack: {
+      frontend: ["Next.js", "React"],
+      backend: ["Agent orchestration workflows", "Prospecting and routing logic"],
+      tooling: ["Outreach sequencing", "Webinar automation", "Funnel analytics"],
+    },
+    nextSteps: [
+      "Add quantitative KPIs (reply rate, webinar attendance, application conversion).",
+      "Improve qualification scoring with richer account and engagement signals.",
+      "Add compliance guardrails and manual override controls for edge cases.",
     ],
   },
 
