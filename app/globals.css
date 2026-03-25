@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Editorial design tokens - dark neutral base with electric-violet accents */
+/* Editorial design tokens - dark neutral base with signal-red accents */
 :root {
   --background: oklch(0.08 0 0);
   --foreground: oklch(0.95 0 0);
@@ -17,11 +17,11 @@
   --secondary-foreground: oklch(0.85 0 0);
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.62 0.2 294);
-  --accent-bright: oklch(0.74 0.21 299);
-  --accent-neon: oklch(0.86 0.22 138);
-  --accent-cool: oklch(0.84 0.09 206);
-  --accent-violet-deep: oklch(0.56 0.22 292);
+  --accent: #EA2A04;
+  --accent-bright: #FF5A2F;
+  --accent-neon: #FF7A45;
+  --accent-cool: #EA2A04;
+  --accent-violet-deep: #B71D00;
   --accent-foreground: oklch(0.08 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
@@ -140,18 +140,12 @@
 
 /* Accent helper for chips/badges */
 .accent-spectrum {
-  background: linear-gradient(120deg, var(--accent-violet-deep), var(--accent), var(--accent-cool), var(--accent-neon));
+  background: var(--accent);
 }
 
-/* Texture-driven accent text (uses lower, colorful region of hero texture) */
+/* Solid accent text */
 .texture-accent-text {
-  background-image: url('/images/textures/hero-prism-texture.jpg');
-  background-size: 120% auto;
-  background-position: center 82%;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent);
 }
 
 
