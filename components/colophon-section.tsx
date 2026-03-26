@@ -72,8 +72,12 @@ export function ColophonSection() {
     <section
       ref={sectionRef}
       id="colophon"
-      className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30"
+      className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
     >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute -right-12 bottom-12 w-[240px] h-[240px] md:w-[320px] md:h-[320px] opacity-12 md:opacity-16 mix-blend-screen animate-blob-float-b"
+          style={{ backgroundImage: "url('/images/textures/hero-accent-blob-b.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+      </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-16 max-w-4xl">
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">03 / Colophon</span>

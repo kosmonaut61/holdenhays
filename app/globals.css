@@ -175,3 +175,24 @@
   background: var(--accent);
   color: oklch(0.08 0 0);
 }
+
+/* Blob float animations for section accents */
+@keyframes blob-float-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-16px) rotate(3deg); }
+  66%       { transform: translateY(8px) rotate(-2deg); }
+}
+@keyframes blob-float-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  40%       { transform: translateY(-12px) rotate(-4deg); }
+  70%       { transform: translateY(10px) rotate(2deg); }
+}
+@keyframes blob-float-c {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  30%       { transform: translateY(-8px) rotate(3deg); }
+  65%       { transform: translateY(14px) rotate(-3deg); }
+}
+
+.animate-blob-float-a { animation: blob-float-a 9s ease-in-out infinite; }
+.animate-blob-float-b { animation: blob-float-b 11s ease-in-out infinite; }
+.animate-blob-float-c { animation: blob-float-c 8s ease-in-out infinite; }

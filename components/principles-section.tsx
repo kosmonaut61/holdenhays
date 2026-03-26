@@ -90,7 +90,11 @@ export function PrinciplesSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="principles" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12">
+    <section ref={sectionRef} id="principles" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-16 top-1/2 -translate-y-1/2 w-[320px] h-[320px] md:w-[440px] md:h-[440px] opacity-12 md:opacity-18 mix-blend-screen animate-blob-float-a"
+          style={{ backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+      </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-24">
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-white/80">03 / Principles</span>
