@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { ProjectHeroImage } from "@/components/project-hero-image"
 import { ImageCluster } from "@/components/image-cluster"
+import { ProjectSections } from "@/components/project-sections"
 import { getProjectBySlug, projects } from "@/lib/projects"
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -67,6 +68,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 ))}
               </div>
             </section>
+          )}
+
+          {project.sections && project.sections.length > 0 && (
+            <ProjectSections sections={project.sections} />
           )}
 
           {project.clusterImages && project.clusterImages.length > 0 && (

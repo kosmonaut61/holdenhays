@@ -43,6 +43,7 @@ export type ProjectData = {
   nextSteps: string[]
   heroImage?: string
   clusterImages?: { src: string; alt: string }[]
+  sections?: { title: string; body: string; image?: string; imageAlt?: string }[]
 }
 
 export const projects: ProjectData[] = [
@@ -167,6 +168,14 @@ export const projects: ProjectData[] = [
       { src: "/images/projects/freight-ui/cluster-1.webp", alt: "Goal flag" },
       { src: "/images/projects/freight-ui/cluster-2.webp", alt: "Funnel" },
       { src: "/images/projects/freight-ui/cluster-3.webp", alt: "Target" },
+    ],
+    sections: [
+      {
+        title: "Storybook Integration",
+        body: "Designers, engineers, and AI agents all reference the same source of truth for component usage — eliminating ambiguity across every application. Developers can copy production-ready code directly from the tool and explore every available parameter. Each component maps 1:1 to its Figma counterpart, so there is never confusion about which component to use or what it should look like.",
+        image: "/images/projects/freight-ui/storybook-hero.webp",
+        imageAlt: "Storybook component documentation showing the Button component with live controls",
+      },
     ],
   },
   {
