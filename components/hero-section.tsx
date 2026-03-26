@@ -40,10 +40,17 @@ export function HeroSection() {
     return () => ctx.revert()
   }, [])
 
-  // Floating + slow rotation animation
+  // Fade in + floating + slow rotation animation
   useEffect(() => {
     if (!blobRef.current) return
-    const tl = gsap.timeline({ repeat: -1, yoyo: true })
+    // Start invisible, fade in over 1.8s with a slight upward drift
+    gsap.fromTo(
+      blobRef.current,
+      { opacity: 0, y: 40, scale: 0.92 },
+      { opacity: 0.42, y: 0, scale: 1, duration: 1.8, ease: "power2.out", delay: 0.3 }
+    )
+    // After fade-in, start the idle float loop
+    const tl = gsap.timeline({ repeat: -1, yoyo: true, delay: 2.1 })
     tl.to(blobRef.current, { y: -18, rotation: 4, duration: 4, ease: "sine.inOut" })
       .to(blobRef.current, { y: 8, rotation: -3, duration: 5, ease: "sine.inOut" })
       .to(blobRef.current, { y: -10, rotation: 2, duration: 3.5, ease: "sine.inOut" })
@@ -69,7 +76,8 @@ export function HeroSection() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           ref={blobRef}
-          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[620px] md:h-[620px] opacity-35 md:opacity-45 mix-blend-screen will-change-transform"
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[620px] md:h-[620px] mix-blend-screen will-change-transform"
+          style={{ opacity: 0 }}
           style={{ backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
         />
       </div>
