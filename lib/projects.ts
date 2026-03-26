@@ -41,6 +41,7 @@ export type ProjectData = {
     tooling: string[]
   }
   nextSteps: string[]
+  heroImage?: string
 }
 
 export const projects: ProjectData[] = [
@@ -127,6 +128,7 @@ export const projects: ProjectData[] = [
       "Document customer cohort before/after performance deltas.",
       "Capture rollout lessons for future commercial-model updates.",
     ],
+    heroImage: "/images/projects/procureos/hero.webp",
   },
 
   {

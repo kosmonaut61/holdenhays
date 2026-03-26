@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { AnimatedNoise } from "@/components/animated-noise"
@@ -39,6 +40,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <MetaChip label="Team" value={project.team} />
             </div>
           </header>
+
+          {project.heroImage && (
+            <div className="mt-14 rounded-sm overflow-hidden border border-border/30 bg-black/20">
+              <Image
+                src={project.heroImage}
+                alt={`${project.title} hero`}
+                width={1400}
+                height={900}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+          )}
 
           <section className="mt-16 grid md:grid-cols-[1.1fr,1fr] gap-10 md:gap-14 items-start">
             <h2 className="font-[DotGothic16] text-3xl md:text-5xl leading-tight tracking-tight text-white/95">{project.goal}</h2>
