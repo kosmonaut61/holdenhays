@@ -70,15 +70,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </section>
           )}
 
+          <SimpleList title="My Contribution" items={project.contribution} />
+
           {project.sections && project.sections.length > 0 && (
             <ProjectSections sections={project.sections} />
           )}
-
-          {project.clusterImages && project.clusterImages.length > 0 && (
-            <ImageCluster images={project.clusterImages} />
-          )}
-
-          <SimpleList title="My Contribution" items={project.contribution} />
           <SimpleSteps title="Process" items={project.process} />
           <SimpleSteps title="Key Features" items={project.features} />
 
@@ -105,6 +101,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <StackGroup label="Backend" items={project.stack.backend} />
             <StackGroup label="Tooling" items={project.stack.tooling} />
           </section>
+
+          {project.clusterImages && project.clusterImages.length > 0 && (
+            <ImageCluster images={project.clusterImages} />
+          )}
 
           {relatedProject && (
             <section className="mt-16 border-t border-border/40 pt-8">
