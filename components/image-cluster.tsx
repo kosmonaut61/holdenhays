@@ -31,7 +31,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
   return (
     <div className="mt-16 mb-8">
       <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.25em] text-accent mb-6">Gallery</p>
-      <div className="relative flex items-center justify-center min-h-[380px] md:min-h-[480px] select-none">
+      <div className="relative flex items-center justify-center min-h-[520px] md:min-h-[640px] select-none overflow-visible">
         {images.map((img, i) => {
           const layout = LAYOUTS[i % LAYOUTS.length]
           const isFocused = focused === i
@@ -41,16 +41,16 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
             <div
               key={i}
               className={cn(
-                "absolute w-44 h-44 md:w-56 md:h-56 rounded-sm overflow-hidden border border-white/10 bg-black/30 cursor-pointer",
+                "absolute w-64 h-48 md:w-80 md:h-60 rounded-sm overflow-hidden shadow-lg cursor-pointer",
                 "transition-all duration-300 ease-out",
                 layout.rotate,
                 layout.x,
                 layout.y,
                 isFocused
-                  ? "scale-[1.45] rotate-0 !z-50 shadow-2xl border-white/30"
+                  ? "scale-[1.5] rotate-0 !z-50 shadow-2xl ring-1 ring-white/20"
                   : isDimmed
-                  ? cn(layout.z, "opacity-25 scale-95")
-                  : cn(layout.z, "opacity-90 hover:opacity-100 hover:scale-105 hover:shadow-xl")
+                  ? cn(layout.z, "opacity-20 scale-95")
+                  : cn(layout.z, "opacity-85 hover:opacity-100 hover:scale-105 hover:shadow-2xl")
               )}
               onMouseEnter={() => setFocused(i)}
               onMouseLeave={() => setFocused(null)}
@@ -61,7 +61,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
                 alt={img.alt}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 176px, 224px"
+                sizes="(max-width: 768px) 256px, 320px"
               />
             </div>
           )
