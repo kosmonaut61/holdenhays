@@ -143,7 +143,6 @@ export function ColophonSection() {
         <p className="font-[DotGothic16] text-[12px] text-muted-foreground uppercase tracking-widest">
           © 2026 Holden Hays. All rights reserved.
         </p>
-        <p className="font-[DotGothic16] text-[12px] text-muted-foreground">Designed with intention. Built with precision.</p>
       </div>
     </section>
   )
