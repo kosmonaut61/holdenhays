@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger)
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const blobRef = useRef<HTMLDivElement>(null)
   const [isButtonHovered, setIsButtonHovered] = useState(false)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
 
@@ -39,11 +40,45 @@ export function HeroSection() {
     return () => ctx.revert()
   }, [])
 
+  // Floating + slow rotation animation
+  useEffect(() => {
+    if (!blobRef.current) return
+    const tl = gsap.timeline({ repeat: -1, yoyo: true, ease: "sine.inOut" })
+    tl.to(blobRef.current, { y: -18, rotation: 4, duration: 4, ease: "sine.inOut" })
+      .to(blobRef.current, { y: 8, rotation: -3, duration: 5, ease: "sine.inOut" })
+      .to(blobRef.current, { y: -10, rotation: 2, duration: 3.5, ease: "sine.inOut" })
+    return () => { tl.kill() }
+  }, [])
+
+  // Mouse parallax — subtle tilt toward cursor
+  useEffect(() => {
+    const section = sectionRef.current
+    const blob = blobRef.current
+    if (!section || !blob) return
+
+    const onMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window
+      const dx = (e.clientX / innerWidth - 0.5) * 2  // -1 to 1
+      const dy = (e.clientY / innerHeight - 0.5) * 2
+      gsap.to(blob, {
+        x: dx * 14,
+        y: dy * 10,
+        duration: 1.2,
+        ease: "power2.out",
+        overwrite: "auto",
+      })
+    }
+
+    section.addEventListener("mousemove", onMove)
+    return () => section.removeEventListener("mousemove", onMove)
+  }, [])
+
   return (
     <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
-          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[265px] md:w-[620px] md:h-[392px] opacity-35 md:opacity-45 blur-[1px] mix-blend-screen"
+          ref={blobRef}
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[620px] md:h-[620px] opacity-35 md:opacity-45 mix-blend-screen will-change-transform"
           style={{ backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
         />
       </div>
