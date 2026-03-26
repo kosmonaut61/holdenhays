@@ -42,6 +42,7 @@ export type ProjectData = {
   }
   nextSteps: string[]
   heroImage?: string
+  clusterImages?: { src: string; alt: string }[]
 }
 
 export const projects: ProjectData[] = [
@@ -162,6 +163,11 @@ export const projects: ProjectData[] = [
     stack: { frontend: ["Material UI", "Custom theming system"], backend: ["N/A"], tooling: ["Figma", "Storybook", "Design QA reviews"] },
     nextSteps: ["Expand Storybook coverage across remaining legacy components.", "Add quantified delivery metrics (velocity, defects, adoption).", "Formalize MCP-server integration patterns for component delivery."],
     heroImage: "/images/projects/freight-ui/hero.webp",
+    clusterImages: [
+      { src: "/images/projects/freight-ui/cluster-1.webp", alt: "Goal flag" },
+      { src: "/images/projects/freight-ui/cluster-2.webp", alt: "Funnel" },
+      { src: "/images/projects/freight-ui/cluster-3.webp", alt: "Target" },
+    ],
   },
   {
     slug: "alchemail",
