@@ -118,10 +118,7 @@ export function SignalsSection() {
 
   return (
     <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 bottom-16 w-[280px] h-[280px] md:w-[380px] md:h-[380px] opacity-12 md:opacity-18 mix-blend-screen animate-blob-float-c"
-          style={{ backgroundImage: "url('/images/textures/hero-accent-blob-c.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
-      </div>
+
       <div
         ref={(el) => {
           cursorRef.current = el
