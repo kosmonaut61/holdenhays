@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { AnimatedNoise } from "@/components/animated-noise"
+import { ProjectHeroImage } from "@/components/project-hero-image"
 import { getProjectBySlug, projects } from "@/lib/projects"
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -42,16 +42,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </header>
 
           {project.heroImage && (
-            <div className="mt-14 rounded-sm overflow-hidden border border-border/30 bg-black/20">
-              <Image
-                src={project.heroImage}
-                alt={`${project.title} hero`}
-                width={1400}
-                height={900}
-                className="w-full h-auto object-cover"
-                priority
-              />
-            </div>
+            <ProjectHeroImage src={project.heroImage} alt={`${project.title} hero`} />
           )}
 
           <section className="mt-16 grid md:grid-cols-[1.1fr,1fr] gap-10 md:gap-14 items-start">
