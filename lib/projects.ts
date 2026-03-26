@@ -161,6 +161,7 @@ export const projects: ProjectData[] = [
     results: ["Reduced design/development ambiguity through documented reusable components.", "Improved consistency across surfaces previously split between Material UI and custom themes.", "Established groundwork for MCP-server-ready component operations."],
     stack: { frontend: ["Material UI", "Custom theming system"], backend: ["N/A"], tooling: ["Figma", "Storybook", "Design QA reviews"] },
     nextSteps: ["Expand Storybook coverage across remaining legacy components.", "Add quantified delivery metrics (velocity, defects, adoption).", "Formalize MCP-server integration patterns for component delivery."],
+    heroImage: "/images/projects/freight-ui/hero.webp",
   },
   {
     slug: "alchemail",
