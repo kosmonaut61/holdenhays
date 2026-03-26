@@ -32,7 +32,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
     <div className="mt-16 mb-8">
       <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.25em] text-accent mb-6">Gallery</p>
       {/* tall enough container so cards don't clip */}
-      <div className="relative w-full select-none" style={{ height: 560 }}>
+      <div className="relative w-full select-none" style={{ height: 720 }}>
         <div className="absolute inset-0 flex items-center justify-center">
           {images.map((img, i) => {
             const layout = LAYOUTS[i % LAYOUTS.length]
