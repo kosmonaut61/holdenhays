@@ -18,6 +18,8 @@ export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const blobRef = useRef<HTMLDivElement>(null)
+  const blobBRef = useRef<HTMLDivElement>(null)
+  const blobCRef = useRef<HTMLDivElement>(null)
   const [isButtonHovered, setIsButtonHovered] = useState(false)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
 
@@ -40,32 +42,41 @@ export function HeroSection() {
     return () => ctx.revert()
   }, [])
 
-  // Floating + slow rotation animation
+  // Floating + slow rotation animations — each blob has its own offset timing
   useEffect(() => {
-    if (!blobRef.current) return
-    const tl = gsap.timeline({ repeat: -1, yoyo: true, ease: "sine.inOut" })
-    tl.to(blobRef.current, { y: -18, rotation: 4, duration: 4, ease: "sine.inOut" })
-      .to(blobRef.current, { y: 8, rotation: -3, duration: 5, ease: "sine.inOut" })
-      .to(blobRef.current, { y: -10, rotation: 2, duration: 3.5, ease: "sine.inOut" })
-    return () => { tl.kill() }
+    const blobs = [
+      { el: blobRef.current,  y1: -18, y2: 8,   y3: -10, r1: 4,  r2: -3, r3: 2,  d1: 4,   d2: 5,   d3: 3.5 },
+      { el: blobBRef.current, y1: -12, y2: 14,  y3: -6,  r1: -5, r2: 3,  r3: -2, d1: 5.5, d2: 3.8, d3: 4.2 },
+      { el: blobCRef.current, y1: -8,  y2: 10,  y3: -14, r1: 3,  r2: -4, r3: 2,  d1: 3.2, d2: 4.8, d3: 5.1 },
+    ]
+    const timelines = blobs.map(({ el, y1, y2, y3, r1, r2, r3, d1, d2, d3 }) => {
+      if (!el) return null
+      const tl = gsap.timeline({ repeat: -1, yoyo: true })
+      tl.to(el, { y: y1, rotation: r1, duration: d1, ease: "sine.inOut" })
+        .to(el, { y: y2, rotation: r2, duration: d2, ease: "sine.inOut" })
+        .to(el, { y: y3, rotation: r3, duration: d3, ease: "sine.inOut" })
+      return tl
+    })
+    return () => { timelines.forEach(tl => tl?.kill()) }
   }, [])
 
-  // Mouse parallax — subtle tilt toward cursor
+  // Mouse parallax — blobs move at slightly different speeds for depth
   useEffect(() => {
     const section = sectionRef.current
-    const blob = blobRef.current
-    if (!section || !blob) return
+    if (!section) return
 
     const onMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window
-      const dx = (e.clientX / innerWidth - 0.5) * 2  // -1 to 1
+      const dx = (e.clientX / innerWidth - 0.5) * 2
       const dy = (e.clientY / innerHeight - 0.5) * 2
-      gsap.to(blob, {
-        x: dx * 14,
-        y: dy * 10,
-        duration: 1.2,
-        ease: "power2.out",
-        overwrite: "auto",
+      const targets = [
+        { el: blobRef.current,  mx: 14, my: 10, dur: 1.2 },
+        { el: blobBRef.current, mx: 8,  my: 6,  dur: 1.6 },
+        { el: blobCRef.current, mx: 20, my: 14, dur: 0.9 },
+      ]
+      targets.forEach(({ el, mx, my, dur }) => {
+        if (!el) return
+        gsap.to(el, { x: dx * mx, y: dy * my, duration: dur, ease: "power2.out", overwrite: "auto" })
       })
     }
 
@@ -76,10 +87,23 @@ export function HeroSection() {
   return (
     <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        {/* Primary blob — right center */}
         <div
           ref={blobRef}
           className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[620px] md:h-[620px] opacity-35 md:opacity-45 mix-blend-screen will-change-transform"
           style={{ backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+        />
+        {/* Blob B — upper left, smaller */}
+        <div
+          ref={blobBRef}
+          className="absolute -left-24 top-12 w-[260px] h-[260px] md:w-[360px] md:h-[360px] opacity-20 md:opacity-30 mix-blend-screen will-change-transform"
+          style={{ backgroundImage: "url('/images/textures/hero-accent-blob-b.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+        />
+        {/* Blob C — bottom right, small */}
+        <div
+          ref={blobCRef}
+          className="absolute right-12 bottom-8 w-[180px] h-[180px] md:w-[240px] md:h-[240px] opacity-20 md:opacity-28 mix-blend-screen will-change-transform"
+          style={{ backgroundImage: "url('/images/textures/hero-accent-blob-c.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
         />
       </div>
 
