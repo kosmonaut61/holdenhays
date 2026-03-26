@@ -46,11 +46,9 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
           return (
             <div
               key={i}
-              className="absolute cursor-pointer overflow-hidden rounded-sm shadow-lg transition-all duration-300 ease-out"
+              className="absolute cursor-pointer rounded-sm shadow-lg transition-all duration-300 ease-out"
               style={{
-                // Card size: responsive via clamp
                 width: "clamp(140px, 38vw, 260px)",
-                height: "clamp(100px, 27vw, 185px)",
                 left: layout.left,
                 top: layout.top,
                 zIndex: isFocused ? 50 : layout.z,
@@ -58,18 +56,19 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
                   ? `rotate(0deg) scale(1.45)`
                   : `rotate(${layout.rotate}deg) scale(${isDimmed ? 0.95 : 1})`,
                 opacity: isDimmed ? 0.2 : 1,
-                // Focused card pops centered over itself
                 transformOrigin: "center center",
               }}
               onMouseEnter={() => setFocused(i)}
               onMouseLeave={() => setFocused(null)}
               onTouchStart={() => setFocused(focused === i ? null : i)}
             >
+              {/* Natural aspect ratio — no fixed height, top of image always visible */}
               <Image
                 src={img.src}
                 alt={img.alt}
-                fill
-                className="object-cover"
+                width={800}
+                height={600}
+                className="w-full h-auto object-top"
                 sizes="(max-width: 640px) 38vw, 260px"
               />
             </div>
