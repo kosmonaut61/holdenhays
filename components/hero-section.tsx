@@ -44,7 +44,7 @@ export function HeroSection() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[265px] md:w-[620px] md:h-[392px] opacity-35 md:opacity-45 blur-[1px] mix-blend-screen"
-          style={{ backgroundImage: "url('/images/textures/hero-prism-texture.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+          style={{ backgroundImage: "url('/images/textures/hero-accent-blob.jpg')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
         />
       </div>
 
