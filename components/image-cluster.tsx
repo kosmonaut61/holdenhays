@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
 type ClusterImage = {
@@ -26,6 +26,15 @@ const LAYOUTS = [
 
 export function ImageCluster({ images }: { images: ClusterImage[] }) {
   const [focused, setFocused] = useState<number | null>(null)
+  const [lightbox, setLightbox] = useState<number | null>(null)
+
+  // Close lightbox on Escape
+  useEffect(() => {
+    if (lightbox === null) return
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setLightbox(null) }
+    window.addEventListener("keydown", handler)
+    return () => window.removeEventListener("keydown", handler)
+  }, [lightbox])
 
   // Derive container height: enough rows for all images + card height + padding
   const rows = Math.ceil(images.length / 3)
@@ -58,6 +67,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
                 opacity: isDimmed ? 0.2 : 1,
                 transformOrigin: "center center",
               }}
+              onClick={() => setLightbox(i)}
               onMouseEnter={() => setFocused(i)}
               onMouseLeave={() => setFocused(null)}
               onTouchStart={() => setFocused(focused === i ? null : i)}
@@ -76,5 +86,47 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
         })}
       </div>
     </div>
+
+    {/* Lightbox */}
+    {lightbox !== null && (
+      <div
+        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-sm cursor-zoom-out"
+        onClick={() => setLightbox(null)}
+      >
+        {/* Prev */}
+        {images.length > 1 && (
+          <button
+            className="absolute left-4 md:left-8 text-white/60 hover:text-white font-[DotGothic16] text-2xl px-4 py-2 transition-colors z-10"
+            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + images.length) % images.length) }}
+          >←</button>
+        )}
+
+        <div
+          className="relative max-w-[90vw] max-h-[90vh] rounded-sm overflow-hidden shadow-2xl cursor-default"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Image
+            src={images[lightbox].src}
+            alt={images[lightbox].alt}
+            width={1400}
+            height={900}
+            className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+          />
+        </div>
+
+        {/* Next */}
+        {images.length > 1 && (
+          <button
+            className="absolute right-4 md:right-8 text-white/60 hover:text-white font-[DotGothic16] text-2xl px-4 py-2 transition-colors z-10"
+            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % images.length) }}
+          >→</button>
+        )}
+
+        {/* Close hint */}
+        <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-[DotGothic16] text-[11px] uppercase tracking-widest text-white/30">
+          Click outside or press Esc to close
+        </p>
+      </div>
+    )}
   )
 }
