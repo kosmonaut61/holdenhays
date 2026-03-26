@@ -80,7 +80,7 @@ export function ColophonSection() {
       </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-16 max-w-4xl">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">03 / Colophon</span>
+        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">03 / Thanks</span>
         <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">LET&apos;S BUILD SOMETHING USEFUL.</h2>
         <p className="mt-6 font-[DotGothic16] text-sm md:text-base text-foreground/70 leading-relaxed">
           I lead products from early signal to shipped experience — blending product leadership, AI workflows,
