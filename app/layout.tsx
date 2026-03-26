@@ -127,3 +127,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+// this is the real kosmo
