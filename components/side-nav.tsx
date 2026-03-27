@@ -8,10 +8,9 @@ import { usePrismEffect, PrismLayers } from "./prism-effect"
 
 const navItems = [
   { id: "hero", label: "Index" },
-  { id: "signals", label: "Signals" },
-  { id: "work", label: "Experiments" },
-  { id: "principles", label: "Principles" },
-  { id: "colophon", label: "Colophon" },
+  { id: "signals", label: "Who Am I" },
+  { id: "work", label: "Selected Work" },
+  { id: "colophon", label: "Thanks" },
 ]
 
 export function SideNav() {
