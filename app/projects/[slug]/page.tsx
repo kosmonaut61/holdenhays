@@ -120,6 +120,26 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </Link>
             </section>
           )}
+
+          <footer className="mt-16 border-t border-border/30 pt-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <nav aria-label="Project page navigation" className="flex flex-wrap items-center gap-5">
+                <Link href="/" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                  Home
+                </Link>
+                <Link href="/about" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                  About
+                </Link>
+                <Link href="/projects" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                  Projects
+                </Link>
+              </nav>
+
+              <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                © 2026 Holden Hays
+              </p>
+            </div>
+          </footer>
         </div>
       </section>
     </main>
