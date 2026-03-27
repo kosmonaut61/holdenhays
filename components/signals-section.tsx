@@ -3,6 +3,7 @@
 import React from "react"
 
 import { useRef, useState, useEffect } from "react"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -156,7 +157,7 @@ export function SignalsSection() {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {signals.map((signal, index) => (
-          <SignalCard key={index} signal={signal} index={index} />
+          <SignalCard key={index} signal={signal} index={index} href="/projects/project-lattice" />
         ))}
       </div>
     </section>
@@ -166,55 +167,59 @@ export function SignalsSection() {
 function SignalCard({
   signal,
   index,
+  href,
 }: {
   signal: { title: string; note: string }
   index: number
+  href: string
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
   
   return (
-    <article
-      ref={prismRef as React.RefObject<HTMLElement>}
-      className={cn(
-        "group relative flex-shrink-0 w-80 border p-8 rounded-sm overflow-hidden",
-        "transition-all duration-500 ease-out cursor-pointer",
-        isHovered ? "border-white/20 bg-white/5 -translate-y-2" : "border-border/40 bg-card",
-      )}
-      style={isHovered ? prismStyles : {}}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {isHovered && <PrismLayers intensity="subtle" />}
-      
-      {/* Background layer */}
-      <div
+    <Link href={href} className="block" aria-label={`Open ${signal.title} project`}>
+      <article
+        ref={prismRef as React.RefObject<HTMLElement>}
         className={cn(
-          "absolute inset-0 bg-white/5 transition-opacity duration-500",
-          isHovered ? "opacity-100" : "opacity-0",
+          "group relative flex-shrink-0 w-80 border p-8 rounded-sm overflow-hidden",
+          "transition-all duration-500 ease-out cursor-pointer",
+          isHovered ? "border-white/20 bg-white/5 -translate-y-2" : "border-border/40 bg-card",
         )}
-      />
-
-      {/* Title */}
-      <h3 className={cn(
-        "relative font-[var(--font-bebas)] text-4xl tracking-tight mb-6 transition-colors duration-300",
-        isHovered ? "text-white" : "text-foreground"
-      )}>
-        {signal.title}
-      </h3>
-
-      {/* Description */}
-      <p className="relative font-[DotGothic16] text-sm text-muted-foreground leading-relaxed">{signal.note}</p>
-
-      {/* Index marker */}
-      <span
-        className={cn(
-          "absolute bottom-8 right-8 font-[DotGothic16] text-[12px] transition-colors duration-300",
-          isHovered ? "text-white" : "text-muted-foreground/40",
-        )}
+        style={isHovered ? prismStyles : {}}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-    </article>
+        {isHovered && <PrismLayers intensity="subtle" />}
+
+        {/* Background layer */}
+        <div
+          className={cn(
+            "absolute inset-0 bg-white/5 transition-opacity duration-500",
+            isHovered ? "opacity-100" : "opacity-0",
+          )}
+        />
+
+        {/* Title */}
+        <h3 className={cn(
+          "relative font-[var(--font-bebas)] text-4xl tracking-tight mb-6 transition-colors duration-300",
+          isHovered ? "text-white" : "text-foreground"
+        )}>
+          {signal.title}
+        </h3>
+
+        {/* Description */}
+        <p className="relative font-[DotGothic16] text-sm text-muted-foreground leading-relaxed">{signal.note}</p>
+
+        {/* Index marker */}
+        <span
+          className={cn(
+            "absolute bottom-8 right-8 font-[DotGothic16] text-[12px] transition-colors duration-300",
+            isHovered ? "text-white" : "text-muted-foreground/40",
+          )}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </article>
+    </Link>
   )
 }
