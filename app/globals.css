@@ -17,11 +17,11 @@
   --secondary-foreground: oklch(0.85 0 0);
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.55 0 0);
-  --accent: #1C40F2;
-  --accent-bright: #3D63FF;
-  --accent-neon: #6B8AFF;
-  --accent-cool: #1C40F2;
-  --accent-violet-deep: #102AA8;
+  --accent: #C7F403;
+  --accent-bright: #D8FF3D;
+  --accent-neon: #E3FF70;
+  --accent-cool: #C7F403;
+  --accent-violet-deep: #7EA000;
   --accent-foreground: oklch(0.08 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
