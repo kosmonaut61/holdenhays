@@ -8,7 +8,7 @@ const workHistory = [
   {
     company: "Emerge",
     url: "https://www.emergemarket.com",
-    type: "4 yrs",
+    type: "Feb 2022 – Present · ~4 yrs",
     roles: [
       {
         title: "Director of Marketing and Design",
@@ -27,7 +27,7 @@ const workHistory = [
   {
     company: "Fullbay",
     url: null,
-    type: "2 yrs",
+    type: "Nov 2019 – Feb 2022 · 2 yrs",
     roles: [
       {
         title: "Manager of Product Department",
@@ -60,7 +60,7 @@ const workHistory = [
   {
     company: "Synexus US",
     url: null,
-    type: "2 yrs",
+    type: "2016 – 2018 · 2 yrs",
     roles: [
       {
         title: "Senior Patient Experience Designer",
