@@ -100,11 +100,6 @@ export const projects: ProjectData[] = [
     ],
     metrics: [
       {
-        label: "Avg Ticket Price (Net-New)",
-        value: "+20%",
-        note: "Increase after unveiling ProcureOS Pro and tying Pro packaging to new customer onboarding.",
-      },
-      {
         label: "Avg Account Value (Before Model Change)",
         value: "~$20K",
         note: "Legacy marketplace-era baseline before commercial model standardization.",
