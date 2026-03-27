@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio of Holden Hays, a Phoenix-based product-focused leader blending product design, product marketing, and commercial strategy.",
-  applicationName: "Holden Hays Portfolio",
+  applicationName: "Holden Hays",
   authors: [{ name: "Holden Hays" }],
   creator: "Holden Hays",
   publisher: "Holden Hays",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.holdenhays.com",
-    siteName: "Holden Hays Portfolio",
+    siteName: "Holden Hays",
     title: "Holden Hays — Product Leader & Designer",
     description:
       "Product leadership and design case studies across growth, monetization, and system modernization.",
