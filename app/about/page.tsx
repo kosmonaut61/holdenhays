@@ -8,7 +8,7 @@ const workHistory = [
   {
     company: "Emerge",
     url: "https://www.emergemarket.com",
-    type: "Full-time · 4 yrs",
+    type: "4 yrs",
     roles: [
       {
         title: "Director of Marketing and Design",
@@ -27,7 +27,7 @@ const workHistory = [
   {
     company: "Fullbay",
     url: null,
-    type: "Full-time · 2 yrs",
+    type: "2 yrs",
     roles: [
       {
         title: "Manager of Product Department",
