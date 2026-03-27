@@ -76,7 +76,7 @@ export function HeroSection() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           ref={blobRef}
-          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[620px] md:h-[620px] mix-blend-screen will-change-transform"
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[440px] h-[440px] md:w-[760px] md:h-[760px] mix-blend-screen will-change-transform"
           style={{ opacity: 0 }}
           style={{ backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
         />
