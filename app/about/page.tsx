@@ -8,17 +8,17 @@ const workHistory = [
   {
     company: "Emerge",
     url: "https://www.emergemarket.com",
-    type: "Full-time · 4 yrs 2 mos",
+    type: "Full-time · 4 yrs",
     roles: [
       {
         title: "Director of Marketing and Design",
-        period: "Jul 2024 – Present · 1 yr 9 mos",
+        period: "Jul 2024 – Present · ~2 yrs",
         location: "Scottsdale, Arizona",
         description: "Leading product design and marketing strategy across Emerge's platform. Responsible for brand, go-to-market, and building AI-native workflows into how the team ships and operates.",
       },
       {
         title: "Group Lead Product Designer",
-        period: "Feb 2022 – Jul 2024 · 2 yrs 6 mos",
+        period: "Feb 2022 – Jul 2024 · 2.5 yrs",
         location: "Scottsdale, Arizona",
         description: "Led design across multiple product lines, establishing design systems and patterns that unified the experience across Emerge's suite of freight tools.",
       },
@@ -27,7 +27,7 @@ const workHistory = [
   {
     company: "Fullbay",
     url: null,
-    type: "Full-time · 2 yrs 4 mos",
+    type: "Full-time · 2 yrs",
     roles: [
       {
         title: "Manager of Product Department",
@@ -37,7 +37,7 @@ const workHistory = [
       },
       {
         title: "User Experience Designer",
-        period: "Nov 2019 – Sep 2021 · 1 yr 11 mos",
+        period: "Nov 2019 – Sep 2021 · 2 yrs",
         location: "Phoenix, Arizona",
         description: "Lead designer for Fullbay's shop management platform. Drove UX decisions across core workflows used by heavy-duty repair shops nationwide.",
       },
@@ -46,7 +46,7 @@ const workHistory = [
   {
     company: "Hypur Inc.",
     url: null,
-    type: "2018 – Nov 2019 · 1 yr 11 mos",
+    type: "2018 – Nov 2019 · 2 yrs",
     roles: [
       {
         title: "Lead Designer",
@@ -60,7 +60,7 @@ const workHistory = [
   {
     company: "Synexus US",
     url: null,
-    type: "2 yrs 1 mo",
+    type: "2 yrs",
     roles: [
       {
         title: "Senior Patient Experience Designer",
