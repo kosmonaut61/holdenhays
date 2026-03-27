@@ -58,7 +58,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           {project.metrics && project.metrics.length > 0 && (
             <section className="mt-16">
               <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Key Metrics</h3>
-              <div className="mt-5 grid md:grid-cols-2 gap-5">
+              <div className="mt-5 grid md:grid-cols-3 gap-5">
                 {project.metrics.map((metric) => (
                   <article key={`${metric.label}-${metric.value}`} className="rounded-sm border border-border/40 bg-black/20 p-5">
                     <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">{metric.label}</p>
