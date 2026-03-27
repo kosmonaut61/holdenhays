@@ -207,7 +207,7 @@ export default function AboutPage() {
                         ) : (
                           <span className="font-[DotGothic16] text-xl text-white">{job.company}</span>
                         )}
-                        <span className="font-[DotGothic16] text-[11px] uppercase tracking-widest text-muted-foreground/60">
+                        <span className="font-sans text-sm text-white/40">
                           {job.type}
                         </span>
                       </div>
@@ -217,15 +217,15 @@ export default function AboutPage() {
                     <div className="space-y-6">
                       {job.roles.map((role, ri) => (
                         <div key={ri} className={job.roles.length > 1 && ri > 0 ? "pl-4 border-l border-border/20" : ""}>
-                          <p className="font-[DotGothic16] text-base text-white/90">{role.title}</p>
-                          <p className="font-[DotGothic16] text-[11px] uppercase tracking-widest text-accent/70 mt-0.5">
+                          <p className="font-[DotGothic16] text-lg text-white">{role.title}</p>
+                          <p className="font-[DotGothic16] text-[11px] uppercase tracking-widest text-accent mt-1">
                             {role.period}
                           </p>
-                          <p className="font-[DotGothic16] text-[11px] text-muted-foreground/50 mt-0.5">
+                          <p className="font-sans text-sm text-white/50 mt-0.5">
                             {role.location}
                           </p>
                           {role.description && (
-                            <p className="mt-2 font-[DotGothic16] text-sm text-white/55 leading-relaxed">
+                            <p className="mt-3 font-sans text-base text-white/75 leading-relaxed">
                               {role.description}
                             </p>
                           )}
