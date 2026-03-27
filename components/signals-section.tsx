@@ -35,42 +35,6 @@ export function SignalsSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
-  const cursorRef = useRef<HTMLDivElement>(null)
-  const [isHovering, setIsHovering] = useState(false)
-  const { elementRef: prismRef, prismStyles } = usePrismEffect()
-
-  useEffect(() => {
-    if (!sectionRef.current || !cursorRef.current) return
-
-    const section = sectionRef.current
-    const cursor = cursorRef.current
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-
-      gsap.to(cursor, {
-        x: x,
-        y: y,
-        duration: 0.5,
-        ease: "power3.out",
-      })
-    }
-
-    const handleMouseEnter = () => setIsHovering(true)
-    const handleMouseLeave = () => setIsHovering(false)
-
-    section.addEventListener("mousemove", handleMouseMove)
-    section.addEventListener("mouseenter", handleMouseEnter)
-    section.addEventListener("mouseleave", handleMouseLeave)
-
-    return () => {
-      section.removeEventListener("mousemove", handleMouseMove)
-      section.removeEventListener("mouseenter", handleMouseEnter)
-      section.removeEventListener("mouseleave", handleMouseLeave)
-    }
-  }, [])
 
   useEffect(() => {
     if (!sectionRef.current || !headerRef.current || !cardsRef.current) return
@@ -119,24 +83,6 @@ export function SignalsSection() {
 
   return (
     <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
-      <div
-        ref={(el) => {
-          cursorRef.current = el
-          if (isHovering && el) {
-            ;(prismRef as React.MutableRefObject<HTMLElement | null>).current = el
-          }
-        }}
-        className={cn(
-          "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
-          "w-12 h-12 rounded-full border-2 border-white/30 bg-white/10 overflow-hidden",
-          "transition-opacity duration-300",
-          isHovering ? "opacity-100" : "opacity-0",
-        )}
-        style={isHovering ? prismStyles : {}}
-      >
-        {isHovering && <PrismLayers intensity="strong" />}
-      </div>
-
       {/* Section header */}
       <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
         <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">01 / INTRO</span>
@@ -174,7 +120,19 @@ function SignalCard({
   href: string
 }) {
   const [isHovered, setIsHovered] = useState(false)
+  const bubbleRef = useRef<HTMLDivElement>(null)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!bubbleRef.current) return
+    const rect = e.currentTarget.getBoundingClientRect()
+    gsap.to(bubbleRef.current, {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      duration: 0.35,
+      ease: "power3.out",
+    })
+  }
 
   return (
     <Link href={href} className="block" aria-label={`Open ${signal.title} project`}>
@@ -188,8 +146,19 @@ function SignalCard({
         style={isHovered ? prismStyles : {}}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onMouseMove={handleMouseMove}
       >
         {isHovered && <PrismLayers intensity="subtle" />}
+
+        <div
+          ref={bubbleRef}
+          className={cn(
+            "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-20",
+            "w-10 h-10 rounded-full border border-white/30 bg-white/10",
+            "transition-opacity duration-300",
+            isHovered ? "opacity-100" : "opacity-0",
+          )}
+        />
 
         {/* Background layer */}
         <div

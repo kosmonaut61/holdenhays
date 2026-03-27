@@ -114,6 +114,7 @@ function WorkCard({
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef<HTMLElement>(null)
+  const bubbleRef = useRef<HTMLDivElement>(null)
   const [isScrollActive, setIsScrollActive] = useState(false)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
 
@@ -133,6 +134,17 @@ function WorkCard({
 
   const isActive = isHovered || isScrollActive
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!bubbleRef.current) return
+    const rect = e.currentTarget.getBoundingClientRect()
+    gsap.to(bubbleRef.current, {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      duration: 0.35,
+      ease: "power3.out",
+    })
+  }
+
   const card = (
     <article
       ref={(el) => {
@@ -148,8 +160,19 @@ function WorkCard({
       style={isActive ? prismStyles : {}}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
     >
       {isActive && <PrismLayers intensity="subtle" />}
+
+      <div
+        ref={bubbleRef}
+        className={cn(
+          "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-20",
+          "w-10 h-10 rounded-full border border-white/30 bg-white/10",
+          "transition-opacity duration-300",
+          isHovered ? "opacity-100" : "opacity-0",
+        )}
+      />
 
       <div
         className={cn(
