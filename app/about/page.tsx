@@ -4,6 +4,97 @@ import { useRef } from "react"
 import { AnimatedNoise } from "@/components/animated-noise"
 import Link from "next/link"
 
+const workHistory = [
+  {
+    company: "Emerge",
+    url: "https://www.emergemarket.com",
+    type: "Full-time · 4 yrs 2 mos",
+    roles: [
+      {
+        title: "Director of Marketing and Design",
+        period: "Jul 2024 – Present · 1 yr 9 mos",
+        location: "Scottsdale, Arizona",
+        description: "Director of Marketing and Product Design at Emerge.",
+      },
+      {
+        title: "Group Lead Product Designer",
+        period: "Feb 2022 – Jul 2024 · 2 yrs 6 mos",
+        location: "Scottsdale, Arizona",
+        description: null,
+      },
+    ],
+  },
+  {
+    company: "Fullbay",
+    url: null,
+    type: "Full-time · 2 yrs 4 mos",
+    roles: [
+      {
+        title: "Manager of Product Department",
+        period: "Sep 2021 – Feb 2022 · 6 mos",
+        location: "Phoenix, Arizona",
+        description:
+          "Execute product vision and manage product team. Improve processes by which product features are developed to contribute to strategic, financial, and customer satisfaction goals.",
+      },
+      {
+        title: "User Experience Designer",
+        period: "Nov 2019 – Sep 2021 · 1 yr 11 mos",
+        location: "Phoenix, Arizona",
+        description: "Lead Designer.",
+      },
+    ],
+  },
+  {
+    company: "Hypur Inc.",
+    url: null,
+    type: "2018 – Nov 2019 · 1 yr 11 mos",
+    roles: [
+      {
+        title: "Lead Designer",
+        period: "2018 – Nov 2019",
+        location: "Scottsdale, Arizona",
+        description:
+          "Used design thinking to create user experience strategies. Developed UI kits and interactions for a redesign of the Hypur Platform including payment processing, CRM, document management, and analytic modules. Studied user feedback to improve customer acquisition with changes to onboarding UX. Oversaw or created all creative assets used by the marketing department. Introduced new visual styles with updated iconography, design language, and illustrations. Conceptualized and executed all motion graphic and video content used in training and marketing materials.",
+      },
+    ],
+  },
+  {
+    company: "Synexus US",
+    url: null,
+    type: "2 yrs 1 mo",
+    roles: [
+      {
+        title: "Senior Patient Experience Designer",
+        period: "2017 – 2018 · 1 yr",
+        location: "Tempe, Arizona",
+        description:
+          "Used research and testing to lead a whole new UX strategy for patient acquisition through improved onboarding and a new application. Worked closely with the business development team to balance MVP and user-centered design to hit KPIs. Developed patient engagement strategies through user flows and email drip campaigns. Managed junior designers.",
+      },
+      {
+        title: "Senior Graphic Designer",
+        period: "2016 – 2017 · 1 yr",
+        location: "Tempe, Arizona",
+        description:
+          "Created assets for marketing materials and patient acquisition campaigns. Interfaced with clients to work with their brand guidelines in generating graphic materials. Managed website and user experience to increase research study enrollment. Oversaw junior designers, delegating and delivering feedback to improve the team.",
+      },
+    ],
+  },
+  {
+    company: "Apple",
+    url: null,
+    type: "2011 – 2016 · 5 yrs",
+    roles: [
+      {
+        title: "Creative Trainer / Technical Support / Sales",
+        period: "2011 – 2016",
+        location: "Greater Phoenix Area",
+        description:
+          "Worked with customers troubleshooting technical issues. Trained customers in using advanced creative software. Developed a unique perspective on UX/UI through daily interaction with customers and receiving feedback on iOS and macOS software. Consistently achieved high customer satisfaction ratings.",
+      },
+    ],
+  },
+]
+
 export default function AboutPage() {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -14,9 +105,9 @@ export default function AboutPage() {
 
       <section
         ref={sectionRef}
-        className="relative z-10 min-h-screen flex items-center justify-center py-32 pl-6 md:pl-28 pr-6 md:pr-12"
+        className="relative z-10 py-24 pl-6 md:pl-28 pr-6 md:pr-12"
       >
-        <div className="w-full">
+        <div className="mx-auto w-full max-w-4xl">
           {/* Back button */}
           <Link
             href="/"
@@ -33,65 +124,116 @@ export default function AboutPage() {
             <h1 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">HOLDEN HAYS</h1>
           </div>
 
-          <div className="grid md:grid-cols-[300px,1fr] gap-12">
-            {/* Profile Image */}
+          {/* Bio + profile */}
+          <div className="grid md:grid-cols-[260px,1fr] gap-12 mb-24">
+            {/* Profile Image placeholder */}
             <div className="relative">
-              <div className="aspect-square w-full max-w-[300px] border border-border/40 rounded-sm overflow-hidden bg-card">
+              <div className="aspect-square w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
                 <div className="w-full h-full flex items-center justify-center font-[DotGothic16] text-muted-foreground text-sm">
                   Profile Image
                 </div>
               </div>
             </div>
 
-            {/* Content */}
-            <div className="space-y-8">
-              {/* Bio */}
-              <div>
-                <h2 className="font-[DotGothic16] text-2xl mb-4">About Me</h2>
-                <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed mb-4">
-                  I'm a designer at heart, taking problems and breaking them down into solvable pieces.{" "}
-                  <span className="text-white">I use my powers for business</span>, aligning company goals with
-                  customer needs to deliver great product experiences.
-                </p>
-                <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed">
-                  My background is in product design, and my current focus is leading product marketing and design
-                  at{" "}
-                  <a
-                    href="https://www.emergemarket.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-accent transition-colors duration-200"
-                  >
-                    Emerge
-                  </a>
-                  . I've worked across many industries and bring that curiosity into every project.
-                </p>
-              </div>
+            <div className="space-y-5">
+              <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed">
+                I'm a designer at heart, taking problems and breaking them down into solvable pieces.{" "}
+                <span className="text-white">I use my powers for business</span>, aligning company goals with
+                customer needs to deliver great product experiences.
+              </p>
+              <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed">
+                My background is in product design. My current focus is leading product design, marketing, and
+                building AI workflows at{" "}
+                <a
+                  href="https://www.emergemarket.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-accent transition-colors duration-200"
+                >
+                  Emerge
+                </a>
+                , and creator of{" "}
+                <a
+                  href="https://fretlings.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-accent transition-colors duration-200"
+                >
+                  Fretlings
+                </a>
+                .
+              </p>
 
-              {/* Resume Section */}
-              <div className="border-t border-border/40 pt-8">
-                <h2 className="font-[DotGothic16] text-2xl mb-4">Resume</h2>
-                <div className="space-y-4">
-                  <div className="border border-border/40 rounded-sm p-6 bg-card">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-[DotGothic16] text-lg mb-2">Holden_Hays_Resume.pdf</h3>
-                        <p className="font-[DotGothic16] text-sm text-muted-foreground">
-                          View or download my full resume
-                        </p>
+              <a
+                href="#"
+                download
+                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-[DotGothic16] text-sm uppercase tracking-widest transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5 mt-2"
+              >
+                DOWNLOAD RESUME <span>↓</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Work History */}
+          <div>
+            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">
+              WORK HISTORY
+            </span>
+            <h2 className="mt-3 mb-12 font-[DotGothic16] text-3xl md:text-4xl tracking-tight">Experience</h2>
+
+            {/* Timeline */}
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-0 top-2 bottom-0 w-px bg-border/30" />
+
+              <div className="space-y-12 pl-8">
+                {workHistory.map((job, ji) => (
+                  <div key={ji} className="relative">
+                    {/* Timeline dot */}
+                    <div className="absolute -left-8 top-1.5 w-2 h-2 rounded-full bg-accent ring-4 ring-background" />
+
+                    {/* Company header */}
+                    <div className="mb-4">
+                      <div className="flex items-baseline gap-3 flex-wrap">
+                        {job.url ? (
+                          <a
+                            href={job.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-[DotGothic16] text-xl text-white hover:text-accent transition-colors duration-200"
+                          >
+                            {job.company}
+                          </a>
+                        ) : (
+                          <span className="font-[DotGothic16] text-xl text-white">{job.company}</span>
+                        )}
+                        <span className="font-[DotGothic16] text-[11px] uppercase tracking-widest text-muted-foreground/60">
+                          {job.type}
+                        </span>
                       </div>
                     </div>
-                  </div>
 
-                  <a
-                    href="#"
-                    download
-                    className="inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-[DotGothic16] text-sm uppercase tracking-widest transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5"
-                  >
-                    DOWNLOAD RESUME
-                    <span>↓</span>
-                  </a>
-                </div>
+                    {/* Roles */}
+                    <div className="space-y-6">
+                      {job.roles.map((role, ri) => (
+                        <div key={ri} className={job.roles.length > 1 && ri > 0 ? "pl-4 border-l border-border/20" : ""}>
+                          <p className="font-[DotGothic16] text-base text-white/90">{role.title}</p>
+                          <p className="font-[DotGothic16] text-[11px] uppercase tracking-widest text-accent/70 mt-0.5">
+                            {role.period}
+                          </p>
+                          <p className="font-[DotGothic16] text-[11px] text-muted-foreground/50 mt-0.5">
+                            {role.location}
+                          </p>
+                          {role.description && (
+                            <p className="mt-2 font-[DotGothic16] text-sm text-white/55 leading-relaxed">
+                              {role.description}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
