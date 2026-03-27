@@ -14,13 +14,13 @@ const workHistory = [
         title: "Director of Marketing and Design",
         period: "Jul 2024 – Present · 1 yr 9 mos",
         location: "Scottsdale, Arizona",
-        description: "Director of Marketing and Product Design at Emerge.",
+        description: "Leading product design and marketing strategy across Emerge's platform. Responsible for brand, go-to-market, and building AI-native workflows into how the team ships and operates.",
       },
       {
         title: "Group Lead Product Designer",
         period: "Feb 2022 – Jul 2024 · 2 yrs 6 mos",
         location: "Scottsdale, Arizona",
-        description: null,
+        description: "Led design across multiple product lines, establishing design systems and patterns that unified the experience across Emerge's suite of freight tools.",
       },
     ],
   },
@@ -33,14 +33,13 @@ const workHistory = [
         title: "Manager of Product Department",
         period: "Sep 2021 – Feb 2022 · 6 mos",
         location: "Phoenix, Arizona",
-        description:
-          "Execute product vision and manage product team. Improve processes by which product features are developed to contribute to strategic, financial, and customer satisfaction goals.",
+        description: "Managed the product team and owned the process from discovery to delivery. Improved how features were scoped and prioritized to better align with business and customer goals.",
       },
       {
         title: "User Experience Designer",
         period: "Nov 2019 – Sep 2021 · 1 yr 11 mos",
         location: "Phoenix, Arizona",
-        description: "Lead Designer.",
+        description: "Lead designer for Fullbay's shop management platform. Drove UX decisions across core workflows used by heavy-duty repair shops nationwide.",
       },
     ],
   },
@@ -54,7 +53,7 @@ const workHistory = [
         period: "2018 – Nov 2019",
         location: "Scottsdale, Arizona",
         description:
-          "Used design thinking to create user experience strategies. Developed UI kits and interactions for a redesign of the Hypur Platform including payment processing, CRM, document management, and analytic modules. Studied user feedback to improve customer acquisition with changes to onboarding UX. Oversaw or created all creative assets used by the marketing department. Introduced new visual styles with updated iconography, design language, and illustrations. Conceptualized and executed all motion graphic and video content used in training and marketing materials.",
+          "Redesigned the Hypur Platform across payment processing, CRM, document management, and analytics modules. Built UI kits and interaction patterns from scratch, and improved onboarding UX based on user feedback. Also owned the full marketing creative output — brand assets, iconography, illustration, and all motion and video content for training and campaigns.",
       },
     ],
   },
@@ -68,14 +67,14 @@ const workHistory = [
         period: "2017 – 2018 · 1 yr",
         location: "Tempe, Arizona",
         description:
-          "Used research and testing to lead a whole new UX strategy for patient acquisition through improved onboarding and a new application. Worked closely with the business development team to balance MVP and user-centered design to hit KPIs. Developed patient engagement strategies through user flows and email drip campaigns. Managed junior designers.",
+          "Led a full UX overhaul of the patient acquisition funnel — new app, improved onboarding, and email engagement flows. Balanced user-centered design with MVP constraints to hit KPIs set by the business development team. Managed junior designers.",
       },
       {
         title: "Senior Graphic Designer",
         period: "2016 – 2017 · 1 yr",
         location: "Tempe, Arizona",
         description:
-          "Created assets for marketing materials and patient acquisition campaigns. Interfaced with clients to work with their brand guidelines in generating graphic materials. Managed website and user experience to increase research study enrollment. Oversaw junior designers, delegating and delivering feedback to improve the team.",
+          "Created marketing and patient acquisition materials across print and digital. Managed the website UX to improve study enrollment, maintained brand standards with clients, and mentored junior designers.",
       },
     ],
   },
@@ -89,7 +88,7 @@ const workHistory = [
         period: "2011 – 2016",
         location: "Greater Phoenix Area",
         description:
-          "Worked with customers troubleshooting technical issues. Trained customers in using advanced creative software. Developed a unique perspective on UX/UI through daily interaction with customers and receiving feedback on iOS and macOS software. Consistently achieved high customer satisfaction ratings.",
+          "Supported customers with technical troubleshooting and trained them on creative software. Five years of daily hands-on interaction with iOS and macOS gave me an early foundation in how real people experience software — and what breaks their trust in it. Consistently achieved high customer satisfaction ratings.",
       },
     ],
   },
