@@ -1,11 +1,13 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
+
+const skillBadges = ["Figma", "Adobe Illustrator", "Next.js", "Vercel", "OpenClaw", "HTML & CSS"]
 
 export function ColophonSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -75,8 +77,15 @@ export function ColophonSection() {
       className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-12 bottom-12 w-[240px] h-[240px] md:w-[320px] md:h-[320px] opacity-12 md:opacity-16 mix-blend-screen animate-blob-float-b"
-          style={{ backgroundImage: "url('/images/textures/hero-accent-blob-b.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+        <div
+          className="absolute -right-12 bottom-12 w-[240px] h-[240px] md:w-[320px] md:h-[320px] opacity-12 md:opacity-16 mix-blend-screen animate-blob-float-b"
+          style={{
+            backgroundImage: "url('/images/textures/hero-accent-blob-b.png')",
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
       </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-16 max-w-4xl">
@@ -86,6 +95,8 @@ export function ColophonSection() {
           I lead products from early signal to shipped experience — blending product leadership, AI workflows,
           go-to-market thinking, and UX architecture.
         </p>
+
+        <SkillsTicker />
       </div>
 
       {/* Footer content */}
@@ -93,8 +104,18 @@ export function ColophonSection() {
         <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
           <h4 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Now</h4>
           <ul className="space-y-3 font-[DotGothic16] text-sm text-foreground/80">
-            <li>Leading product marketing + design at <a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">Emerge</a></li>
-            <li>Building and shipping <a href="https://fretlings.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">Fretlings</a></li>
+            <li>
+              Leading product marketing + design at{" "}
+              <a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">
+                Emerge
+              </a>
+            </li>
+            <li>
+              Building and shipping{" "}
+              <a href="https://fretlings.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">
+                Fretlings
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -136,14 +157,102 @@ export function ColophonSection() {
       </div>
 
       {/* Bottom copyright */}
-      <div
-        ref={footerRef}
-        className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-      >
-        <p className="font-[DotGothic16] text-[12px] text-muted-foreground uppercase tracking-widest">
-          © 2026 Holden Hays. All rights reserved.
-        </p>
+      <div ref={footerRef} className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <p className="font-[DotGothic16] text-[12px] text-muted-foreground uppercase tracking-widest">© 2026 Holden Hays. All rights reserved.</p>
       </div>
     </section>
+  )
+}
+
+type SkillChip = {
+  id: number
+  label: string
+  slot: number
+  opacity: number
+}
+
+function SkillsTicker() {
+  const visibleCount = 3
+  const fadeMs = 420
+  const slideMs = 320
+  const holdMs = 1500
+
+  const nextIndexRef = useRef(visibleCount)
+  const idRef = useRef(visibleCount)
+  const timersRef = useRef<number[]>([])
+
+  const [chips, setChips] = useState<SkillChip[]>(() =>
+    skillBadges.slice(0, visibleCount).map((label, slot) => ({
+      id: slot,
+      label,
+      slot,
+      opacity: 1,
+    })),
+  )
+
+  useEffect(() => {
+    const clearAllTimers = () => {
+      timersRef.current.forEach((timer) => window.clearTimeout(timer))
+      timersRef.current = []
+    }
+
+    const cycle = () => {
+      setChips((prev) => prev.map((chip) => (chip.slot === 0 ? { ...chip, opacity: 0 } : chip)))
+
+      const fadeTimer = window.setTimeout(() => {
+        setChips((prev) => {
+          const shifted = prev.filter((chip) => chip.slot !== 0).map((chip) => ({ ...chip, slot: chip.slot - 1 }))
+
+          const newLabel = skillBadges[nextIndexRef.current % skillBadges.length]
+          nextIndexRef.current = (nextIndexRef.current + 1) % skillBadges.length
+
+          const incoming: SkillChip = {
+            id: idRef.current++,
+            label: newLabel,
+            slot: 2,
+            opacity: 0,
+          }
+
+          return [...shifted, incoming]
+        })
+
+        const slideTimer = window.setTimeout(() => {
+          setChips((prev) => prev.map((chip) => (chip.slot === 2 && chip.opacity === 0 ? { ...chip, opacity: 1 } : chip)))
+        }, slideMs)
+
+        const nextCycleTimer = window.setTimeout(cycle, slideMs + fadeMs + holdMs)
+        timersRef.current.push(slideTimer, nextCycleTimer)
+      }, fadeMs)
+
+      timersRef.current.push(fadeTimer)
+    }
+
+    const starter = window.setTimeout(cycle, holdMs)
+    timersRef.current.push(starter)
+
+    return clearAllTimers
+  }, [])
+
+  return (
+    <div className="mt-8">
+      <h3 className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">Skills</h3>
+
+      <div className="mt-4 relative h-11 w-full max-w-3xl overflow-hidden">
+        {chips.map((chip) => (
+          <span
+            key={chip.id}
+            className="absolute top-0 inline-flex h-10 w-[31.5%] items-center justify-center rounded-full border border-border/50 bg-card px-3 font-[DotGothic16] text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-foreground/85"
+            style={{
+              transform: `translateX(${chip.slot * 108}%)`,
+              opacity: chip.opacity,
+              transition: `transform ${slideMs}ms ease, opacity ${fadeMs}ms ease`,
+            }}
+            title={chip.label}
+          >
+            <span className="truncate">{chip.label}</span>
+          </span>
+        ))}
+      </div>
+    </div>
   )
 }
