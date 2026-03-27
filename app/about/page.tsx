@@ -125,12 +125,14 @@ export default function AboutPage() {
 
           {/* Bio + profile */}
           <div className="grid md:grid-cols-[260px,1fr] gap-12 mb-24">
-            {/* Profile Image placeholder */}
+            {/* Profile Image */}
             <div className="relative">
-              <div className="aspect-square w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
-                <div className="w-full h-full flex items-center justify-center font-[DotGothic16] text-muted-foreground text-sm">
-                  Profile Image
-                </div>
+              <div className="aspect-[4/5] w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
+                <img
+                  src="/images/holden-profile.jpg"
+                  alt="Holden Hays"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
 
