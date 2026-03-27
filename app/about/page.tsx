@@ -1,8 +1,9 @@
 "use client"
 
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { AnimatedNoise } from "@/components/animated-noise"
 import Link from "next/link"
+import gsap from "gsap"
 
 const workHistory = [
   {
@@ -96,6 +97,16 @@ const workHistory = [
 
 export default function AboutPage() {
   const sectionRef = useRef<HTMLElement>(null)
+  const profileImageRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!profileImageRef.current) return
+    gsap.fromTo(
+      profileImageRef.current,
+      { opacity: 0, y: 32, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 1.4, ease: "power2.out", delay: 0.2 }
+    )
+  }, [])
 
   return (
     <main className="relative min-h-screen">
@@ -127,7 +138,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-[260px,1fr] gap-12 mb-24">
             {/* Profile Image */}
             <div className="relative">
-              <div className="aspect-[4/5] w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
+              <div ref={profileImageRef} style={{ opacity: 0 }} className="aspect-[4/5] w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
                 <img
                   src="/images/holden-profile.jpg"
                   alt="Holden Hays"
