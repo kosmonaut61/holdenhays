@@ -130,8 +130,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 <Link href="/about" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   About
                 </Link>
-                <Link href="/projects" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
-                  Projects
+                <Link href="/#work" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                  Selected Work
                 </Link>
               </nav>
 
