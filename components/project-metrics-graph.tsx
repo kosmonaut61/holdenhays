@@ -22,11 +22,15 @@ export function ProjectMetricsGraph({ metrics }: { metrics: Metric[] }) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const barRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  const chartData = useMemo(() => {
-    const values = metrics.map((metric) => parseMetricValue(metric.value))
+  const { chartData, callouts } = useMemo(() => {
+    const currencyMetrics = metrics.filter((metric) => /\$/.test(metric.value))
+    const graphMetrics = currencyMetrics.length >= 2 ? currencyMetrics : metrics
+    const calloutMetrics = metrics.filter((metric) => !graphMetrics.includes(metric))
+
+    const values = graphMetrics.map((metric) => parseMetricValue(metric.value))
     const maxValue = Math.max(...values, 1)
 
-    return metrics.map((metric, index) => {
+    const data = graphMetrics.map((metric, index) => {
       const raw = values[index]
       const normalized = Math.max((raw / maxValue) * 100, 8)
       return {
@@ -34,6 +38,8 @@ export function ProjectMetricsGraph({ metrics }: { metrics: Metric[] }) {
         normalized,
       }
     })
+
+    return { chartData: data, callouts: calloutMetrics }
   }, [metrics])
 
   useEffect(() => {
@@ -65,11 +71,13 @@ export function ProjectMetricsGraph({ metrics }: { metrics: Metric[] }) {
     return () => ctx.revert()
   }, [chartData])
 
+  const gridColsClass = chartData.length === 2 ? "grid-cols-2" : chartData.length >= 3 ? "grid-cols-3" : "grid-cols-1"
+
   return (
     <div ref={sectionRef} className="mt-8 rounded-sm border border-border/40 bg-black/20 p-5 md:p-6">
       <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">Metric Graph</p>
 
-      <div className="mt-5 grid grid-cols-3 gap-3 md:gap-5 items-end min-h-[220px]">
+      <div className={`mt-5 grid ${gridColsClass} gap-3 md:gap-5 items-end min-h-[220px]`}>
         {chartData.map((metric, index) => (
           <div key={`${metric.label}-${metric.value}`} className="flex flex-col items-center gap-3 h-full">
             <span className="font-[DotGothic16] text-sm md:text-base text-white">{metric.value}</span>
@@ -90,6 +98,18 @@ export function ProjectMetricsGraph({ metrics }: { metrics: Metric[] }) {
           </div>
         ))}
       </div>
+
+      {callouts.length > 0 && (
+        <div className="mt-5 flex flex-wrap gap-3">
+          {callouts.map((metric) => (
+            <div key={`${metric.label}-${metric.value}`} className="rounded-full border border-accent/40 bg-accent/10 px-4 py-2">
+              <span className="font-[DotGothic16] text-[10px] uppercase tracking-[0.16em] text-accent-bright">
+                {metric.label}: {metric.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
