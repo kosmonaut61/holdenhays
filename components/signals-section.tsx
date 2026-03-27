@@ -30,6 +30,8 @@ const signals = [
   },
 ]
 
+const skillBadges = ["Figma", "Adobe Illustrator", "Next.js", "Vercel", "OpenClaw", "HTML & CSS"]
+
 export function SignalsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
@@ -119,7 +121,6 @@ export function SignalsSection() {
 
   return (
     <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
-
       <div
         ref={(el) => {
           cursorRef.current = el
@@ -160,6 +161,8 @@ export function SignalsSection() {
           <SignalCard key={index} signal={signal} index={index} href="/projects/project-lattice" />
         ))}
       </div>
+
+      <SkillsTicker />
     </section>
   )
 }
@@ -175,7 +178,7 @@ function SignalCard({
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
-  
+
   return (
     <Link href={href} className="block" aria-label={`Open ${signal.title} project`}>
       <article
@@ -202,7 +205,7 @@ function SignalCard({
         {/* Title */}
         <h3 className={cn(
           "relative font-[var(--font-bebas)] text-4xl tracking-tight mb-6 transition-colors duration-300",
-          isHovered ? "text-white" : "text-foreground"
+          isHovered ? "text-white" : "text-foreground",
         )}>
           {signal.title}
         </h3>
@@ -221,5 +224,98 @@ function SignalCard({
         </span>
       </article>
     </Link>
+  )
+}
+
+type SkillChip = {
+  id: number
+  label: string
+  slot: number
+  opacity: number
+}
+
+function SkillsTicker() {
+  const visibleCount = 3
+  const fadeMs = 420
+  const slideMs = 320
+  const holdMs = 1500
+
+  const nextIndexRef = useRef(visibleCount)
+  const idRef = useRef(visibleCount)
+  const timersRef = useRef<number[]>([])
+
+  const [chips, setChips] = useState<SkillChip[]>(() =>
+    skillBadges.slice(0, visibleCount).map((label, slot) => ({
+      id: slot,
+      label,
+      slot,
+      opacity: 1,
+    })),
+  )
+
+  useEffect(() => {
+    const clearAllTimers = () => {
+      timersRef.current.forEach((timer) => window.clearTimeout(timer))
+      timersRef.current = []
+    }
+
+    const cycle = () => {
+      setChips((prev) => prev.map((chip) => (chip.slot === 0 ? { ...chip, opacity: 0 } : chip)))
+
+      const fadeTimer = window.setTimeout(() => {
+        setChips((prev) => {
+          const shifted = prev.filter((chip) => chip.slot !== 0).map((chip) => ({ ...chip, slot: chip.slot - 1 }))
+
+          const newLabel = skillBadges[nextIndexRef.current % skillBadges.length]
+          nextIndexRef.current = (nextIndexRef.current + 1) % skillBadges.length
+
+          const incoming: SkillChip = {
+            id: idRef.current++,
+            label: newLabel,
+            slot: 2,
+            opacity: 0,
+          }
+
+          return [...shifted, incoming]
+        })
+
+        const slideTimer = window.setTimeout(() => {
+          setChips((prev) => prev.map((chip) => (chip.slot === 2 && chip.opacity === 0 ? { ...chip, opacity: 1 } : chip)))
+        }, slideMs)
+
+        const nextCycleTimer = window.setTimeout(cycle, slideMs + fadeMs + holdMs)
+        timersRef.current.push(slideTimer, nextCycleTimer)
+      }, fadeMs)
+
+      timersRef.current.push(fadeTimer)
+    }
+
+    const starter = window.setTimeout(cycle, holdMs)
+    timersRef.current.push(starter)
+
+    return clearAllTimers
+  }, [])
+
+  return (
+    <div className="mt-10 pr-6 md:pr-12">
+      <h3 className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">Skills</h3>
+
+      <div className="mt-4 relative h-11 w-full max-w-3xl overflow-hidden">
+        {chips.map((chip) => (
+          <span
+            key={chip.id}
+            className="absolute top-0 inline-flex h-10 w-[31.5%] items-center justify-center rounded-full border border-border/50 bg-card px-3 font-[DotGothic16] text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-foreground/85"
+            style={{
+              transform: `translateX(${chip.slot * 108}%)`,
+              opacity: chip.opacity,
+              transition: `transform ${slideMs}ms ease, opacity ${fadeMs}ms ease`,
+            }}
+            title={chip.label}
+          >
+            <span className="truncate">{chip.label}</span>
+          </span>
+        ))}
+      </div>
+    </div>
   )
 }
