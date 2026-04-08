@@ -63,7 +63,7 @@ export const projects: ProjectData[] = [
     problem:
       "Commercial packaging and pricing were highly variable, even across comparable customers. The existing model limited repeatability, obscured value realization, and made long-term product investment decisions harder.",
     goal:
-      "Establish a standardized model that protects a free legacy path while introducing clear paid-Pro value, improving consistency, scalability, and alignment between customer value and revenue.",
+      "My goal was to increase contribution margin, since a lot of our revenue was from facilitating freight transactions with variable costs. We needed a way to steadily monetize under-performing accounts without affecting existing lucrative relationships.",
     contribution: [
       "Aligned analytics, marketing, product, and sales around a unified commercial framework",
       "Defined Pro-only feature boundaries to create clear paid value",
