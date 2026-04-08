@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { AnimatedNoise } from "@/components/animated-noise"
+import { ProjectSubscriptionVolumeChart } from "@/components/project-subscription-volume-chart"
+import { getSubscriptionVolumeByProjectSlug } from "@/lib/project-charts"
 import { getProjectBySlug } from "@/lib/projects"
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -8,6 +10,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const project = getProjectBySlug(slug)
 
   if (!project) notFound()
+
+  const subscriptionVolumeData = getSubscriptionVolumeByProjectSlug(slug)
 
   return (
     <main className="relative min-h-screen pb-20">
@@ -87,6 +91,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </div>
             </>
           )}
+
+          {subscriptionVolumeData ? <ProjectSubscriptionVolumeChart data={subscriptionVolumeData} /> : null}
 
           <section className="mt-14 grid md:grid-cols-2 gap-8">
             <ListBlock title="Results" items={project.results} />
