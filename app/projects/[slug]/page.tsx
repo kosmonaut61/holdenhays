@@ -5,6 +5,8 @@ import { ProjectHeroImage } from "@/components/project-hero-image"
 import { ImageCluster } from "@/components/image-cluster"
 import { ProjectSections } from "@/components/project-sections"
 import { ProjectMetricsGraph } from "@/components/project-metrics-graph"
+import { ProjectSubscriptionVolumeChart } from "@/components/project-subscription-volume-chart"
+import { getSubscriptionVolumeByProjectSlug } from "@/lib/project-charts"
 import { getProjectBySlug, projects } from "@/lib/projects"
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -16,6 +18,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const relatedProject =
     projects.find((p) => p.slug !== project.slug && p.medium === project.medium) ||
     projects.find((p) => p.slug !== project.slug)
+  const subscriptionVolumeData = getSubscriptionVolumeByProjectSlug(slug)
 
   return (
     <main className="relative min-h-screen pb-20">
@@ -72,6 +75,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <ProjectMetricsGraph metrics={project.metrics} />
             </section>
           )}
+
+          {subscriptionVolumeData ? <ProjectSubscriptionVolumeChart data={subscriptionVolumeData} /> : null}
 
           <SimpleList title="My Contribution" items={project.contribution} />
 
