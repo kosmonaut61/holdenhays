@@ -7,7 +7,7 @@ import type { ProjectSubscriptionPoint } from "@/lib/project-charts"
 const chartConfig = {
   activeSubscriptions: {
     label: "Active subscriptions",
-    color: "oklch(0.74 0.21 299)",
+    color: "rgba(255,255,255,0.72)",
   },
 } satisfies ChartConfig
 
@@ -40,7 +40,7 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
     <section className="mt-14 border border-border/50 bg-black/20 p-6 md:p-8 rounded-sm">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Subscription Growth</h2>
+          <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-white/75">Subscription Growth</h2>
           <p className="mt-3 max-w-3xl font-[DotGothic16] text-white/75 leading-relaxed">
             Active ProcureOS Pro subscriptions grew from <span className="text-white">{first.activeSubscriptions}</span> to{" "}
             <span className="text-white">{last.activeSubscriptions}</span> in under 2.5 years, showing a sustained ramp after
@@ -49,12 +49,12 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
         </div>
 
         <div className="grid grid-cols-2 gap-3 text-right">
-          <div className="border border-accent/25 bg-black/30 px-3 py-2 rounded-sm">
-            <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">Total Growth</p>
+          <div className="border border-white/20 bg-black/30 px-3 py-2 rounded-sm">
+            <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-white/60">Total Growth</p>
             <p className="mt-1 font-[DotGothic16] text-lg text-white">{growthMultiple}x</p>
           </div>
-          <div className="border border-accent/25 bg-black/30 px-3 py-2 rounded-sm">
-            <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">Current Volume</p>
+          <div className="border border-white/20 bg-black/30 px-3 py-2 rounded-sm">
+            <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-white/60">Current Volume</p>
             <p className="mt-1 font-[DotGothic16] text-lg text-white">{last.activeSubscriptions}</p>
           </div>
         </div>
