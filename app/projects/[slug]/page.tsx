@@ -129,6 +129,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </section>
           )}
 
+          {project.marketingVideo ? (
+            <WistiaVideoSection mediaId={project.marketingVideo.wistiaMediaId} blip={project.marketingVideo.blip} />
+          ) : null}
+
           <footer className="mt-16 border-t border-border/30 pt-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <nav aria-label="Project page navigation" className="flex flex-wrap items-center gap-5">
@@ -198,6 +202,25 @@ function StackGroup({ label, items }: { label: string; items: string[] }) {
         ))}
       </div>
     </article>
+  )
+}
+
+function WistiaVideoSection({ mediaId, blip }: { mediaId: string; blip: string }) {
+  return (
+    <section className="mt-16 border-t border-border/40 pt-8">
+      <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Launch Video</h3>
+      <div className="mt-5 overflow-hidden rounded-sm border border-border/40 bg-black/20">
+        <div className="relative w-full pb-[56.25%]">
+          <iframe
+            src={`https://fast.wistia.net/embed/iframe/${mediaId}?videoFoam=true`}
+            title="Project launch video"
+            allow="autoplay; fullscreen"
+            className="absolute inset-0 h-full w-full"
+          />
+        </div>
+      </div>
+      <p className="mt-4 font-[var(--font-reading)] text-sm text-white/68">{blip}</p>
+    </section>
   )
 }
 

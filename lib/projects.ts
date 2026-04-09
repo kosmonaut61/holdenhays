@@ -44,6 +44,10 @@ export type ProjectData = {
   heroImage?: string
   clusterImages?: { src: string; alt: string }[]
   sections?: { title: string; body: string; image?: string; imageAlt?: string }[]
+  marketingVideo?: {
+    wistiaMediaId: string
+    blip: string
+  }
 }
 
 export const projects: ProjectData[] = [
@@ -68,7 +72,6 @@ export const projects: ProjectData[] = [
       "Aligned analytics, marketing, product, and sales around a unified commercial framework",
       "Defined Pro-only feature boundaries to create clear paid value",
       "Structured free-tier eligibility around standardized volume thresholds",
-      "Developed marketing strategies and launch content, including product storytelling video assets (Wistia)",
       "Led cross-functional decision-making on rollout and customer transition",
     ],
     process: [
@@ -127,6 +130,10 @@ export const projects: ProjectData[] = [
       "Capture rollout lessons for future commercial-model updates.",
     ],
     heroImage: "/images/projects/procureos/hero.webp",
+    marketingVideo: {
+      wistiaMediaId: "mnrknev8dc",
+      blip: "Developed marketing strategies and launch content, including this product storytelling video.",
+    },
   },
 
   {
