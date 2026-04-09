@@ -80,6 +80,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           <SimpleList title="My Contribution" items={project.contribution} />
 
+          {project.marketingVideo ? (
+            <WistiaVideoSection mediaId={project.marketingVideo.wistiaMediaId} blip={project.marketingVideo.blip} />
+          ) : null}
+
           {project.sections && project.sections.length > 0 && (
             <ProjectSections sections={project.sections} />
           )}
@@ -128,10 +132,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </Link>
             </section>
           )}
-
-          {project.marketingVideo ? (
-            <WistiaVideoSection mediaId={project.marketingVideo.wistiaMediaId} blip={project.marketingVideo.blip} />
-          ) : null}
 
           <footer className="mt-16 border-t border-border/30 pt-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
