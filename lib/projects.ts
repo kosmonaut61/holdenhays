@@ -68,6 +68,7 @@ export const projects: ProjectData[] = [
       "Aligned analytics, marketing, product, and sales around a unified commercial framework",
       "Defined Pro-only feature boundaries to create clear paid value",
       "Structured free-tier eligibility around standardized volume thresholds",
+      "Developed marketing strategies and launch content, including product storytelling video assets (Wistia)",
       "Led cross-functional decision-making on rollout and customer transition",
     ],
     process: [
