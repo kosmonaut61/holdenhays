@@ -82,8 +82,8 @@ export function WorkSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
         <div>
-          <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">02 / Projects</span>
-          <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">SELECTED WORK</h2>
+          <span className="font-dot-gothic text-[12px] tracking-[0.05em] texture-accent-text">02 / Projects</span>
+          <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">Selected work</h2>
         </div>
         <p className="hidden md:block max-w-xs font-sans text-sm text-muted-foreground text-right leading-relaxed">
           Studies across interface design, agent systems, and visual computation.
@@ -182,7 +182,7 @@ function WorkCard({
       />
 
       <div className="relative z-10 flex items-start justify-between gap-4">
-        <span className="font-dot-gothic text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+        <span className="font-dot-gothic text-[11px] tracking-[0.08em] text-muted-foreground">
           {experiment.medium}
         </span>
         <ArrowUpRight

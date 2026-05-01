@@ -116,8 +116,8 @@ export default function ProjectsPage() {
           </Link>
 
           <div ref={headerRef} className="mb-16">
-            <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">PERSONAL PROJECTS</span>
-            <h1 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">PROJECTS</h1>
+            <span className="font-dot-gothic text-[12px] tracking-[0.05em] texture-accent-text">Personal projects</span>
+            <h1 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">Projects</h1>
             <p className="mt-6 max-w-2xl font-sans text-lg text-white/50 leading-relaxed">
               A collection of AI-powered games and experimental projects I've built for fun and learning.
             </p>
@@ -125,7 +125,7 @@ export default function ProjectsPage() {
 
           <div className="mb-12 grid gap-6 md:grid-cols-[1.05fr,1fr] border border-border/40 rounded-sm p-6 md:p-8 bg-black/20">
             <div>
-              <span className="font-dot-gothic text-[11px] uppercase tracking-[0.28em] text-accent">Featured Personal Project</span>
+              <span className="font-dot-gothic text-[11px] tracking-[0.11em] text-accent">Featured personal project</span>
               <h2 className="mt-3 font-display text-2xl md:text-3xl tracking-tight">Flamework</h2>
               <p className="mt-3 max-w-3xl font-sans text-sm md:text-base text-white/70 leading-relaxed">
                 Flamework is a personal build lab for fast product experiments, interaction prototypes, and AI-forward concepts. It’s where ideas get pressure-tested before they become full case studies.
@@ -220,7 +220,7 @@ function ProjectCard({
       <div className={cn("absolute inset-0 bg-white/5 transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")} />
 
       <div className="relative z-10 flex items-start justify-between gap-4">
-        <span className="font-dot-gothic text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{project.medium}</span>
+        <span className="font-dot-gothic text-[11px] tracking-[0.08em] text-muted-foreground">{project.medium}</span>
         <ArrowUpRight
           className={cn(
             "h-4 w-4 transition-all duration-300",

@@ -89,7 +89,7 @@ export function ColophonSection() {
       </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-16 max-w-4xl">
-        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">03 / Thanks</span>
+        <span className="font-dot-gothic text-[12px] tracking-[0.05em] texture-accent-text">03 / Thanks</span>
         <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">LET&apos;S BUILD SOMETHING USEFUL.</h2>
         <p className="mt-6 font-sans text-sm md:text-base text-foreground/70 leading-relaxed">
           I lead products from early signal to shipped experience — blending product leadership, AI workflows,
@@ -102,7 +102,7 @@ export function ColophonSection() {
       {/* Footer content */}
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl">
         <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
-          <h4 className="font-dot-gothic text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Now</h4>
+          <h4 className="font-dot-gothic text-[11px] tracking-[0.05em] text-muted-foreground mb-4">Now</h4>
           <ul className="space-y-3 font-sans text-sm text-foreground/80">
             <li>
               Leading product marketing + design at{" "}
@@ -120,7 +120,7 @@ export function ColophonSection() {
         </div>
 
         <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
-          <h4 className="font-dot-gothic text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Navigate</h4>
+          <h4 className="font-dot-gothic text-[11px] tracking-[0.05em] text-muted-foreground mb-4">Navigate</h4>
           <ul className="space-y-2">
             <li>
               <Link href="/" className="font-sans text-sm text-foreground/80 hover:text-accent transition-colors duration-200">Home</Link>
@@ -135,7 +135,7 @@ export function ColophonSection() {
         </div>
 
         <div className="col-span-1 border border-border/40 bg-card/40 rounded-sm p-6">
-          <h4 className="font-dot-gothic text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Connect</h4>
+          <h4 className="font-dot-gothic text-[11px] tracking-[0.05em] text-muted-foreground mb-4">Connect</h4>
           <ul className="space-y-2">
             <li>
               <a href="mailto:hello@holdenhays.com" className="font-sans text-sm text-foreground/80 hover:text-accent transition-colors duration-200">
@@ -158,7 +158,7 @@ export function ColophonSection() {
 
       {/* Bottom copyright */}
       <div ref={footerRef} className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <p className="font-dot-gothic text-[12px] text-muted-foreground uppercase tracking-widest">© 2026 Holden Hays. All rights reserved.</p>
+        <p className="font-dot-gothic text-[12px] text-muted-foreground tracking-[0.06em]">© 2026 Holden Hays. All rights reserved.</p>
       </div>
     </section>
   )
@@ -235,13 +235,13 @@ function SkillsTicker() {
 
   return (
     <div className="mt-8">
-      <h3 className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-accent">Skills</h3>
+      <h3 className="font-dot-gothic text-[12px] tracking-[0.05em] text-accent">Skills</h3>
 
       <div className="mt-4 relative h-11 w-full max-w-3xl overflow-hidden">
         {chips.map((chip) => (
           <span
             key={chip.id}
-            className="absolute top-0 inline-flex h-10 w-[31.5%] items-center justify-center rounded-full border border-border/50 bg-card px-3 font-dot-gothic text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-foreground/85"
+            className="absolute top-0 inline-flex h-10 w-[31.5%] items-center justify-center rounded-full border border-border/50 bg-card px-3 font-dot-gothic text-[10px] md:text-[11px] tracking-[0.05em] text-foreground/85"
             style={{
               transform: `translateX(${chip.slot * 108}%)`,
               opacity: chip.opacity,

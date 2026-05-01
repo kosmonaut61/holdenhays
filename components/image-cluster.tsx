@@ -40,7 +40,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
   return (
     <>
       <div className="mt-16 mb-8">
-        <p className="font-dot-gothic text-[11px] uppercase tracking-[0.25em] text-accent mb-6">Gallery</p>
+        <p className="font-dot-gothic text-[11px] tracking-[0.1em] text-accent mb-6">Gallery</p>
 
         {/* overflow-visible so cards outside bounds are still clickable */}
         <div
@@ -122,7 +122,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
             >→</button>
           )}
 
-          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-dot-gothic text-[11px] uppercase tracking-widest text-white/25">
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-dot-gothic text-[11px] tracking-[0.06em] text-white/25">
             Click outside or Esc to close
           </p>
         </div>

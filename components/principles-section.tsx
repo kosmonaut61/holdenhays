@@ -16,8 +16,8 @@ export function PrinciplesSection() {
     {
       number: "01",
       titleParts: [
-        { text: "INTERFACE", highlight: true },
-        { text: " MINIMALISM", highlight: false },
+        { text: "Interface", highlight: true },
+        { text: " minimalism", highlight: false },
       ],
       description: "Reduce until only the essential remains. Every element earns its place.",
       align: "left",
@@ -25,8 +25,8 @@ export function PrinciplesSection() {
     {
       number: "02",
       titleParts: [
-        { text: "SYSTEMS", highlight: true },
-        { text: " OVER SCREENS", highlight: false },
+        { text: "Systems", highlight: true },
+        { text: " over screens", highlight: false },
       ],
       description: "Design behaviors, not just layouts. Build logic that scales.",
       align: "right",
@@ -34,8 +34,8 @@ export function PrinciplesSection() {
     {
       number: "03",
       titleParts: [
-        { text: "CONTROLLED ", highlight: false },
-        { text: "TENSION", highlight: true },
+        { text: "Controlled ", highlight: false },
+        { text: "tension", highlight: true },
       ],
       description: "Balance between restraint and expression. Confidence without excess.",
       align: "left",
@@ -43,8 +43,8 @@ export function PrinciplesSection() {
     {
       number: "04",
       titleParts: [
-        { text: "SIGNAL ", highlight: false },
-        { text: "CLARITY", highlight: true },
+        { text: "Signal ", highlight: false },
+        { text: "clarity", highlight: true },
       ],
       description: "Communication that cuts through noise. Precision in every interaction.",
       align: "right",
@@ -97,8 +97,8 @@ export function PrinciplesSection() {
       </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-24">
-        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-white/80">03 / Principles</span>
-        <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">HOW WE WORK</h2>
+        <span className="font-dot-gothic text-[12px] tracking-[0.05em] text-white/80">03 / Principles</span>
+        <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">How we work</h2>
       </div>
 
       {/* Staggered principles */}
@@ -111,7 +111,7 @@ export function PrinciplesSection() {
             }`}
           >
             {/* Annotation label */}
-            <span className="font-dot-gothic text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            <span className="font-dot-gothic text-[11px] tracking-[0.05em] text-muted-foreground mb-4">
               {principle.number} / {principle.titleParts[0].text.split(" ")[0]}
             </span>
 

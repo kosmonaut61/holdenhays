@@ -85,8 +85,8 @@ export function SignalsSection() {
     <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
       {/* Section header */}
       <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
-        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">01 / INTRO</span>
-        <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">WHO AM I?</h2>
+        <span className="font-dot-gothic text-[12px] tracking-[0.05em] texture-accent-text">01 / Intro</span>
+        <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">Who I am</h2>
         <p className="mt-8 max-w-2xl font-sans text-lg text-white/50 leading-relaxed">
           I'm a designer at heart, taking problems and breaking them down into solvable pieces. <span className="text-white">I use my powers for business.</span>
         </p>
@@ -182,7 +182,7 @@ function SignalCard({
         {/* Index marker */}
         <span
           className={cn(
-            "absolute bottom-8 right-8 font-dot-gothic text-[12px] uppercase tracking-[0.18em] transition-colors duration-300",
+            "absolute bottom-8 right-8 font-dot-gothic text-[12px] tracking-[0.05em] transition-colors duration-300",
             isHovered ? "text-white" : "text-muted-foreground/40",
           )}
         >

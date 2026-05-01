@@ -57,7 +57,7 @@ function ProjectSectionItem({ section, flip }: { section: Section; flip: boolean
         </div>
       )}
       <div ref={textRef} className="w-full md:w-2/5 space-y-4" style={{ opacity: 0 }}>
-        <span className="font-dot-gothic text-[11px] uppercase tracking-[0.25em] text-accent">Key Highlight</span>
+        <span className="font-dot-gothic text-[11px] tracking-[0.1em] text-accent">Key Highlight</span>
         <h3 className="font-display text-3xl md:text-4xl tracking-tight">{section.title}</h3>
         <p className="font-[var(--font-reading)] text-white/72 leading-relaxed">{section.body}</p>
       </div>

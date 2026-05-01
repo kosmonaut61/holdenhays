@@ -86,7 +86,7 @@ export function HeroSection() {
 
       {/* Left vertical labels */}
       <div className="hidden md:block absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
-        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
+        <span className="font-dot-gothic text-[12px] tracking-[0.05em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
           SIGNAL
         </span>
       </div>
@@ -96,7 +96,7 @@ export function HeroSection() {
         {/* Commented out flipboard animation - keep for potential future use */}
         {/* <SplitFlapAudioProvider>
           <div className="relative">
-            <SplitFlapText text="INTERFACE" speed={80} />
+            <SplitFlapText text="Interface" speed={80} />
             <div className="mt-4">
               <SplitFlapMuteToggle />
             </div>
@@ -107,7 +107,7 @@ export function HeroSection() {
           HOLDEN HAYS
         </h1>
 
-        <h2 className="font-sans text-white/70 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide font-light">
+        <h2 className="font-sans text-white/70 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-[0.01em] font-light">
           Product Focused Leader based in Phoenix, AZ
         </h2>
 
@@ -120,7 +120,7 @@ export function HeroSection() {
             ref={prismRef as React.RefObject<HTMLAnchorElement>}
             href="#work"
             className={cn(
-              "group relative inline-flex items-center gap-3 border px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] transition-all duration-200 rounded-sm overflow-hidden",
+              "group relative inline-flex items-center gap-3 border px-6 py-3 font-sans text-sm tracking-[0.06em] transition-all duration-200 rounded-sm overflow-hidden",
               isButtonHovered ? "border-white/30 text-white bg-white/5" : "border-foreground/20 text-foreground"
             )}
             style={isButtonHovered ? prismStyles : {}}
@@ -129,13 +129,13 @@ export function HeroSection() {
           >
             {isButtonHovered && <PrismLayers intensity="normal" />}
             <span className="relative z-10">
-              <ScrambleTextOnHover text="VIEW WORK" as="span" duration={0.6} />
+              <ScrambleTextOnHover text="View work" as="span" duration={0.6} />
             </span>
             <BitmapChevron className="relative z-10 transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
             href="/about"
-            className="font-sans text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="font-sans text-sm tracking-[0.06em] text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             About Me
           </a>
@@ -146,7 +146,7 @@ export function HeroSection() {
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <a 
           href="/projects" 
-          className="border border-border px-4 py-2 font-dot-gothic text-[12px] uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors duration-200"
+          className="border border-border px-4 py-2 font-dot-gothic text-[12px] tracking-[0.06em] text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors duration-200"
         >
           View my personal projects
         </a>

@@ -38,8 +38,8 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
   return (
     <section className="mt-14 border border-border/50 bg-black/20 p-6 md:p-8 rounded-sm">
       <div>
-        <h2 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-white/75">Subscription Growth</h2>
-        <p className="mt-3 max-w-3xl font-[DotGothic16] text-white/75 leading-relaxed">
+        <h2 className="font-dot-gothic text-sm tracking-[0.1em] text-white/75">Subscription Growth</h2>
+        <p className="mt-3 max-w-3xl font-dot-gothic text-white/75 leading-relaxed">
           Active ProcureOS Pro subscriptions grew from <span className="text-white">{first.activeSubscriptions}</span> to{" "}
           <span className="text-white">{last.activeSubscriptions}</span> in under 2.5 years, showing a sustained ramp after
           initial launch.

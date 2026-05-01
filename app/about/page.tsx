@@ -128,10 +128,10 @@ export default function AboutPage() {
 
           {/* Header */}
           <div className="mb-16">
-            <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-accent">
+            <span className="font-dot-gothic text-[12px] tracking-[0.05em] text-accent">
               ABOUT
             </span>
-            <h1 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">HOLDEN HAYS</h1>
+            <h1 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">Holden Hays</h1>
           </div>
 
           {/* Bio + profile */}
@@ -179,7 +179,7 @@ export default function AboutPage() {
               <a
                 href="#"
                 download
-                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-sans text-sm uppercase tracking-[0.2em] transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5 mt-2"
+                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-sans text-sm tracking-[0.06em] transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5 mt-2"
               >
                 DOWNLOAD RESUME <span>↓</span>
               </a>
@@ -188,7 +188,7 @@ export default function AboutPage() {
 
           {/* Work History */}
           <div>
-            <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-accent">
+            <span className="font-dot-gothic text-[12px] tracking-[0.05em] text-accent">
               WORK HISTORY
             </span>
             <h2 className="mt-3 mb-12 font-display text-3xl md:text-4xl tracking-tight">Experience</h2>
@@ -230,7 +230,7 @@ export default function AboutPage() {
                       {job.roles.map((role, ri) => (
                         <div key={ri} className={job.roles.length > 1 && ri > 0 ? "pl-4 border-l border-border/20" : ""}>
                           <p className="font-display text-lg text-white">{role.title}</p>
-                          <p className="font-dot-gothic text-[11px] uppercase tracking-widest text-accent mt-1">
+                          <p className="font-dot-gothic text-[11px] tracking-[0.06em] text-accent mt-1">
                             {role.period}
                           </p>
                           <p className="font-sans text-sm text-white/50 mt-0.5">
@@ -253,18 +253,18 @@ export default function AboutPage() {
           <footer className="mt-16 border-t border-border/30 pt-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <nav aria-label="About page navigation" className="flex flex-wrap items-center gap-5">
-                <Link href="/" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/" className="font-dot-gothic text-[11px] tracking-[0.06em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   Home
                 </Link>
-                <Link href="/about" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/about" className="font-dot-gothic text-[11px] tracking-[0.06em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   About
                 </Link>
-                <Link href="/#work" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/#work" className="font-dot-gothic text-[11px] tracking-[0.06em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   Selected Work
                 </Link>
               </nav>
 
-              <p className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="font-dot-gothic text-[11px] tracking-[0.06em] text-muted-foreground">
                 © 2026 Holden Hays
               </p>
             </div>
