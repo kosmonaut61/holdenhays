@@ -104,7 +104,7 @@ export function HeroSection() {
         </SplitFlapAudioProvider> */}
 
         <h1 className="font-display text-white text-[clamp(3rem,12vw,8rem)] leading-[0.92] tracking-[-0.04em]">
-          HOLDEN HAYS
+          Holden Hays
         </h1>
 
         <h2 className="font-sans text-white/70 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-[0.01em] font-light">
