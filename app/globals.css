@@ -40,12 +40,12 @@
 }
 
 @theme inline {
-  /* Updated font-sans and font-mono to use IBM Plex */
-  --font-sans: "IBM Plex Sans", "IBM Plex Sans Fallback", sans-serif;
+  /* Typography system */
+  --font-sans: "Stack Sans Text", "Avenir Next", "Helvetica Neue", sans-serif;
   --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace;
-  --font-display: "Bebas Neue", "Bebas Neue Fallback", sans-serif;
-  --font-dot-gothic: "DotGothic16", "DotGothic16 Fallback", monospace;
-  --font-reading: "Proxima Nova", "Avenir Next", "Avenir", "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-display: "Stack Sans Headline", "Stack Sans Text", sans-serif;
+  --font-dot-gothic: "DotGothic16", monospace;
+  --font-reading: "Stack Sans Text", "Avenir Next", "Helvetica Neue", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

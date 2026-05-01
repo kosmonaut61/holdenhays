@@ -97,8 +97,8 @@ export function PrinciplesSection() {
       </div>
       {/* Section header */}
       <div ref={headerRef} className="mb-24">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-white/80">03 / Principles</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">HOW WE WORK</h2>
+        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-white/80">03 / Principles</span>
+        <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">HOW WE WORK</h2>
       </div>
 
       {/* Staggered principles */}
@@ -111,11 +111,11 @@ export function PrinciplesSection() {
             }`}
           >
             {/* Annotation label */}
-            <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            <span className="font-dot-gothic text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
               {principle.number} / {principle.titleParts[0].text.split(" ")[0]}
             </span>
 
-            <h3 className="font-[var(--font-bebas)] text-4xl md:text-6xl lg:text-8xl tracking-tight leading-none">
+            <h3 className="font-display text-4xl md:text-6xl lg:text-8xl tracking-tight leading-none">
               {principle.titleParts.map((part, i) =>
                 part.highlight ? (
                   <HighlightText key={i} parallaxSpeed={0.6}>
@@ -128,7 +128,7 @@ export function PrinciplesSection() {
             </h3>
 
             {/* Description */}
-            <p className="mt-6 max-w-md font-[DotGothic16] text-base text-muted-foreground leading-relaxed">
+            <p className="mt-6 max-w-md font-sans text-base text-muted-foreground leading-relaxed">
               {principle.description}
             </p>
 

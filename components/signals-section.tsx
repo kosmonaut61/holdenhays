@@ -85,9 +85,9 @@ export function SignalsSection() {
     <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
       {/* Section header */}
       <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">01 / INTRO</span>
-        <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">WHO AM I?</h2>
-        <p className="mt-8 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
+        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">01 / INTRO</span>
+        <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">WHO AM I?</h2>
+        <p className="mt-8 max-w-2xl font-sans text-lg text-white/50 leading-relaxed">
           I'm a designer at heart, taking problems and breaking them down into solvable pieces. <span className="text-white">I use my powers for business.</span>
         </p>
       </div>
@@ -170,19 +170,19 @@ function SignalCard({
 
         {/* Title */}
         <h3 className={cn(
-          "relative font-[var(--font-bebas)] text-4xl tracking-tight mb-6 transition-colors duration-300",
+          "relative font-display text-4xl tracking-tight mb-6 transition-colors duration-300",
           isHovered ? "text-white" : "text-foreground",
         )}>
           {signal.title}
         </h3>
 
         {/* Description */}
-        <p className="relative font-[DotGothic16] text-sm text-muted-foreground leading-relaxed">{signal.note}</p>
+        <p className="relative font-sans text-sm text-muted-foreground leading-relaxed">{signal.note}</p>
 
         {/* Index marker */}
         <span
           className={cn(
-            "absolute bottom-8 right-8 font-[DotGothic16] text-[12px] transition-colors duration-300",
+            "absolute bottom-8 right-8 font-dot-gothic text-[12px] uppercase tracking-[0.18em] transition-colors duration-300",
             isHovered ? "text-white" : "text-muted-foreground/40",
           )}
         >

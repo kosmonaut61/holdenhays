@@ -61,7 +61,7 @@ export function SideNav() {
             </span>
             <span
               className={cn(
-                "absolute left-6 font-[DotGothic16] text-[12px] uppercase tracking-widest opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:left-8 whitespace-nowrap",
+                "absolute left-6 font-dot-gothic text-[12px] uppercase tracking-widest opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:left-8 whitespace-nowrap",
                 activeSection === id ? "text-white" : "text-muted-foreground",
               )}
             >

@@ -121,17 +121,17 @@ export default function AboutPage() {
           {/* Back button */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-[DotGothic16] text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-12"
+            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-12"
           >
             <span>←</span> BACK TO HOME
           </Link>
 
           {/* Header */}
           <div className="mb-16">
-            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">
+            <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-accent">
               ABOUT
             </span>
-            <h1 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">HOLDEN HAYS</h1>
+            <h1 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">HOLDEN HAYS</h1>
           </div>
 
           {/* Bio + profile */}
@@ -148,12 +148,12 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-5">
-              <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed">
+              <p className="font-sans text-lg text-white/70 leading-relaxed">
                 I'm a designer at heart, taking problems and breaking them down into solvable pieces.{" "}
                 <span className="text-white">I use my powers for business</span>, aligning company goals with
                 customer needs to deliver great product experiences.
               </p>
-              <p className="font-[DotGothic16] text-lg text-white/70 leading-relaxed">
+              <p className="font-sans text-lg text-white/70 leading-relaxed">
                 My background is in product design. My current focus is leading product design, marketing, and
                 building AI workflows at{" "}
                 <a
@@ -179,7 +179,7 @@ export default function AboutPage() {
               <a
                 href="#"
                 download
-                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-[DotGothic16] text-sm uppercase tracking-widest transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5 mt-2"
+                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-sans text-sm uppercase tracking-[0.2em] transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5 mt-2"
               >
                 DOWNLOAD RESUME <span>↓</span>
               </a>
@@ -188,10 +188,10 @@ export default function AboutPage() {
 
           {/* Work History */}
           <div>
-            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-accent">
+            <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-accent">
               WORK HISTORY
             </span>
-            <h2 className="mt-3 mb-12 font-[DotGothic16] text-3xl md:text-4xl tracking-tight">Experience</h2>
+            <h2 className="mt-3 mb-12 font-display text-3xl md:text-4xl tracking-tight">Experience</h2>
 
             {/* Timeline */}
             <div className="relative">
@@ -212,12 +212,12 @@ export default function AboutPage() {
                             href={job.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-[DotGothic16] text-xl text-white hover:text-accent transition-colors duration-200"
+                            className="font-display text-xl text-white hover:text-accent transition-colors duration-200"
                           >
                             {job.company}
                           </a>
                         ) : (
-                          <span className="font-[DotGothic16] text-xl text-white">{job.company}</span>
+                          <span className="font-display text-xl text-white">{job.company}</span>
                         )}
                         <span className="font-sans text-sm text-white/40">
                           {job.type}
@@ -229,8 +229,8 @@ export default function AboutPage() {
                     <div className="space-y-6">
                       {job.roles.map((role, ri) => (
                         <div key={ri} className={job.roles.length > 1 && ri > 0 ? "pl-4 border-l border-border/20" : ""}>
-                          <p className="font-[DotGothic16] text-lg text-white">{role.title}</p>
-                          <p className="font-[DotGothic16] text-[11px] uppercase tracking-widest text-accent mt-1">
+                          <p className="font-display text-lg text-white">{role.title}</p>
+                          <p className="font-dot-gothic text-[11px] uppercase tracking-widest text-accent mt-1">
                             {role.period}
                           </p>
                           <p className="font-sans text-sm text-white/50 mt-0.5">
@@ -253,18 +253,18 @@ export default function AboutPage() {
           <footer className="mt-16 border-t border-border/30 pt-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <nav aria-label="About page navigation" className="flex flex-wrap items-center gap-5">
-                <Link href="/" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   Home
                 </Link>
-                <Link href="/about" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/about" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   About
                 </Link>
-                <Link href="/#work" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/#work" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   Selected Work
                 </Link>
               </nav>
 
-              <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 © 2026 Holden Hays
               </p>
             </div>

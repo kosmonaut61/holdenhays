@@ -82,10 +82,10 @@ export function WorkSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
         <div>
-          <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">02 / Projects</span>
-          <h2 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">SELECTED WORK</h2>
+          <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">02 / Projects</span>
+          <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">SELECTED WORK</h2>
         </div>
-        <p className="hidden md:block max-w-xs font-[DotGothic16] text-sm text-muted-foreground text-right leading-relaxed">
+        <p className="hidden md:block max-w-xs font-sans text-sm text-muted-foreground text-right leading-relaxed">
           Studies across interface design, agent systems, and visual computation.
         </p>
       </div>
@@ -182,7 +182,7 @@ function WorkCard({
       />
 
       <div className="relative z-10 flex items-start justify-between gap-4">
-        <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+        <span className="font-dot-gothic text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
           {experiment.medium}
         </span>
         <ArrowUpRight
@@ -197,13 +197,13 @@ function WorkCard({
       <div className="relative z-10 space-y-3 mt-auto">
         <h3
           className={cn(
-            "font-[DotGothic16] text-xl md:text-2xl tracking-tight transition-colors duration-300",
+            "font-display text-xl md:text-2xl tracking-tight transition-colors duration-300",
             isActive ? "text-white" : "text-foreground",
           )}
         >
           {experiment.title}
         </h3>
-        <p className="font-[DotGothic16] text-sm text-muted-foreground leading-relaxed line-clamp-2">
+        <p className="font-sans text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {experiment.description}
         </p>
       </div>

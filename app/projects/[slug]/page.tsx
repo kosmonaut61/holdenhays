@@ -29,14 +29,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         <div className="mx-auto w-full max-w-6xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-[DotGothic16] text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             <span>←</span> BACK TO HOME
           </Link>
 
           <header className="mt-12">
-            <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.3em] text-accent">{project.medium}</p>
-            <h1 className="mt-5 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">{project.title}</h1>
+            <p className="font-dot-gothic text-[11px] uppercase tracking-[0.3em] text-accent">{project.medium}</p>
+            <h1 className="mt-5 font-display text-5xl md:text-7xl tracking-tight">{project.title}</h1>
             <p className="mt-6 max-w-3xl font-[var(--font-reading)] text-[1.14rem] text-white/78 leading-relaxed">{project.heroLine}</p>
 
             <div className="mt-8 flex flex-wrap gap-2 md:gap-3">
@@ -52,7 +52,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           )}
 
           <section className="mt-16 grid md:grid-cols-[1.1fr,1fr] gap-10 md:gap-14 items-start">
-            <h2 className="font-[DotGothic16] text-3xl md:text-5xl leading-tight tracking-tight text-white/95">{project.goal}</h2>
+            <h2 className="font-display text-3xl md:text-5xl leading-tight tracking-tight text-white/95">{project.goal}</h2>
             <div className="space-y-6 font-[var(--font-reading)] text-white/76 leading-relaxed">
               <p>{project.overview}</p>
               <p>{project.problem}</p>
@@ -61,12 +61,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           {project.metrics && project.metrics.length > 0 && (
             <section className="mt-16">
-              <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Key Metrics</h3>
+              <h3 className="font-dot-gothic text-sm uppercase tracking-[0.25em] text-accent">Key Metrics</h3>
               <div className="mt-5 grid md:grid-cols-3 gap-5">
                 {project.metrics.map((metric) => (
                   <article key={`${metric.label}-${metric.value}`} className="rounded-sm border border-border/40 bg-black/20 p-5">
-                    <p className="font-[DotGothic16] text-[10px] uppercase tracking-[0.2em] text-accent-bright">{metric.label}</p>
-                    <p className="mt-2 font-[DotGothic16] text-2xl md:text-3xl text-white">{metric.value}</p>
+                    <p className="font-dot-gothic text-[10px] uppercase tracking-[0.2em] text-accent-bright">{metric.label}</p>
+                    <p className="mt-2 font-display text-2xl md:text-3xl text-white">{metric.value}</p>
                     {metric.note ? <p className="mt-2 font-[var(--font-reading)] text-[0.95rem] text-white/64 leading-relaxed">{metric.note}</p> : null}
                   </article>
                 ))}
@@ -91,15 +91,15 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <SimpleSteps title="Key Features" items={project.features} />
 
           <section className="mt-14">
-            <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Challenges & Solutions</h3>
+            <h3 className="font-dot-gothic text-sm uppercase tracking-[0.25em] text-accent">Challenges & Solutions</h3>
             <div className="mt-5 space-y-6">
               {project.challenges.map((item, i) => (
                 <article key={i}>
-                  <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Challenge</p>
+                  <p className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-white/60">Challenge</p>
                   <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.challenge}</p>
-                  <p className="mt-3 font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Solution</p>
+                  <p className="mt-3 font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-white/60">Solution</p>
                   <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.solution}</p>
-                  <p className="mt-3 font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">Outcome</p>
+                  <p className="mt-3 font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-white/60">Outcome</p>
                   <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.outcome}</p>
                 </article>
               ))}
@@ -120,15 +120,15 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           {relatedProject && (
             <section className="mt-16 border-t border-border/40 pt-8">
-              <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">Another Project</h3>
+              <h3 className="font-dot-gothic text-sm uppercase tracking-[0.25em] text-accent">Another Project</h3>
               <p className="mt-3 font-[var(--font-reading)] text-white/72">If you liked this case study, check out this related project next.</p>
               <Link
                 href={`/projects/${relatedProject.slug}`}
                 className="mt-5 inline-flex items-center gap-3 rounded-sm border border-border/50 bg-black/20 px-4 py-3 hover:border-accent/60 transition-colors"
               >
-                <span className="font-[DotGothic16] text-[10px] uppercase tracking-[0.18em] text-accent">{relatedProject.medium}</span>
+                <span className="font-dot-gothic text-[10px] uppercase tracking-[0.18em] text-accent">{relatedProject.medium}</span>
                 <span className="font-[var(--font-reading)] text-white">{relatedProject.title}</span>
-                <span className="font-[DotGothic16] text-white/60">→</span>
+                <span className="font-dot-gothic text-white/60">→</span>
               </Link>
             </section>
           )}
@@ -136,18 +136,18 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <footer className="mt-16 border-t border-border/30 pt-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <nav aria-label="Project page navigation" className="flex flex-wrap items-center gap-5">
-                <Link href="/" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   Home
                 </Link>
-                <Link href="/about" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/about" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   About
                 </Link>
-                <Link href="/#work" className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
+                <Link href="/#work" className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-accent transition-colors duration-200">
                   Selected Work
                 </Link>
               </nav>
 
-              <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 © 2026 Holden Hays
               </p>
             </div>
@@ -161,7 +161,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 function SimpleList({ title, items }: { title: string; items: string[] }) {
   return (
     <section className="mt-14">
-      <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
+      <h3 className="font-dot-gothic text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
       <ul className="mt-4 space-y-2">
         {items.map((item) => (
           <li key={item} className="font-[var(--font-reading)] text-white/82 leading-relaxed">
@@ -177,11 +177,11 @@ function SimpleList({ title, items }: { title: string; items: string[] }) {
 function SimpleSteps({ title, items }: { title: string; items: Array<{ title: string; body: string }> }) {
   return (
     <section className="mt-14">
-      <h3 className="font-[DotGothic16] text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
+      <h3 className="font-dot-gothic text-sm uppercase tracking-[0.25em] text-accent">{title}</h3>
       <div className="mt-4 space-y-5">
         {items.map((item) => (
           <article key={item.title}>
-            <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-white/60">{item.title}</p>
+            <p className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-white/60">{item.title}</p>
             <p className="mt-1 font-[var(--font-reading)] text-white/82 leading-relaxed">{item.body}</p>
           </article>
         ))}
@@ -193,10 +193,10 @@ function SimpleSteps({ title, items }: { title: string; items: Array<{ title: st
 function StackGroup({ label, items }: { label: string; items: string[] }) {
   return (
     <article>
-      <h3 className="font-[DotGothic16] text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{label}</h3>
+      <h3 className="font-dot-gothic text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{label}</h3>
       <div className="mt-2 flex flex-wrap gap-2">
         {items.map((item) => (
-          <span key={item} className="border border-border/50 px-2 py-1 text-[11px] font-[DotGothic16] text-white/80 bg-black/30 rounded-sm">
+          <span key={item} className="border border-border/50 px-2 py-1 text-[11px] font-dot-gothic text-white/80 bg-black/30 rounded-sm">
             {item}
           </span>
         ))}
@@ -226,7 +226,7 @@ function WistiaVideoSection({ mediaId, blip }: { mediaId: string; blip: string }
 
 function MetaChip({ label, value }: { label: string; value: string }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border/50 bg-black/30 px-3 py-1 font-[DotGothic16] text-[10px] uppercase tracking-[0.16em] text-white/78">
+    <span className="inline-flex items-center rounded-full border border-border/50 bg-black/30 px-3 py-1 font-dot-gothic text-[10px] uppercase tracking-[0.16em] text-white/78">
       <span className="text-white/50 mr-1">{label}:</span> {value}
     </span>
   )

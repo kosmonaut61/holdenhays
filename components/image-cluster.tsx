@@ -40,7 +40,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
   return (
     <>
       <div className="mt-16 mb-8">
-        <p className="font-[DotGothic16] text-[11px] uppercase tracking-[0.25em] text-accent mb-6">Gallery</p>
+        <p className="font-dot-gothic text-[11px] uppercase tracking-[0.25em] text-accent mb-6">Gallery</p>
 
         {/* overflow-visible so cards outside bounds are still clickable */}
         <div
@@ -95,7 +95,7 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
         >
           {images.length > 1 && (
             <button
-              className="absolute left-4 md:left-8 z-10 font-[DotGothic16] text-2xl text-white/50 hover:text-white px-4 py-2 transition-colors"
+              className="absolute left-4 md:left-8 z-10 font-display text-2xl text-white/50 hover:text-white px-4 py-2 transition-colors"
               onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + images.length) % images.length) }}
             >←</button>
           )}
@@ -117,12 +117,12 @@ export function ImageCluster({ images }: { images: ClusterImage[] }) {
 
           {images.length > 1 && (
             <button
-              className="absolute right-4 md:right-8 z-10 font-[DotGothic16] text-2xl text-white/50 hover:text-white px-4 py-2 transition-colors"
+              className="absolute right-4 md:right-8 z-10 font-display text-2xl text-white/50 hover:text-white px-4 py-2 transition-colors"
               onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % images.length) }}
             >→</button>
           )}
 
-          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-[DotGothic16] text-[11px] uppercase tracking-widest text-white/25">
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-dot-gothic text-[11px] uppercase tracking-widest text-white/25">
             Click outside or Esc to close
           </p>
         </div>

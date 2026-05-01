@@ -110,24 +110,24 @@ export default function ProjectsPage() {
         <div className="w-full">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-[DotGothic16] text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-12"
+            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-12"
           >
             <span>←</span> BACK TO HOME
           </Link>
 
           <div ref={headerRef} className="mb-16">
-            <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] texture-accent-text">PERSONAL PROJECTS</span>
-            <h1 className="mt-4 font-[DotGothic16] text-5xl md:text-7xl tracking-tight">PROJECTS</h1>
-            <p className="mt-6 max-w-2xl font-[DotGothic16] text-lg text-white/50 leading-relaxed">
+            <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] texture-accent-text">PERSONAL PROJECTS</span>
+            <h1 className="mt-4 font-display text-5xl md:text-7xl tracking-tight">PROJECTS</h1>
+            <p className="mt-6 max-w-2xl font-sans text-lg text-white/50 leading-relaxed">
               A collection of AI-powered games and experimental projects I've built for fun and learning.
             </p>
           </div>
 
           <div className="mb-12 grid gap-6 md:grid-cols-[1.05fr,1fr] border border-border/40 rounded-sm p-6 md:p-8 bg-black/20">
             <div>
-              <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.28em] text-accent">Featured Personal Project</span>
-              <h2 className="mt-3 font-[DotGothic16] text-2xl md:text-3xl tracking-tight">Flamework</h2>
-              <p className="mt-3 max-w-3xl font-[DotGothic16] text-sm md:text-base text-white/70 leading-relaxed">
+              <span className="font-dot-gothic text-[11px] uppercase tracking-[0.28em] text-accent">Featured Personal Project</span>
+              <h2 className="mt-3 font-display text-2xl md:text-3xl tracking-tight">Flamework</h2>
+              <p className="mt-3 max-w-3xl font-sans text-sm md:text-base text-white/70 leading-relaxed">
                 Flamework is a personal build lab for fast product experiments, interaction prototypes, and AI-forward concepts. It’s where ideas get pressure-tested before they become full case studies.
               </p>
             </div>
@@ -220,7 +220,7 @@ function ProjectCard({
       <div className={cn("absolute inset-0 bg-white/5 transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")} />
 
       <div className="relative z-10 flex items-start justify-between gap-4">
-        <span className="font-[DotGothic16] text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{project.medium}</span>
+        <span className="font-dot-gothic text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{project.medium}</span>
         <ArrowUpRight
           className={cn(
             "h-4 w-4 transition-all duration-300",
@@ -233,13 +233,13 @@ function ProjectCard({
       <div className="relative z-10 space-y-3 mt-auto">
         <h3
           className={cn(
-            "font-[DotGothic16] text-xl md:text-2xl tracking-tight transition-colors duration-300",
+            "font-display text-xl md:text-2xl tracking-tight transition-colors duration-300",
             isActive ? "text-white" : "text-foreground",
           )}
         >
           {project.title}
         </h3>
-        <p className="font-[DotGothic16] text-sm text-muted-foreground leading-relaxed line-clamp-2">
+        <p className="font-sans text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {project.description}
         </p>
       </div>

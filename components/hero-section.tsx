@@ -86,7 +86,7 @@ export function HeroSection() {
 
       {/* Left vertical labels */}
       <div className="hidden md:block absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
-        <span className="font-[DotGothic16] text-[12px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
+        <span className="font-dot-gothic text-[12px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
           SIGNAL
         </span>
       </div>
@@ -103,7 +103,7 @@ export function HeroSection() {
           </div>
         </SplitFlapAudioProvider> */}
 
-        <h1 className="font-[DotGothic16] text-white text-[clamp(3rem,12vw,8rem)] leading-none tracking-tight">
+        <h1 className="font-display text-white text-[clamp(3rem,12vw,8rem)] leading-[0.92] tracking-[-0.04em]">
           HOLDEN HAYS
         </h1>
 
@@ -111,7 +111,7 @@ export function HeroSection() {
           Product Focused Leader based in Phoenix, AZ
         </h2>
 
-        <p className="mt-12 max-w-md font-[DotGothic16] text-lg text-white/50 leading-relaxed">
+        <p className="mt-12 max-w-md font-sans text-lg text-white/50 leading-relaxed">
           My background is in design, my current focus is leading product and design @<a href="https://www.emergemarket.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors duration-200">emerge</a> and building AI tools.
         </p>
 
@@ -120,7 +120,7 @@ export function HeroSection() {
             ref={prismRef as React.RefObject<HTMLAnchorElement>}
             href="#work"
             className={cn(
-              "group relative inline-flex items-center gap-3 border px-6 py-3 font-[DotGothic16] text-sm uppercase tracking-widest transition-all duration-200 rounded-sm overflow-hidden",
+              "group relative inline-flex items-center gap-3 border px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] transition-all duration-200 rounded-sm overflow-hidden",
               isButtonHovered ? "border-white/30 text-white bg-white/5" : "border-foreground/20 text-foreground"
             )}
             style={isButtonHovered ? prismStyles : {}}
@@ -135,7 +135,7 @@ export function HeroSection() {
           </a>
           <a
             href="/about"
-            className="font-[DotGothic16] text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="font-sans text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             About Me
           </a>
@@ -146,7 +146,7 @@ export function HeroSection() {
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <a 
           href="/projects" 
-          className="border border-border px-4 py-2 font-[DotGothic16] text-[12px] uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors duration-200"
+          className="border border-border px-4 py-2 font-dot-gothic text-[12px] uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors duration-200"
         >
           View my personal projects
         </a>
