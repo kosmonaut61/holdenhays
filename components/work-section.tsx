@@ -116,21 +116,36 @@ function WorkCard({
   const cardRef = useRef<HTMLElement>(null)
   const bubbleRef = useRef<HTMLDivElement>(null)
   const [isScrollActive, setIsScrollActive] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const [autoAngle, setAutoAngle] = useState<number | null>(null)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
 
   useEffect(() => {
-    if (!persistHover || !cardRef.current) return
+    if (typeof window === "undefined") return
+    setIsTouchDevice(window.matchMedia("(hover: none)").matches)
+  }, [])
+
+  useEffect(() => {
+    if (!cardRef.current) return
+
+    const shouldEnableScrollActivation = persistHover || isTouchDevice
+
+    if (!shouldEnableScrollActivation) return
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: cardRef.current,
-        start: "top 80%",
+        start: "top 85%",
+        end: "bottom 25%",
         onEnter: () => setIsScrollActive(true),
+        onEnterBack: () => setIsScrollActive(true),
+        onLeave: () => setIsScrollActive(false),
+        onLeaveBack: () => setIsScrollActive(false),
       })
     }, cardRef)
 
     return () => ctx.revert()
-  }, [persistHover])
+  }, [persistHover, isTouchDevice])
 
   const isActive = isHovered || isScrollActive
 
@@ -145,6 +160,25 @@ function WorkCard({
     })
   }
 
+  useEffect(() => {
+    if (!isTouchDevice || !isActive) {
+      setAutoAngle(null)
+      return
+    }
+
+    let rafId = 0
+    let angle = 0
+
+    const tick = () => {
+      angle = (angle + 1.2) % 360
+      setAutoAngle(angle)
+      rafId = window.requestAnimationFrame(tick)
+    }
+
+    rafId = window.requestAnimationFrame(tick)
+    return () => window.cancelAnimationFrame(rafId)
+  }, [isTouchDevice, isActive])
+
   const card = (
     <article
       ref={(el) => {
@@ -157,7 +191,14 @@ function WorkCard({
         "group relative border border-border/40 px-5 py-5 md:px-6 md:py-6 flex flex-col gap-5 transition-all duration-500 cursor-pointer overflow-hidden rounded-sm min-h-[190px] md:min-h-[210px]",
         isActive && "border-white/20",
       )}
-      style={isActive ? prismStyles : {}}
+      style={
+        isActive
+          ? {
+              ...prismStyles,
+              ...(autoAngle !== null ? ({ "--prism-angle": `${autoAngle}deg` } as React.CSSProperties) : {}),
+            }
+          : {}
+      }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}

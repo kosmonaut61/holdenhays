@@ -10,6 +10,7 @@ const navItems = [
   { id: "hero", label: "Index" },
   { id: "signals", label: "Who Am I" },
   { id: "work", label: "Selected Work" },
+  { id: "grahams-chores", label: "Graham’s Chores" },
   { id: "colophon", label: "Thanks" },
 ]
 
