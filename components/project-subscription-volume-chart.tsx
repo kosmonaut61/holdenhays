@@ -28,7 +28,6 @@ function monthLongLabel(month: string) {
 export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscriptionPoint[] }) {
   const first = data[0]
   const last = data[data.length - 1]
-  const growthMultiple = first ? (last.activeSubscriptions / first.activeSubscriptions).toFixed(0) : "0"
 
   const chartData = data.map((point) => ({
     ...point,
@@ -38,26 +37,13 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
 
   return (
     <section className="mt-14 border border-border/50 bg-black/20 p-6 md:p-8 rounded-sm">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h2 className="font-dot-gothic text-sm tracking-[0.1em] text-white/75">Subscription Growth</h2>
-          <p className="mt-3 max-w-3xl font-dot-gothic text-white/75 leading-relaxed">
-            Active ProcureOS Pro subscriptions grew from <span className="text-white">{first.activeSubscriptions}</span> to{" "}
-            <span className="text-white">{last.activeSubscriptions}</span> in under 2.5 years, showing a sustained ramp after
-            initial launch.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 text-right">
-          <div className="border border-border/40 bg-black/30 px-3 py-2 rounded-sm">
-            <p className="font-dot-gothic text-[10px] tracking-[0.08em] text-white/55">Total Growth</p>
-            <p className="mt-1 font-display text-lg text-white">{growthMultiple}x</p>
-          </div>
-          <div className="border border-border/40 bg-black/30 px-3 py-2 rounded-sm">
-            <p className="font-dot-gothic text-[10px] tracking-[0.08em] text-white/55">Current Volume</p>
-            <p className="mt-1 font-display text-lg text-white">{last.activeSubscriptions}</p>
-          </div>
-        </div>
+      <div>
+        <h2 className="font-dot-gothic text-sm tracking-[0.1em] text-white/75">Subscription Growth</h2>
+        <p className="mt-3 max-w-3xl font-dot-gothic text-white/75 leading-relaxed">
+          Active ProcureOS Pro subscriptions grew from <span className="text-white">{first.activeSubscriptions}</span> to{" "}
+          <span className="text-white">{last.activeSubscriptions}</span> in under 2.5 years, showing a sustained ramp after
+          initial launch.
+        </p>
       </div>
 
       <ChartContainer config={chartConfig} className="mt-8 h-[360px] w-full">

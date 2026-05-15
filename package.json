@@ -6,8 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start",
-    "sync:grahams-chores": "node scripts/sync-grahams-chores.mjs"
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
