@@ -115,13 +115,19 @@ function WorkCard({
   const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef<HTMLElement>(null)
   const [isScrollActive, setIsScrollActive] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const [autoAngle, setAutoAngle] = useState<number | null>(null)
   const { elementRef: prismRef, prismStyles } = usePrismEffect()
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    setIsTouchDevice(window.matchMedia("(hover: none)").matches)
+  }, [])
 
   useEffect(() => {
     if (!cardRef.current) return
 
-    const isTouchScrollUI = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches
-    const shouldEnableScrollActivation = persistHover || isTouchScrollUI
+    const shouldEnableScrollActivation = persistHover || isTouchDevice
 
     if (!shouldEnableScrollActivation) return
 
@@ -138,9 +144,28 @@ function WorkCard({
     }, cardRef)
 
     return () => ctx.revert()
-  }, [persistHover])
+  }, [persistHover, isTouchDevice])
 
   const isActive = isHovered || isScrollActive
+
+  useEffect(() => {
+    if (!isTouchDevice || !isActive) {
+      setAutoAngle(null)
+      return
+    }
+
+    let rafId = 0
+    let angle = 0
+
+    const tick = () => {
+      angle = (angle + 1.2) % 360
+      setAutoAngle(angle)
+      rafId = window.requestAnimationFrame(tick)
+    }
+
+    rafId = window.requestAnimationFrame(tick)
+    return () => window.cancelAnimationFrame(rafId)
+  }, [isTouchDevice, isActive])
   const isTall = experiment.span.includes("row-span-2")
 
   const card = (
@@ -155,7 +180,14 @@ function WorkCard({
         "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden rounded-sm h-full",
         isActive && "border-white/20",
       )}
-      style={isActive ? prismStyles : {}}
+      style={
+        isActive
+          ? {
+              ...prismStyles,
+              ...(autoAngle !== null ? ({ "--prism-angle": `${autoAngle}deg` } as React.CSSProperties) : {}),
+            }
+          : {}
+      }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
