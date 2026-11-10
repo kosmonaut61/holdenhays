@@ -43,11 +43,15 @@ export function DitherHero() {
     else visualRef.current?.start()
   }
 
-  return <section className="dither-hero" aria-labelledby="hero-name">
-    <canvas ref={canvasRef} className="dither-hero-canvas" aria-hidden="true" />
-    <div className="dither-hero-shade" aria-hidden="true" />
-    <PortfolioNav overlay />
-    <h1 id="hero-name">Holden Hays</h1>
-    {ready && !reducedMotion && <button type="button" className="hero-motion" onClick={toggleMotion} aria-pressed={paused} aria-label={paused ? 'Play background animation' : 'Pause background animation'}>{paused ? 'Play motion' : 'Pause motion'} <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span></button>}
-  </section>
+  return <>
+    <a className="portfolio-skip" href="#portfolio-content">Skip to content</a>
+    <section className="dither-hero" aria-labelledby="hero-name">
+      <canvas ref={canvasRef} className="dither-hero-canvas" aria-hidden="true" />
+      <div className="hero-signature"><h1 id="hero-name">Holden Hays</h1><p>Product Focused Leader</p></div>
+    </section>
+    <div id="portfolio-content" className="hero-content-nav" tabIndex={-1}>
+      <PortfolioNav />
+      {ready && !reducedMotion && <button type="button" className="hero-motion" onClick={toggleMotion} aria-pressed={paused} aria-label={paused ? 'Play background animation' : 'Pause background animation'}><span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span></button>}
+    </div>
+  </>
 }

@@ -12,7 +12,7 @@ const previews = [
 export default function Page() {
   return <main className="tw-scope portfolio-shell portfolio-home" data-tw-theme="spectral" data-tw-mode="light" data-tw-treatment="glass" id="main-content">
     <DitherHero />
-    <section className="personal-intro" aria-labelledby="intro-title">
+    <section className="tw-card personal-intro" aria-labelledby="intro-title">
       <figure><img src="/images/holden-profile.jpg" alt="Holden Hays outdoors in the Arizona desert" width="160" height="184" /><figcaption>Phoenix, Arizona</figcaption></figure>
       <div className="intro-heading"><p className="portfolio-eyebrow">Product leadership · Design</p><h2 id="intro-title">Designer at heart.</h2></div><div className="intro-body"><p className="portfolio-lead">My background is in design, my current focus is leading product and design at Emerge and building AI tools.</p><Link className="portfolio-text-link" href="/about">More about me ↗</Link></div>
     </section>
