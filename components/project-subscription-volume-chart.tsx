@@ -7,7 +7,7 @@ import type { ProjectSubscriptionPoint } from "@/lib/project-charts"
 const chartConfig = {
   activeSubscriptions: {
     label: "Active subscriptions",
-    color: "rgba(255,255,255,0.72)",
+    color: "var(--tw-accent)",
   },
 } satisfies ChartConfig
 
@@ -36,12 +36,12 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
   }))
 
   return (
-    <section className="mt-14 border border-border/50 bg-black/20 p-6 md:p-8 rounded-sm">
+    <section className="mt-14 border border-border/50 bg-[var(--tw-glass)] p-6 md:p-8 rounded-sm">
       <div>
-        <h2 className="font-dot-gothic text-sm tracking-[0.1em] text-white/75">Subscription Growth</h2>
-        <p className="mt-3 max-w-3xl font-dot-gothic text-white/75 leading-relaxed">
-          Active ProcureOS Pro subscriptions grew from <span className="text-white">{first.activeSubscriptions}</span> to{" "}
-          <span className="text-white">{last.activeSubscriptions}</span> in under 2.5 years, showing a sustained ramp after
+        <h2 className="font-dot-gothic text-sm tracking-[0.1em] text-[var(--tw-muted)]">Subscription Growth</h2>
+        <p className="mt-3 max-w-3xl font-dot-gothic text-[var(--tw-muted)] leading-relaxed">
+          Active ProcureOS Pro subscriptions grew from <span className="text-[var(--tw-ink)]">{first.activeSubscriptions}</span> to{" "}
+          <span className="text-[var(--tw-ink)]">{last.activeSubscriptions}</span> in under 2.5 years, showing a sustained ramp after
           initial launch.
         </p>
       </div>
@@ -59,7 +59,7 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
           />
           <YAxis tickLine={false} axisLine={false} tickMargin={8} allowDecimals={false} width={40} />
           <ChartTooltip
-            cursor={{ fill: "rgba(255,255,255,0.04)" }}
+            cursor={{ fill: "color-mix(in srgb, var(--tw-accent) 10%, transparent)" }}
             content={
               <ChartTooltipContent
                 labelFormatter={(_, payload) => {
@@ -71,7 +71,7 @@ export function ProjectSubscriptionVolumeChart({ data }: { data: ProjectSubscrip
             }
           />
           <Bar dataKey="activeSubscriptions" fill="var(--color-activeSubscriptions)" radius={[2, 2, 0, 0]}>
-            <LabelList dataKey="activeSubscriptions" position="top" className="fill-white/65" fontSize={10} />
+            <LabelList dataKey="activeSubscriptions" position="top" fill="var(--tw-ink)" fontSize={10} />
           </Bar>
         </BarChart>
       </ChartContainer>

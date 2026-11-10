@@ -21,7 +21,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const subscriptionVolumeData = getSubscriptionVolumeByProjectSlug(slug)
 
   return (
-    <main className="tw-scope portfolio-shell portfolio-detail pb-20" data-tw-mode="dark" data-tw-treatment="minimal" id="main-content">
+    <main className="tw-scope portfolio-shell portfolio-detail pb-20" data-tw-theme="spectral" data-tw-mode="light" data-tw-treatment="glass" id="main-content">
       <PortfolioNav />
 
       <section className="relative z-10 min-h-screen py-12">

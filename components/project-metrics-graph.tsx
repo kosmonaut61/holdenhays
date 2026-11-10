@@ -74,15 +74,15 @@ export function ProjectMetricsGraph({ metrics }: { metrics: Metric[] }) {
   const gridColsClass = chartData.length === 2 ? "grid-cols-2" : chartData.length >= 3 ? "grid-cols-3" : "grid-cols-1"
 
   return (
-    <div ref={sectionRef} className="mt-8 rounded-sm border border-border/40 bg-black/20 p-5 md:p-6">
+    <div ref={sectionRef} className="mt-8 rounded-sm border border-border/40 bg-[var(--tw-glass)] p-5 md:p-6">
       <p className="font-dot-gothic text-[10px] tracking-[0.06em] text-accent-bright">Metric Graph</p>
 
       <div className={`mt-5 grid ${gridColsClass} gap-3 md:gap-5 items-end min-h-[220px]`}>
         {chartData.map((metric, index) => (
           <div key={`${metric.label}-${metric.value}`} className="flex flex-col items-center gap-3 h-full">
-            <span className="font-display text-sm md:text-base text-white">{metric.value}</span>
+            <span className="font-display text-sm md:text-base text-[var(--tw-ink)]">{metric.value}</span>
 
-            <div className="relative w-full h-[160px] md:h-[180px] rounded-sm border border-border/30 bg-black/35 overflow-hidden flex items-end">
+            <div className="relative w-full h-[160px] md:h-[180px] rounded-sm border border-border/30 bg-[var(--tw-plate)] overflow-hidden flex items-end">
               <div
                 ref={(el) => {
                   barRefs.current[index] = el
@@ -92,7 +92,7 @@ export function ProjectMetricsGraph({ metrics }: { metrics: Metric[] }) {
               />
             </div>
 
-            <span className="text-center font-dot-gothic text-[9px] md:text-[10px] tracking-[0.04em] text-white/70 leading-snug">
+            <span className="text-center font-dot-gothic text-[9px] md:text-[10px] tracking-[0.04em] text-[var(--tw-muted)] leading-snug">
               {metric.label}
             </span>
           </div>

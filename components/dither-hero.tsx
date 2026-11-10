@@ -17,12 +17,12 @@ export function DitherHero() {
     const onMotion = () => setReducedMotion(motion.matches)
     onMotion()
     motion.addEventListener('change', onMotion)
-    import('@audiohays/tonewedge-ui/visualizer').then(({ BildpunktVisualizer }) => {
+    import('@audiohays/tonewedge-ui/visualizer').then(({ BildpunktVisualizer, visualizerPaletteForMaterial }) => {
       if (disposed || !canvasRef.current) return
       const visual = new BildpunktVisualizer(canvasRef.current, {
         scene: 'flow', fps: 20, minPixel: 4,
         reducedMotion: true, pauseWhenHidden: true,
-        palette: { paper:[229,231,221], ink:[11,17,29], blue:[26,43,111], cyan:[49,77,188], green:[92,111,161], yellow:[207,216,222], coral:[36,56,141] },
+        palette: visualizerPaletteForMaterial({palette:'spectral',mode:'light'}),
       })
       visualRef.current = visual
       visual.setEnergy(.26, {immediate:true})

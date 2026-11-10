@@ -5,6 +5,7 @@ import "@audiohays/tonewedge-ui/tokens.css"
 import "@audiohays/tonewedge-ui/components.css"
 import "@audiohays/tonewedge-ui/glass.css"
 import "@audiohays/tonewedge-ui/treatments.css"
+import "@audiohays/tonewedge-ui/materials.css"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -84,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background">
+    <html lang="en" className="bg-background">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

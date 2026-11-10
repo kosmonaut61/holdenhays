@@ -111,7 +111,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="tw-scope portfolio-shell portfolio-detail" data-tw-mode="dark" data-tw-treatment="minimal" id="main-content">
+    <main className="tw-scope portfolio-shell portfolio-detail" data-tw-theme="spectral" data-tw-mode="light" data-tw-treatment="glass" id="main-content">
       <PortfolioNav />
 
       <section
