@@ -113,7 +113,6 @@ export default function RootLayout({
       <body
         className={"font-sans antialiased overflow-x-hidden"}
       >
-        <div className="noise-overlay" aria-hidden="true" />
         {children}
         <Analytics />
       </body>

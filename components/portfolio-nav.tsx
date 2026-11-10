@@ -1,13 +1,13 @@
 import Link from "next/link"
 
-export function PortfolioNav() {
-  return <header className="portfolio-nav">
-    <Link href="/" className="portfolio-brand">Holden Hays</Link>
+export function PortfolioNav({overlay=false}:{overlay?:boolean}) {
+  return <header className={`portfolio-nav${overlay ? ' portfolio-nav--overlay' : ''}`}>
+    <Link href="/" className="portfolio-brand" aria-label="Holden Hays home">{overlay ? 'HH' : 'Holden Hays'}</Link>
     <nav aria-label="Main navigation">
-      <Link href="/#work" className="tw-button tw-button--quiet">Work</Link>
-      <Link href="/projects" className="tw-button tw-button--quiet">Play & projects</Link>
-      <Link href="/about" className="tw-button tw-button--quiet">About</Link>
-      <a href="mailto:hello@holdenhays.com" className="tw-button">Contact</a>
+      <Link href="/#work">Work</Link>
+      <Link href="/projects">Play</Link>
+      <Link href="/about">About</Link>
+      <a href="mailto:hello@holdenhays.com">Contact</a>
     </nav>
   </header>
 }
