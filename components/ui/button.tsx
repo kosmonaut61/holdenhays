@@ -65,7 +65,7 @@ function Button({
 
   return (
     <Comp
-      ref={buttonRef as React.Ref<any>}
+      ref={buttonRef}
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       style={showPrism ? prismStyles : {}}

@@ -4,8 +4,6 @@ import type React from "react"
 import { motion } from "framer-motion"
 import { useMemo, useState, useCallback, useEffect, useRef, createContext, useContext } from "react"
 import { Volume2, VolumeX } from "lucide-react"
-import { usePrismEffect } from "./usePrismEffect" // Assuming usePrismEffect is in the same directory
-import { prismRef, prismStyles } from "./prismUtils" // Assuming prismRef and prismStyles are declared in prismUtils
 
 interface AudioContextType {
   isMuted: boolean
@@ -26,7 +24,7 @@ export function SplitFlapAudioProvider({ children }: { children: React.ReactNode
   const getAudioContext = useCallback(() => {
     if (typeof window === "undefined") return null
     if (!audioContextRef.current) {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext
+      const AudioContextClass = window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
       if (AudioContextClass) {
         audioContextRef.current = new AudioContextClass()
       }

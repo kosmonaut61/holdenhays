@@ -1,15 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { IBM_Plex_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { SmoothScroll } from "@/components/smooth-scroll"
+import "@audiohays/tonewedge-ui/tokens.css"
+import "@audiohays/tonewedge-ui/components.css"
+import "@audiohays/tonewedge-ui/glass.css"
+import "@audiohays/tonewedge-ui/treatments.css"
 import "./globals.css"
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.holdenhays.com"),
@@ -115,10 +111,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
+        className={"font-sans antialiased overflow-x-hidden"}
       >
         <div className="noise-overlay" aria-hidden="true" />
-        <SmoothScroll>{children}</SmoothScroll>
+        {children}
         <Analytics />
       </body>
     </html>

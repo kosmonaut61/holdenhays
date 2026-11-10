@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { AnimatedNoise } from "@/components/animated-noise"
+import { PortfolioNav } from "@/components/portfolio-nav"
 import { ProjectHeroImage } from "@/components/project-hero-image"
 import { ImageCluster } from "@/components/image-cluster"
 import { ProjectSections } from "@/components/project-sections"
@@ -21,21 +21,20 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const subscriptionVolumeData = getSubscriptionVolumeByProjectSlug(slug)
 
   return (
-    <main className="relative min-h-screen pb-20">
-      <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
-      <AnimatedNoise opacity={0.03} />
+    <main className="tw-scope portfolio-shell portfolio-detail pb-20" data-tw-mode="dark" data-tw-treatment="minimal" id="main-content">
+      <PortfolioNav />
 
-      <section className="relative z-10 min-h-screen py-24 pl-6 md:pl-28 pr-6 md:pr-12">
+      <section className="relative z-10 min-h-screen py-12">
         <div className="mx-auto w-full max-w-6xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="tw-button tw-button--quiet"
           >
             <span>←</span> BACK TO HOME
           </Link>
 
           <header className="mt-12">
-            <p className="font-dot-gothic text-[11px] tracking-[0.05em] text-accent">{project.medium}</p>
+            <p className="font-dot-gothic text-[11px] tracking-[0.05em] text-accent">{project.company ? `${project.company} · ${project.medium}` : project.medium}</p>
             <h1 className="mt-5 font-display text-5xl md:text-7xl tracking-tight">{project.title}</h1>
             <p className="mt-6 max-w-3xl font-[var(--font-reading)] text-[1.14rem] text-white/78 leading-relaxed">{project.heroLine}</p>
 
@@ -51,7 +50,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <ProjectHeroImage src={project.heroImage} alt={`${project.title} hero`} />
           )}
 
-          <section className="mt-16 grid md:grid-cols-[1.1fr,1fr] gap-10 md:gap-14 items-start">
+          <section className="mt-16 grid md:grid-cols-[1.1fr_1fr] gap-10 md:gap-14 items-start">
             <h2 className="font-display text-3xl md:text-5xl leading-tight tracking-tight text-white/95">{project.goal}</h2>
             <div className="space-y-6 font-[var(--font-reading)] text-white/76 leading-relaxed">
               <p>{project.overview}</p>
@@ -64,7 +63,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <h3 className="font-dot-gothic text-sm tracking-[0.1em] text-accent">Key Metrics</h3>
               <div className="mt-5 grid md:grid-cols-3 gap-5">
                 {project.metrics.map((metric) => (
-                  <article key={`${metric.label}-${metric.value}`} className="rounded-sm border border-border/40 bg-black/20 p-5">
+                  <article key={`${metric.label}-${metric.value}`} className="tw-card p-5">
                     <p className="font-dot-gothic text-[10px] tracking-[0.06em] text-accent-bright">{metric.label}</p>
                     <p className="mt-2 font-display text-2xl md:text-3xl text-white">{metric.value}</p>
                     {metric.note ? <p className="mt-2 font-[var(--font-reading)] text-[0.95rem] text-white/64 leading-relaxed">{metric.note}</p> : null}
@@ -94,7 +93,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <h3 className="font-dot-gothic text-sm tracking-[0.1em] text-accent">Challenges & Solutions</h3>
             <div className="mt-5 space-y-6">
               {project.challenges.map((item, i) => (
-                <article key={i}>
+                <article key={i} className="tw-card p-5">
                   <p className="font-dot-gothic text-[11px] tracking-[0.06em] text-white/60">Challenge</p>
                   <p className="mt-1 font-[var(--font-reading)] text-white/84 leading-relaxed">{item.challenge}</p>
                   <p className="mt-3 font-dot-gothic text-[11px] tracking-[0.06em] text-white/60">Solution</p>
@@ -124,7 +123,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <p className="mt-3 font-[var(--font-reading)] text-white/72">If you liked this case study, check out this related project next.</p>
               <Link
                 href={`/projects/${relatedProject.slug}`}
-                className="mt-5 inline-flex items-center gap-3 rounded-sm border border-border/50 bg-black/20 px-4 py-3 hover:border-accent/60 transition-colors"
+                className="tw-button mt-5 flex-wrap gap-3"
               >
                 <span className="font-dot-gothic text-[10px] tracking-[0.05em] text-accent">{relatedProject.medium}</span>
                 <span className="font-[var(--font-reading)] text-white">{relatedProject.title}</span>
@@ -180,7 +179,7 @@ function SimpleSteps({ title, items }: { title: string; items: Array<{ title: st
       <h3 className="font-dot-gothic text-sm tracking-[0.1em] text-accent">{title}</h3>
       <div className="mt-4 space-y-5">
         {items.map((item) => (
-          <article key={item.title}>
+          <article key={item.title} className="tw-card p-5">
             <p className="font-dot-gothic text-[11px] tracking-[0.06em] text-white/60">{item.title}</p>
             <p className="mt-1 font-[var(--font-reading)] text-white/82 leading-relaxed">{item.body}</p>
           </article>

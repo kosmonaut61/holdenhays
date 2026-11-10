@@ -19,6 +19,7 @@ export type ProjectData = {
   slug: string
   title: string
   medium: string
+  company?: string
   description: string
   span: string
   status: string
@@ -366,6 +367,7 @@ export const projects: ProjectData[] = [
   {
     slug: "inventory-part-management",
     title: "Inventory & Part Management",
+    company: "Fullbay",
     medium: "Workflow Optimization",
     description: "Streamlining the most time inefficient part of a technician's workflow.",
     span: "col-span-1 row-span-1",

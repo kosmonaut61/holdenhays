@@ -29,7 +29,7 @@ function ProjectSectionItem({ section, flip }: { section: Section; flip: boolean
   const textRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!imgRef.current || !textRef.current) return
+    if (!imgRef.current || !textRef.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
     const ctx = gsap.context(() => {
       gsap.fromTo(imgRef.current, { opacity: 0, y: 28 }, {
         opacity: 1, y: 0, duration: 1.2, ease: "power2.out",
@@ -46,7 +46,7 @@ function ProjectSectionItem({ section, flip }: { section: Section; flip: boolean
   return (
     <div className={`flex flex-col ${flip ? "md:flex-row-reverse" : "md:flex-row"} gap-10 md:gap-16 items-center`}>
       {section.image && (
-        <div ref={imgRef} className="w-full md:w-3/5 rounded-sm overflow-hidden shadow-xl" style={{ opacity: 0 }}>
+        <div ref={imgRef} className="w-full md:w-3/5 rounded-sm overflow-hidden shadow-xl">
           <Image
             src={section.image}
             alt={section.imageAlt ?? section.title}
@@ -56,7 +56,7 @@ function ProjectSectionItem({ section, flip }: { section: Section; flip: boolean
           />
         </div>
       )}
-      <div ref={textRef} className="w-full md:w-2/5 space-y-4" style={{ opacity: 0 }}>
+      <div ref={textRef} className="w-full md:w-2/5 space-y-4">
         <span className="font-dot-gothic text-[11px] tracking-[0.1em] text-accent">Key Highlight</span>
         <h3 className="font-display text-3xl md:text-4xl tracking-tight">{section.title}</h3>
         <p className="font-[var(--font-reading)] text-white/72 leading-relaxed">{section.body}</p>

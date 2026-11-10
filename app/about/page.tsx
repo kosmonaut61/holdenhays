@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { AnimatedNoise } from "@/components/animated-noise"
+import { PortfolioNav } from "@/components/portfolio-nav"
 import Link from "next/link"
 import gsap from "gsap"
 
@@ -9,17 +9,17 @@ const workHistory = [
   {
     company: "Emerge",
     url: "https://www.emergemarket.com",
-    type: "Feb 2022 – Present · ~4 yrs",
+    type: "Feb 2022 – Present",
     roles: [
       {
         title: "Director of Marketing and Design",
-        period: "Jul 2024 – Present · ~2 yrs",
+        period: "Jul 2024 – Present",
         location: "Scottsdale, Arizona",
         description: "Leading product design and marketing strategy across Emerge's platform. Responsible for brand, go-to-market, and building AI-native workflows into how the team ships and operates.",
       },
       {
         title: "Group Lead Product Designer",
-        period: "Feb 2022 – Jul 2024 · 2.5 yrs",
+        period: "Feb 2022 – Jul 2024",
         location: "Scottsdale, Arizona",
         description: "Led design across multiple product lines, establishing design systems and patterns that unified the experience across Emerge's suite of freight tools.",
       },
@@ -28,17 +28,17 @@ const workHistory = [
   {
     company: "Fullbay",
     url: null,
-    type: "Nov 2019 – Feb 2022 · 2 yrs",
+    type: "Nov 2019 – Feb 2022",
     roles: [
       {
         title: "Manager of Product Department",
-        period: "Sep 2021 – Feb 2022 · 6 mos",
+        period: "Sep 2021 – Feb 2022",
         location: "Phoenix, Arizona",
         description: "Managed the product team and owned the process from discovery to delivery. Improved how features were scoped and prioritized to better align with business and customer goals.",
       },
       {
         title: "User Experience Designer",
-        period: "Nov 2019 – Sep 2021 · 2 yrs",
+        period: "Nov 2019 – Sep 2021",
         location: "Phoenix, Arizona",
         description: "Lead designer for Fullbay's shop management platform. Drove UX decisions across core workflows used by heavy-duty repair shops nationwide.",
       },
@@ -47,7 +47,7 @@ const workHistory = [
   {
     company: "Hypur Inc.",
     url: null,
-    type: "2018 – Nov 2019 · 2 yrs",
+    type: "2018 – Nov 2019",
     roles: [
       {
         title: "Lead Designer",
@@ -61,18 +61,18 @@ const workHistory = [
   {
     company: "Synexus US",
     url: null,
-    type: "2016 – 2018 · 2 yrs",
+    type: "2016 – 2018",
     roles: [
       {
         title: "Senior Patient Experience Designer",
-        period: "2017 – 2018 · 1 yr",
+        period: "2017 – 2018",
         location: "Tempe, Arizona",
         description:
           "Led a full UX overhaul of the patient acquisition funnel — new app, improved onboarding, and email engagement flows. Balanced user-centered design with MVP constraints to hit KPIs set by the business development team. Managed junior designers.",
       },
       {
         title: "Senior Graphic Designer",
-        period: "2016 – 2017 · 1 yr",
+        period: "2016 – 2017",
         location: "Tempe, Arizona",
         description:
           "Created marketing and patient acquisition materials across print and digital. Managed the website UX to improve study enrollment, maintained brand standards with clients, and mentored junior designers.",
@@ -82,7 +82,7 @@ const workHistory = [
   {
     company: "Apple",
     url: null,
-    type: "2011 – 2016 · 5 yrs",
+    type: "2011 – 2016",
     roles: [
       {
         title: "Creative Trainer / Technical Support / Sales",
@@ -101,27 +101,28 @@ export default function AboutPage() {
 
   useEffect(() => {
     if (!profileImageRef.current) return
-    gsap.fromTo(
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    const animation = gsap.fromTo(
       profileImageRef.current,
       { opacity: 0, y: 32, scale: 0.97 },
       { opacity: 1, y: 0, scale: 1, duration: 1.4, ease: "power2.out", delay: 0.2 }
     )
+    return () => { animation.kill() }
   }, [])
 
   return (
-    <main className="relative min-h-screen">
-      <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
-      <AnimatedNoise opacity={0.03} />
+    <main className="tw-scope portfolio-shell portfolio-detail" data-tw-mode="dark" data-tw-treatment="minimal" id="main-content">
+      <PortfolioNav />
 
       <section
         ref={sectionRef}
-        className="relative z-10 py-24 pl-6 md:pl-28 pr-6 md:pr-12"
+        className="relative z-10 py-12"
       >
         <div className="mx-auto w-full max-w-4xl">
           {/* Back button */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-12"
+            className="tw-button tw-button--quiet mb-10"
           >
             <span>←</span> BACK TO HOME
           </Link>
@@ -135,10 +136,10 @@ export default function AboutPage() {
           </div>
 
           {/* Bio + profile */}
-          <div className="grid md:grid-cols-[260px,1fr] gap-12 mb-24">
+          <div className="grid md:grid-cols-[260px_1fr] gap-12 mb-24">
             {/* Profile Image */}
             <div className="relative">
-              <div ref={profileImageRef} style={{ opacity: 0 }} className="aspect-[4/5] w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
+              <div ref={profileImageRef} className="aspect-[4/5] w-full max-w-[260px] border border-border/40 rounded-sm overflow-hidden bg-card">
                 <img
                   src="/images/holden-profile.jpg"
                   alt="Holden Hays"
@@ -177,11 +178,10 @@ export default function AboutPage() {
               </p>
 
               <a
-                href="#"
-                download
-                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-sans text-sm tracking-[0.06em] transition-all duration-200 rounded-sm hover:border-white/30 hover:bg-white/5 mt-2"
+                href="mailto:hello@holdenhays.com?subject=Resume%20request"
+                className="tw-button mt-2"
               >
-                DOWNLOAD RESUME <span>↓</span>
+                Request resume
               </a>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default function AboutPage() {
 
               <div className="space-y-12 pl-8">
                 {workHistory.map((job, ji) => (
-                  <div key={ji} className="relative">
+                  <div key={ji} className="tw-card relative p-6">
                     {/* Timeline dot */}
                     <div className="absolute -left-8 top-1.5 w-2 h-2 rounded-full bg-accent ring-4 ring-background" />
 

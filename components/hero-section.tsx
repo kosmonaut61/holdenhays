@@ -4,7 +4,6 @@ import React from "react"
 
 import { useEffect, useRef, useState } from "react"
 import { ScrambleTextOnHover } from "@/components/scramble-text"
-import { SplitFlapText, SplitFlapMuteToggle, SplitFlapAudioProvider } from "@/components/split-flap-text"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { BitmapChevron } from "@/components/bitmap-chevron"
 import { usePrismEffect, PrismLayers } from "@/components/prism-effect"
@@ -77,8 +76,7 @@ export function HeroSection() {
         <div
           ref={blobRef}
           className="absolute -right-20 top-1/2 -translate-y-1/2 w-[440px] h-[440px] md:w-[760px] md:h-[760px] mix-blend-screen will-change-transform"
-          style={{ opacity: 0 }}
-          style={{ backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+          style={{ opacity: 0, backgroundImage: "url('/images/textures/hero-accent-blob.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
         />
       </div>
 
