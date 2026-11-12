@@ -1,12 +1,11 @@
 {
-  "version": "0.3.0-dev.39",
+  "version": "0.3.0-dev.41",
   "sourceRepository": "https://github.com/kosmonaut61/tonewedge-ui",
-  "sourceCommit": "7eb0cfee18665ade804d2e12f907f387f2dec4ca",
-  "archive": "vendor/audiohays-tonewedge-ui-0.3.0-dev.39.tgz",
-  "sha256": "eababfb64bfc3effe67e233c7d7a57fdd51a5baf825e1eea6ec42592b9f9afa1",
-  "integrity": "sha512-5BEjHQ4kpHGmqhk6MoUWoIbLQOLtRvv53ziigsAdMXQQ7T4Rg/u/VCeF60mmLqzKJ3fx43v8fPwB+KK+RJ9/iA==",
-  "previousArchive": "vendor/audiohays-tonewedge-ui-0.3.0-dev.38.tgz",
+  "sourceCommit": "f447bf8adf8377abdcff49a9f6a6a919c228d10a",
+  "archive": "vendor/audiohays-tonewedge-ui-0.3.0-dev.41.tgz",
+  "sha256": "425e352b920aa8c837633e9e7e1a1b2eb324b054812e38716fd5e752e7708814",
+  "integrity": "sha512-cmrqWdw+2ZGL5elYqGpc/AB+b8H68VqLv4IX8rahZrKbVtMKb02BJ7BdhqU5PivJIS06WDC06KHaAs6O5xwn/g==",
+  "previousArchive": "vendor/audiohays-tonewedge-ui-0.3.0-dev.39.tgz",
   "previousLockVerified": true,
-  "installedDistFilesVerified": 2182,
-  "status": "local candidate; no deployment"
+  "status": "local candidate; not deployed"
 }

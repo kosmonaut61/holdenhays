@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@audiohays/tonewedge-ui": "file:vendor/audiohays-tonewedge-ui-0.3.0-dev.39.tgz",
+    "@audiohays/tonewedge-ui": "file:vendor/audiohays-tonewedge-ui-0.3.0-dev.41.tgz",
     "@emotion/is-prop-valid": "latest",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",

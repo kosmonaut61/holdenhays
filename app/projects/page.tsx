@@ -11,7 +11,7 @@ const projects = [
 ]
 
 export default function ProjectsPage() {
-  return <main className="tw-scope portfolio-shell" data-tw-theme="spectral" data-tw-mode="light" data-tw-treatment="glass" id="main-content">
+  return <main className="tw-scope portfolio-shell" data-tw-theme="spectral" data-tw-mode="dark" data-tw-treatment="glass" id="main-content">
     <PortfolioNav />
     <section className="portfolio-intro"><p className="portfolio-eyebrow">Personal projects</p><h1>Play & projects</h1><p className="portfolio-lead">Games, music tools, and experiments. Pick something and jump in.</p></section>
     <section className="portfolio-section" aria-label="Project gallery"><div className="portfolio-grid">

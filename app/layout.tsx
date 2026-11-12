@@ -3,9 +3,12 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "@audiohays/tonewedge-ui/tokens.css"
 import "@audiohays/tonewedge-ui/components.css"
+import "@audiohays/tonewedge-ui/controls.css"
 import "@audiohays/tonewedge-ui/glass.css"
 import "@audiohays/tonewedge-ui/treatments.css"
 import "@audiohays/tonewedge-ui/materials.css"
+import "@audiohays/tonewedge-ui/effects.css"
+import "@audiohays/tonewedge-ui/section-cards.css"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -85,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className="bg-background" style={{colorScheme:"dark"}}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react'
-import { PortfolioNav } from './portfolio-nav'
 import type { BildpunktVisualizer } from '@audiohays/tonewedge-ui/visualizer'
 
 export function DitherHero() {
@@ -22,7 +21,7 @@ export function DitherHero() {
       const visual = new BildpunktVisualizer(canvasRef.current, {
         scene: 'flow', fps: 20, minPixel: 4,
         reducedMotion: true, pauseWhenHidden: true,
-        palette: visualizerPaletteForMaterial({palette:'spectral',mode:'light'}),
+        palette: visualizerPaletteForMaterial({palette:'spectral',mode:'dark'}),
       })
       visualRef.current = visual
       visual.setEnergy(.26, {immediate:true})
@@ -50,7 +49,7 @@ export function DitherHero() {
       <div className="hero-signature"><h1 id="hero-name">Holden Hays</h1><p>Product Focused Leader</p></div>
     </section>
     <div id="portfolio-content" className="hero-content-nav" tabIndex={-1}>
-      <PortfolioNav />
+      <p className="portfolio-explore">Explore</p>
       {ready && !reducedMotion && <button type="button" className="hero-motion" onClick={toggleMotion} aria-pressed={paused} aria-label={paused ? 'Play background animation' : 'Pause background animation'}><span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span></button>}
     </div>
   </>
