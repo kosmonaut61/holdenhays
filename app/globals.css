@@ -275,19 +275,19 @@ html,body {background:#e9e7d8;color:#232639;}
 .personal-intro .portfolio-lead {font-size:18px;}
 .portfolio-home .portfolio-section>h2,.play-showcase h2 {font:clamp(32px,4vw,48px)/1.15 'Redaction 50',serif;color:var(--tw-ink);margin-bottom:28px;}
 .featured-work-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:24px!important;}
-.spectral-work-card {position:relative;padding:0;min-height:260px;overflow:hidden;isolation:isolate;border-radius:24px!important;box-shadow:0 1px 0 #fff9 inset,0 8px 24px #23263912!important;}
+.spectral-work-card {position:relative;padding:0;min-height:260px;overflow:hidden;isolation:isolate;border-radius:24px;}
 .featured-case {grid-column:span 2;}
 .case-preview {display:block;width:100%;height:240px;object-fit:cover;object-position:top;border-radius:24px 24px 0 0;}
 .case-summary {position:relative;z-index:1;padding:28px;display:flex;flex-direction:column;gap:16px;flex:1;}
 .case-summary h3 {font:28px/1.15 'Redaction 50',serif;}
 .case-summary p {font-size:15px;}
 .spectral-corner {position:absolute;inset:0 0 auto auto;width:180px;height:150px;pointer-events:none;z-index:0;opacity:.8;mask-image:linear-gradient(240deg,#000,transparent 80%);--tw-material-backing-opacity:0;}
-.spectral-work-card:not(.featured-case) .case-summary {background:linear-gradient(90deg,color-mix(in srgb,var(--tw-card-surface,var(--tw-glass)) 96%,transparent),color-mix(in srgb,var(--tw-card-surface,var(--tw-glass)) 72%,transparent));}
-.play-showcase {margin:48px 0 0;padding:36px!important;border-radius:28px!important;box-shadow:0 8px 28px #23263912!important;}
+.spectral-work-card:not(.featured-case) .case-summary {background:linear-gradient(90deg,color-mix(in srgb,var(--tw-surface-card,var(--tw-glass)) 96%,transparent),color-mix(in srgb,var(--tw-surface-card,var(--tw-glass)) 72%,transparent));}
+.play-showcase {margin:48px 0 0;padding:36px;border-radius:28px;}
 .play-section-heading {display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:28px;}
 .play-showcase h2 {margin-bottom:12px;}
 .play-preview-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
-.play-preview-card {overflow:hidden;background:var(--tw-case-light)!important;border-radius:18px!important;}
+.play-preview-card {overflow:hidden;border-radius:18px;}
 .play-preview-card img {width:100%;aspect-ratio:11/7;object-fit:cover;object-position:top;}
 .play-preview-card>div {padding:20px;}
 .play-preview-card h3 {font:25px/1.2 'Redaction 50',serif;margin-bottom:10px;}
@@ -306,7 +306,7 @@ html,body {background:#e9e7d8;color:#232639;}
 .personal-intro .intro-heading h2 {margin-bottom:18px;}
 @media(max-width:600px){.personal-intro{column-gap:20px;row-gap:20px;align-items:center;}.personal-intro figure{grid-row:auto;}.intro-body{grid-column:1/-1;}.personal-intro .intro-heading h2{margin-bottom:0;}.personal-intro .portfolio-lead{font-size:17px;}}
 .case-preview {height:auto;aspect-ratio:5/4;object-fit:contain;object-position:center;}
-.portfolio-shell {--accent:var(--tw-accent);--foreground:var(--tw-ink);--muted-foreground:var(--tw-muted);--background:var(--tw-case);--card:var(--tw-card-surface,var(--tw-glass));--card-foreground:var(--tw-ink);--popover:var(--tw-case-light);--popover-foreground:var(--tw-ink);--border:var(--tw-plate-shadow);}
+.portfolio-shell {--accent:var(--tw-accent);--foreground:var(--tw-ink);--muted-foreground:var(--tw-muted);--background:var(--tw-case);--card:var(--tw-surface-card,var(--tw-glass));--card-foreground:var(--tw-ink);--popover:var(--tw-case-light);--popover-foreground:var(--tw-ink);--border:var(--tw-plate-shadow);}
 .gallery-preview {width:100%;aspect-ratio:11/7;object-fit:cover;object-position:top;border-radius:14px;margin-bottom:12px;}
 /* Full-viewport identity: artwork first, navigation and content on scroll. */
 .portfolio-home .dither-hero {height:100svh;min-height:0;max-height:none;}
@@ -349,7 +349,7 @@ html,body {background:#242b31;color:#f0f1f2;}
 .portfolio-section-stack:not([data-enhanced]) .portfolio-sheet-heading {padding:0 28px;}
 .portfolio-section-stack:not([data-enhanced]) .portfolio-section-close {display:none;}
 .portfolio-section-stack .tw-section-card.tw-button {justify-content:flex-start;}
-.portfolio-section-stack .portfolio-card {background:var(--tw-case-light);}
+/* Child cards use Bildpunkt’s card elevation rather than their parent sheet. */
 .portfolio-section-stack .play-showcase {padding:0!important;margin:0;box-shadow:none!important;}
 .portfolio-section-stack .personal-intro {margin:0;padding:12px 0 0;grid-template-columns:100px minmax(0,800px);}
 .portfolio-contact {padding:16px 0 32px;}
